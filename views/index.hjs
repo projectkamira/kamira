@@ -13,7 +13,7 @@
     {{#js}}measures{{/js}}
     {{#js}}chart{{/js}}
     <script>
-      new SpiderChart('/random.json', '#charts')
+      new SpiderChart('/complexity.json', '#charts')
     </script>
   </body>
 </html>
