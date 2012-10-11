@@ -1,0 +1,70 @@
+/*
+Syntax error: Invalid CSS after "...n-bottom: -2px ": expected ";", was "!imporant;"
+        on line 57 of ./_my-style-1.scss
+        from line 67 of master.scss
+
+52: 
+53: a.carousel-control > p {
+54: 	display: hidden;
+55: }
+56: .nav-tabs > li {
+57: 	margin-bottom: -2px !imporant;
+58: }
+59: ul {
+60: 	list-style-type: none;
+61: 	margin-left: 0;
+62: }
+
+Backtrace:
+./_my-style-1.scss:57
+master.scss:67
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:1130:in `expected'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:1066:in `expected'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:1061:in `tok!'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:569:in `block in declaration_or_ruleset'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:1104:in `call'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:1104:in `rethrow'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:575:in `declaration_or_ruleset'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:537:in `block_child'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:526:in `block_contents'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:518:in `block'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:512:in `ruleset'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:536:in `block_child'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:529:in `block_contents'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:70:in `stylesheet'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/scss/parser.rb:27:in `parse'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/engine.rb:342:in `_to_tree'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/engine.rb:274:in `to_tree'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:222:in `visit_import'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/tree/root_node.rb:20:in `render'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/engine.rb:315:in `_render'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/engine.rb:262:in `render'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:340:in `update_stylesheet'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:202:in `block in update_stylesheets'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:200:in `each'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:200:in `update_stylesheets'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/lib/sass/plugin/compiler.rb:298:in `block in watch'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/vendor/listen/lib/listen/multi_listener.rb:86:in `call'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/vendor/listen/lib/listen/multi_listener.rb:86:in `on_change'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/vendor/listen/lib/listen/multi_listener.rb:95:in `block in initialize_adapter'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/vendor/listen/lib/listen/adapters/polling.rb:55:in `call'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/vendor/listen/lib/listen/adapters/polling.rb:55:in `poll'
+/Users/jeffersonmccloud/.rvm/gems/ruby-1.9.2-p180/gems/sass-3.2.1/vendor/listen/lib/listen/adapters/polling.rb:31:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Invalid CSS after \"...n-bottom: -2px \": expected \";\", was \"!imporant;\"\A         on line 57 of ./_my-style-1.scss\A         from line 67 of master.scss\A \A 52: \A 53: a.carousel-control > p {\A 54: 	display: hidden;\A 55: }\A 56: .nav-tabs > li {\A 57: 	margin-bottom: -2px !imporant;\A 58: }\A 59: ul {\A 60: 	list-style-type: none;\A 61: 	margin-left: 0;\A 62: }"; }

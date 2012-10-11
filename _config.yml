@@ -1,0 +1,11 @@
+markdown: rdiscount
+rdiscount extensions: [smart]
+navigation:
+  - text: Home
+    url:  /index.html
+  - text: Program Information
+    url:  /prog_info.html
+  - text: FAQ
+    url:  /faq.html
+  - text: Contact
+    url:  /contact.html

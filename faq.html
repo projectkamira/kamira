@@ -1,0 +1,76 @@
+---
+layout: default
+sections:
+  Overview:
+    - question: What is Kamira?
+      id: whatIsKamira
+      answer: <p>Kamira is an open source software project designed to measure Clinical Quality Measures (CQMs) based on the availability of their supporting data, their financial impact, and the complexity of their calculations.</p>
+    - question: What are Clinical Quality Measures?
+      id: whatAreCQMs
+      answer: <p>Clinical Quality Measures (CQMs) are tools that measure the merit of healthcare delivery and are critical components of the Meaningful Use component of the HITECH act. Each CQM addresses different goals, including effectiveness, safety, efficiency, patient-centricity, equitability, and/or timeliness of care. By improving performance on CQMs, it is expected that patients will realize healthier outcomes and the overall cost of care for the healthcare systems will be lowered over time.</p>
+    - question: What is Pay for Performance?
+      id: whatIsP4P
+      answer: <p>Pay for Performance (P4P) programs compensate providers based on the outcome of care rather than the procedures performed. In the past, P4P programs have been largely based on claims and administrative data, but the use of CQMs is intended to shift the focus from claims data to a more complete clinical consideration. Stakeholders in P4P include government policy leaders, standards organizations, technologists, statisticians, clinicians, and patients.</p>
+    - question: Who is funding Kamira?
+      id: funding
+      answer: <p>Kamira is currently funded by the MITRE Corporation.</p>
+    - question: What other organizations are participating in the Kamira project?
+      id: otherOrganizations
+      answer: <p>NEED TEXT HERE</p>
+    - question: What is the objective of project Kamira?
+      id: objective
+      answer: <p>Kamira will provide an automated and unbiased method for evaluating Clinical Quality Measures (CQMs) to support the use of CQMs in Pay for Performance programs based on the Meaningful Use component of the HITECH act.</p>
+  Workflow:
+    - question: Who are the intended users of Kamira?
+      id: intendedUsers
+      answer: <p>Kamira’s intended users include Federal policy makers, Clinical Quality Measure stakeholders and experts, quality measure stewards, healthcare information exchanges, accountable care organizations, and electronic health record vendors.</p>
+    - question: What is the basic Concept of Operations for use of Kamira?
+      id: basicConceptOfOperations
+      answer: <p>NEED TEXT HERE</p>
+  Open Source:
+    - question: What does open source software mean?
+      id: whatIsOSS
+      answer: <p>Open source software is a term used to describe software that is available in source code form and is generally free to use. The source code may be used to study and understand business logic coded into the software product and may also be included in derivative forms of the software product as allowed by the copyright holders.</p>
+    - question: Can I contribute software to Kamira?
+      id: canIContribute
+      answer: <p>Yes. Code contributions, bug fixes, and ideas for new features are all welcome for the Kamira project. A requirement for contributing software is that any and all software contributed to Kamira must be released under an Apache 2.0 open source distribution license, and that you transfer copyright of any code or patches you submit to the project.</p><p>To submit a new feature or bug fix for consideration into the Kamira repository, setup an account on GitHub, fork the Kamira code, and create a branch of Kamira on your repository. Send the link to the Kamira branch to the Kamira developer email list. In this email, cite either an existing bug or feature from the Kamira project tracker to specify the changes that you are contributing.</p><p>If you have suggestions on new features, or want to report a bug that has not yet been tracked, send an email to the <a href="mailto:project-kamira-dev@googlegroups.com">developer email list</a> with either the details for how to reproduce a bug, or a detailed description about a feature that you would like to see added to Kamira.</p>
+    - question: Can anyone unilaterally change the Kamira source code?
+      id: canAnyoneChange
+      answer: <p>No. If you make changes to your copy of the Kamira code there is no guarantee that the changes will be accepted back to the Kamira project. This rigor is required to ensure the highest quality of the Kamira software. Any source code contributions are publicly reviewed and vetted by the Kamira project's governing organizations.</p><p>Any potential Kamira bug fix or Kamira feature contribution will be vetted by the Kamira project's governing bodies. Code contributions must have quality unit testing coverage that exceeds a 50% threshold, and must have reasonable and mature cyclomatic code complexity. There is a Ruby code convention requirement that can be found <a href="https://github.com/eedrummer/styleguide/blob/master/ruby.markdown">here</a>. There is a Google's JavaScript style guide that can be found <a href="http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml">here</a>. The Kamira code attempts to follow these guides as much as possible. Any contributions should follow these conventions.</p>
+    - question: How is communication managed on the Kamira project?
+      id: communicationManagement
+      answer: <p>The most prominent activities are always published on the project website. Whenever possible, please make use of our <a href="/faq.html">FAQ</a> section before exploring other communication channels</p>
+    - question: Where can I send questions about Kamira?
+      id: contact
+      answer: <p>There are three email distribution lists which may also be used to request information about the project's plans and activities. These lists are:<ul><li><a href="mailto:project-kamira-announcements@googlegroups.com">project-kamira-announcements@googlegroups.com</a> - to which anyone can subscribe to. Messages to this list are limited to the Kamira governing organizations.</li><li><a href="mailto:project-kamira-talk@googlegroups.com">project-kamira-talk@googlegroups.com</a> - to which anyone can subscribe to. Additionally, anyone is free to submit questions about the project to this list. To prevent spam, all messages are first reviewed by the project team before being forwarded to the distribution list.</li><li><a href="mailto:project-kamira-dev@googlegroups.com">project-kamira-dev@googlegroups.com</a> - is used exclusively for software development questions. Membership to this list is also open to anyone. However, we encourage individuals to limit participation in this list to those who are active software engineers. Likewise, anyone is free to submit questions about the project to this list. Similarly, to prevent spam, all messages are first reviewed by the project team before being forwarded to the distribution list.</li></ul></p>
+  Technical Details:
+    - question: What programming languages does Kamira use?
+      id: programmingLanguages
+      answer: <p>NEED TEXT HERE</p>
+
+
+---
+
+<a name="content"></a>
+<div class="row">
+	{% for section in page.sections %}
+	<div class="span3">
+		<h2>{{ section[0] }}</h2>
+		<ul>
+			{% for faq in section[1] %}
+			  <li><a href="#{{ faq.id }}"><span>{{ faq.question }}</span></a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}
+</div>
+<div class="row">
+{% for section in page.sections %}
+	{% for faq in section[1] %}
+	<div class="questionAnswer">
+		<div class="question" id="{{ faq.id }}"><h2>{{ faq.question }}</h2></div>
+		{{ faq.answer }}
+	</div>
+	{% endfor %}
+{% endfor %}
+</div>
