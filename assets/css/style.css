@@ -1,0 +1,73 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+
+.chart {
+  float: left;
+  width: 400px;
+  padding: 10px;
+}
+
+path.spider {
+  stroke-opacity: 1;
+  fill-opacity: 0.5;
+}
+
+path.domain {
+  fill: #999;
+}
+
+.label {
+  alignment-baseline: central;
+}
+
+circle.bullseye {
+  /*fill-opacity: 0.5;*/
+  stroke-width: 2;
+  fill: none;
+}
+
+.origin {
+  stroke: #999;
+  opacity: 0.25;
+}
+
+.simple {
+  stroke: #A4B269;
+  fill: #A4B269;
+}
+
+.nominal {
+  stroke: #FFD479;
+  fill: #FFD479;
+}
+
+.complex {
+  stroke: #FF9100;
+  fill: #FF9100;
+}
+
+.untestable {
+  stroke: #FF8888;
+  fill: #FF8888;
+}
+
+.untestable.bullseye {
+  stroke-dasharray: 9, 5;
+  fill: none;
+}
+
+text.value {
+  font-weight: bold;
+  font-size: 85%;
+  alignment-baseline: central;
+}
+
+.bullseye-label {
+  font-size: 65%;
+  fill: #999;
+}

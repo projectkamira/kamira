@@ -1,0 +1,31 @@
+{
+  "name": "Kamira",
+  "author": "The MITRE Corporation (E542)",
+  "version": "0.0.1",
+  "description": "Kamira FTW",
+  "main": "app.coffee",
+  "scripts": {
+    "start": "coffee app.coffee",
+    "test": "echo \"Error: no test specified. Set up a Cakefile (perhaps) and get some jasmine tests going!\" && exit 1"
+  },
+
+  "private": true,
+
+  "repository": "",
+  "keywords": [
+    "kamira"
+  ],
+  "license": "Apache",
+
+  "dependencies": {
+    "coffee-script": "1.3.x",
+    "express": "3.x",
+    "connect-assets": "2.3.x",
+    "hjs": "*",
+    "mongoose": "3.x",
+    "jsmeter": "1.0.x"
+  },
+  "devDependencies": {
+    "jasmine-node": "1.0.x"
+  }
+}

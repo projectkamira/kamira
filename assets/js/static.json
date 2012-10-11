@@ -1,0 +1,1352 @@
+{
+  "0001": {
+    "name": "Measure 1",
+    "numerator": 232,
+    "denominator": 67,
+    "population": 172,
+    "exceptions": 55,
+    "exclusions": 6,
+    "exclusions2": 312
+  },
+  "0002": {
+    "name": "Measure 2",
+    "numerator": 7,
+    "denominator": 53,
+    "population": 10,
+    "exceptions": 254,
+    "exclusions": 189,
+    "exclusions2": 210
+  },
+  "0003": {
+    "name": "Measure 3",
+    "numerator": 314,
+    "denominator": 241,
+    "population": 245,
+    "exceptions": 200,
+    "exclusions": 204,
+    "exclusions2": 17
+  },
+  "0004": {
+    "name": "Measure 4",
+    "numerator": 293,
+    "denominator": 179,
+    "population": 298,
+    "exceptions": 112,
+    "exclusions": 314,
+    "exclusions2": 245
+  },
+  "0005": {
+    "name": "Measure 5",
+    "numerator": 265,
+    "denominator": 84,
+    "population": 322,
+    "exceptions": 233,
+    "exclusions": 181,
+    "exclusions2": 244
+  },
+  "0006": {
+    "name": "Measure 6",
+    "numerator": 8,
+    "denominator": 25,
+    "population": 111,
+    "exceptions": 158,
+    "exclusions": 309,
+    "exclusions2": 48
+  },
+  "0007": {
+    "name": "Measure 7",
+    "numerator": 250,
+    "denominator": 296,
+    "population": 148,
+    "exceptions": 223,
+    "exclusions": 243,
+    "exclusions2": 229
+  },
+  "0008": {
+    "name": "Measure 8",
+    "numerator": 280,
+    "denominator": 341,
+    "population": 251,
+    "exceptions": 301,
+    "exclusions": 340,
+    "exclusions2": 154
+  },
+  "0009": {
+    "name": "Measure 9",
+    "numerator": 335,
+    "denominator": 5,
+    "population": 73,
+    "exceptions": 117,
+    "exclusions": 35,
+    "exclusions2": 244
+  },
+  "0010": {
+    "name": "Measure 10",
+    "numerator": 243,
+    "denominator": 347,
+    "population": 131,
+    "exceptions": 132,
+    "exclusions": 215,
+    "exclusions2": 266
+  },
+  "0011": {
+    "name": "Measure 11",
+    "numerator": 27,
+    "denominator": 102,
+    "population": 66,
+    "exceptions": 89,
+    "exclusions": 94,
+    "exclusions2": 268
+  },
+  "0012": {
+    "name": "Measure 12",
+    "numerator": 154,
+    "denominator": 235,
+    "population": 344,
+    "exceptions": 63,
+    "exclusions": 55,
+    "exclusions2": 172
+  },
+  "0013": {
+    "name": "Measure 13",
+    "numerator": 103,
+    "denominator": 118,
+    "population": 166,
+    "exceptions": 142,
+    "exclusions": 201,
+    "exclusions2": 231
+  },
+  "0014": {
+    "name": "Measure 14",
+    "numerator": 130,
+    "denominator": 311,
+    "population": 205,
+    "exceptions": 246,
+    "exclusions": 277,
+    "exclusions2": 305
+  },
+  "0015": {
+    "name": "Measure 15",
+    "numerator": 177,
+    "denominator": 350,
+    "population": 229,
+    "exceptions": 275,
+    "exclusions": 26,
+    "exclusions2": 145
+  },
+  "0016": {
+    "name": "Measure 16",
+    "numerator": 49,
+    "denominator": 276,
+    "population": 2,
+    "exceptions": 186,
+    "exclusions": 142,
+    "exclusions2": 90
+  },
+  "0017": {
+    "name": "Measure 17",
+    "numerator": 48,
+    "denominator": 82,
+    "population": 267,
+    "exceptions": 212,
+    "exclusions": 229,
+    "exclusions2": 93
+  },
+  "0018": {
+    "name": "Measure 18",
+    "numerator": 117,
+    "denominator": 110,
+    "population": 290,
+    "exceptions": 312,
+    "exclusions": 333,
+    "exclusions2": 149
+  },
+  "0019": {
+    "name": "Measure 19",
+    "numerator": 57,
+    "denominator": 244,
+    "population": 103,
+    "exceptions": 52,
+    "exclusions": 42,
+    "exclusions2": 293
+  },
+  "0020": {
+    "name": "Measure 20",
+    "numerator": 95,
+    "denominator": 111,
+    "population": 35,
+    "exceptions": 97,
+    "exclusions": 268,
+    "exclusions2": 96
+  },
+  "0021": {
+    "name": "Measure 21",
+    "numerator": 154,
+    "denominator": 250,
+    "population": 29,
+    "exceptions": 177,
+    "exclusions": 100,
+    "exclusions2": 176
+  },
+  "0022": {
+    "name": "Measure 22",
+    "numerator": 317,
+    "denominator": 345,
+    "population": 90,
+    "exceptions": 174,
+    "exclusions": 251,
+    "exclusions2": 193
+  },
+  "0023": {
+    "name": "Measure 23",
+    "numerator": 190,
+    "denominator": 35,
+    "population": 232,
+    "exceptions": 192,
+    "exclusions": 339,
+    "exclusions2": 343
+  },
+  "0024": {
+    "name": "Measure 24",
+    "numerator": 144,
+    "denominator": 274,
+    "population": 18,
+    "exceptions": 76,
+    "exclusions": 164,
+    "exclusions2": 15
+  },
+  "0025": {
+    "name": "Measure 25",
+    "numerator": 268,
+    "denominator": 136,
+    "population": 140,
+    "exceptions": 113,
+    "exclusions": 286,
+    "exclusions2": 322
+  },
+  "0026": {
+    "name": "Measure 26",
+    "numerator": 50,
+    "denominator": 242,
+    "population": 257,
+    "exceptions": 148,
+    "exclusions": 203,
+    "exclusions2": 298
+  },
+  "0027": {
+    "name": "Measure 27",
+    "numerator": 115,
+    "denominator": 11,
+    "population": 53,
+    "exceptions": 135,
+    "exclusions": 216,
+    "exclusions2": 332
+  },
+  "0028": {
+    "name": "Measure 28",
+    "numerator": 194,
+    "denominator": 298,
+    "population": 325,
+    "exceptions": 94,
+    "exclusions": 324,
+    "exclusions2": 158
+  },
+  "0029": {
+    "name": "Measure 29",
+    "numerator": 42,
+    "denominator": 322,
+    "population": 191,
+    "exceptions": 326,
+    "exclusions": 205,
+    "exclusions2": 146
+  },
+  "0030": {
+    "name": "Measure 30",
+    "numerator": 231,
+    "denominator": 284,
+    "population": 205,
+    "exceptions": 326,
+    "exclusions": 153,
+    "exclusions2": 126
+  },
+  "0031": {
+    "name": "Measure 31",
+    "numerator": 297,
+    "denominator": 255,
+    "population": 295,
+    "exceptions": 211,
+    "exclusions": 339,
+    "exclusions2": 50
+  },
+  "0032": {
+    "name": "Measure 32",
+    "numerator": 244,
+    "denominator": 290,
+    "population": 260,
+    "exceptions": 268,
+    "exclusions": 154,
+    "exclusions2": 277
+  },
+  "0033": {
+    "name": "Measure 33",
+    "numerator": 189,
+    "denominator": 292,
+    "population": 217,
+    "exceptions": 313,
+    "exclusions": 91,
+    "exclusions2": 80
+  },
+  "0034": {
+    "name": "Measure 34",
+    "numerator": 303,
+    "denominator": 8,
+    "population": 205,
+    "exceptions": 60,
+    "exclusions": 320,
+    "exclusions2": 251
+  },
+  "0035": {
+    "name": "Measure 35",
+    "numerator": 70,
+    "denominator": 46,
+    "population": 271,
+    "exceptions": 194,
+    "exclusions": 171,
+    "exclusions2": 38
+  },
+  "0036": {
+    "name": "Measure 36",
+    "numerator": 292,
+    "denominator": 184,
+    "population": 349,
+    "exceptions": 86,
+    "exclusions": 10,
+    "exclusions2": 249
+  },
+  "0037": {
+    "name": "Measure 37",
+    "numerator": 202,
+    "denominator": 294,
+    "population": 20,
+    "exceptions": 110,
+    "exclusions": 299,
+    "exclusions2": 58
+  },
+  "0038": {
+    "name": "Measure 38",
+    "numerator": 222,
+    "denominator": 224,
+    "population": 222,
+    "exceptions": 234,
+    "exclusions": 316,
+    "exclusions2": 238
+  },
+  "0039": {
+    "name": "Measure 39",
+    "numerator": 235,
+    "denominator": 288,
+    "population": 67,
+    "exceptions": 281,
+    "exclusions": 299,
+    "exclusions2": 165
+  },
+  "0040": {
+    "name": "Measure 40",
+    "numerator": 89,
+    "denominator": 232,
+    "population": 36,
+    "exceptions": 131,
+    "exclusions": 148,
+    "exclusions2": 218
+  },
+  "0041": {
+    "name": "Measure 41",
+    "numerator": 78,
+    "denominator": 57,
+    "population": 218,
+    "exceptions": 75,
+    "exclusions": 29,
+    "exclusions2": 31
+  },
+  "0042": {
+    "name": "Measure 42",
+    "numerator": 265,
+    "denominator": 303,
+    "population": 178,
+    "exceptions": 51,
+    "exclusions": 144,
+    "exclusions2": 31
+  },
+  "0043": {
+    "name": "Measure 43",
+    "numerator": 330,
+    "denominator": 290,
+    "population": 287,
+    "exceptions": 141,
+    "exclusions": 316,
+    "exclusions2": 214
+  },
+  "0044": {
+    "name": "Measure 44",
+    "numerator": 126,
+    "denominator": 94,
+    "population": 303,
+    "exceptions": 10,
+    "exclusions": 78,
+    "exclusions2": 266
+  },
+  "0045": {
+    "name": "Measure 45",
+    "numerator": 340,
+    "denominator": 173,
+    "population": 181,
+    "exceptions": 74,
+    "exclusions": 281,
+    "exclusions2": 348
+  },
+  "0046": {
+    "name": "Measure 46",
+    "numerator": 250,
+    "denominator": 135,
+    "population": 46,
+    "exceptions": 4,
+    "exclusions": 115,
+    "exclusions2": 32
+  },
+  "0047": {
+    "name": "Measure 47",
+    "numerator": 124,
+    "denominator": 85,
+    "population": 87,
+    "exceptions": 158,
+    "exclusions": 72,
+    "exclusions2": 70
+  },
+  "0048": {
+    "name": "Measure 48",
+    "numerator": 217,
+    "denominator": 22,
+    "population": 163,
+    "exceptions": 126,
+    "exclusions": 240,
+    "exclusions2": 97
+  },
+  "0049": {
+    "name": "Measure 49",
+    "numerator": 302,
+    "denominator": 112,
+    "population": 74,
+    "exceptions": 268,
+    "exclusions": 184,
+    "exclusions2": 18
+  },
+  "0050": {
+    "name": "Measure 50",
+    "numerator": 350,
+    "denominator": 180,
+    "population": 286,
+    "exceptions": 181,
+    "exclusions": 308,
+    "exclusions2": 290
+  },
+  "0051": {
+    "name": "Measure 51",
+    "numerator": 287,
+    "denominator": 286,
+    "population": 181,
+    "exceptions": 184,
+    "exclusions": 224,
+    "exclusions2": 317
+  },
+  "0052": {
+    "name": "Measure 52",
+    "numerator": 274,
+    "denominator": 58,
+    "population": 71,
+    "exceptions": 123,
+    "exclusions": 313,
+    "exclusions2": 150
+  },
+  "0053": {
+    "name": "Measure 53",
+    "numerator": 29,
+    "denominator": 116,
+    "population": 302,
+    "exceptions": 48,
+    "exclusions": 64,
+    "exclusions2": 33
+  },
+  "0054": {
+    "name": "Measure 54",
+    "numerator": 161,
+    "denominator": 251,
+    "population": 27,
+    "exceptions": 297,
+    "exclusions": 144,
+    "exclusions2": 9
+  },
+  "0055": {
+    "name": "Measure 55",
+    "numerator": 193,
+    "denominator": 55,
+    "population": 238,
+    "exceptions": 44,
+    "exclusions": 187,
+    "exclusions2": 333
+  },
+  "0056": {
+    "name": "Measure 56",
+    "numerator": 235,
+    "denominator": 151,
+    "population": 33,
+    "exceptions": 314,
+    "exclusions": 272,
+    "exclusions2": 271
+  },
+  "0057": {
+    "name": "Measure 57",
+    "numerator": 303,
+    "denominator": 144,
+    "population": 41,
+    "exceptions": 89,
+    "exclusions": 170,
+    "exclusions2": 66
+  },
+  "0058": {
+    "name": "Measure 58",
+    "numerator": 124,
+    "denominator": 179,
+    "population": 178,
+    "exceptions": 24,
+    "exclusions": 150,
+    "exclusions2": 203
+  },
+  "0059": {
+    "name": "Measure 59",
+    "numerator": 346,
+    "denominator": 250,
+    "population": 314,
+    "exceptions": 25,
+    "exclusions": 247,
+    "exclusions2": 232
+  },
+  "0060": {
+    "name": "Measure 60",
+    "numerator": 337,
+    "denominator": 255,
+    "population": 247,
+    "exceptions": 293,
+    "exclusions": 322,
+    "exclusions2": 29
+  },
+  "0061": {
+    "name": "Measure 61",
+    "numerator": 7,
+    "denominator": 75,
+    "population": 144,
+    "exceptions": 179,
+    "exclusions": 345,
+    "exclusions2": 261
+  },
+  "0062": {
+    "name": "Measure 62",
+    "numerator": 21,
+    "denominator": 28,
+    "population": 71,
+    "exceptions": 209,
+    "exclusions": 154,
+    "exclusions2": 297
+  },
+  "0063": {
+    "name": "Measure 63",
+    "numerator": 148,
+    "denominator": 296,
+    "population": 175,
+    "exceptions": 94,
+    "exclusions": 171,
+    "exclusions2": 145
+  },
+  "0064": {
+    "name": "Measure 64",
+    "numerator": 141,
+    "denominator": 23,
+    "population": 80,
+    "exceptions": 324,
+    "exclusions": 233,
+    "exclusions2": 14
+  },
+  "0065": {
+    "name": "Measure 65",
+    "numerator": 15,
+    "denominator": 270,
+    "population": 35,
+    "exceptions": 127,
+    "exclusions": 4,
+    "exclusions2": 256
+  },
+  "0066": {
+    "name": "Measure 66",
+    "numerator": 241,
+    "denominator": 192,
+    "population": 114,
+    "exceptions": 276,
+    "exclusions": 190,
+    "exclusions2": 268
+  },
+  "0067": {
+    "name": "Measure 67",
+    "numerator": 146,
+    "denominator": 59,
+    "population": 275,
+    "exceptions": 347,
+    "exclusions": 49,
+    "exclusions2": 346
+  },
+  "0068": {
+    "name": "Measure 68",
+    "numerator": 327,
+    "denominator": 97,
+    "population": 261,
+    "exceptions": 229,
+    "exclusions": 81,
+    "exclusions2": 162
+  },
+  "0069": {
+    "name": "Measure 69",
+    "numerator": 128,
+    "denominator": 76,
+    "population": 328,
+    "exceptions": 101,
+    "exclusions": 9,
+    "exclusions2": 305
+  },
+  "0070": {
+    "name": "Measure 70",
+    "numerator": 321,
+    "denominator": 142,
+    "population": 222,
+    "exceptions": 263,
+    "exclusions": 82,
+    "exclusions2": 157
+  },
+  "0071": {
+    "name": "Measure 71",
+    "numerator": 60,
+    "denominator": 166,
+    "population": 217,
+    "exceptions": 148,
+    "exclusions": 260,
+    "exclusions2": 166
+  },
+  "0072": {
+    "name": "Measure 72",
+    "numerator": 110,
+    "denominator": 288,
+    "population": 276,
+    "exceptions": 341,
+    "exclusions": 313,
+    "exclusions2": 115
+  },
+  "0073": {
+    "name": "Measure 73",
+    "numerator": 341,
+    "denominator": 241,
+    "population": 166,
+    "exceptions": 75,
+    "exclusions": 239,
+    "exclusions2": 210
+  },
+  "0074": {
+    "name": "Measure 74",
+    "numerator": 248,
+    "denominator": 86,
+    "population": 307,
+    "exceptions": 179,
+    "exclusions": 129,
+    "exclusions2": 300
+  },
+  "0075": {
+    "name": "Measure 75",
+    "numerator": 62,
+    "denominator": 206,
+    "population": 237,
+    "exceptions": 134,
+    "exclusions": 191,
+    "exclusions2": 73
+  },
+  "0076": {
+    "name": "Measure 76",
+    "numerator": 347,
+    "denominator": 57,
+    "population": 36,
+    "exceptions": 301,
+    "exclusions": 268,
+    "exclusions2": 17
+  },
+  "0077": {
+    "name": "Measure 77",
+    "numerator": 6,
+    "denominator": 55,
+    "population": 341,
+    "exceptions": 213,
+    "exclusions": 56,
+    "exclusions2": 164
+  },
+  "0078": {
+    "name": "Measure 78",
+    "numerator": 324,
+    "denominator": 296,
+    "population": 191,
+    "exceptions": 157,
+    "exclusions": 167,
+    "exclusions2": 67
+  },
+  "0079": {
+    "name": "Measure 79",
+    "numerator": 314,
+    "denominator": 208,
+    "population": 52,
+    "exceptions": 307,
+    "exclusions": 142,
+    "exclusions2": 2
+  },
+  "0080": {
+    "name": "Measure 80",
+    "numerator": 244,
+    "denominator": 11,
+    "population": 281,
+    "exceptions": 348,
+    "exclusions": 49,
+    "exclusions2": 3
+  },
+  "0081": {
+    "name": "Measure 81",
+    "numerator": 323,
+    "denominator": 202,
+    "population": 62,
+    "exceptions": 315,
+    "exclusions": 52,
+    "exclusions2": 121
+  },
+  "0082": {
+    "name": "Measure 82",
+    "numerator": 229,
+    "denominator": 63,
+    "population": 326,
+    "exceptions": 18,
+    "exclusions": 131,
+    "exclusions2": 118
+  },
+  "0083": {
+    "name": "Measure 83",
+    "numerator": 108,
+    "denominator": 319,
+    "population": 253,
+    "exceptions": 63,
+    "exclusions": 349,
+    "exclusions2": 334
+  },
+  "0084": {
+    "name": "Measure 84",
+    "numerator": 345,
+    "denominator": 15,
+    "population": 41,
+    "exceptions": 199,
+    "exclusions": 30,
+    "exclusions2": 88
+  },
+  "0085": {
+    "name": "Measure 85",
+    "numerator": 107,
+    "denominator": 173,
+    "population": 98,
+    "exceptions": 31,
+    "exclusions": 153,
+    "exclusions2": 159
+  },
+  "0086": {
+    "name": "Measure 86",
+    "numerator": 177,
+    "denominator": 136,
+    "population": 340,
+    "exceptions": 305,
+    "exclusions": 304,
+    "exclusions2": 89
+  },
+  "0087": {
+    "name": "Measure 87",
+    "numerator": 314,
+    "denominator": 79,
+    "population": 19,
+    "exceptions": 24,
+    "exclusions": 299,
+    "exclusions2": 218
+  },
+  "0088": {
+    "name": "Measure 88",
+    "numerator": 93,
+    "denominator": 97,
+    "population": 247,
+    "exceptions": 30,
+    "exclusions": 6,
+    "exclusions2": 18
+  },
+  "0089": {
+    "name": "Measure 89",
+    "numerator": 55,
+    "denominator": 177,
+    "population": 211,
+    "exceptions": 70,
+    "exclusions": 227,
+    "exclusions2": 44
+  },
+  "0090": {
+    "name": "Measure 90",
+    "numerator": 66,
+    "denominator": 324,
+    "population": 216,
+    "exceptions": 62,
+    "exclusions": 171,
+    "exclusions2": 11
+  },
+  "0091": {
+    "name": "Measure 91",
+    "numerator": 117,
+    "denominator": 168,
+    "population": 187,
+    "exceptions": 150,
+    "exclusions": 197,
+    "exclusions2": 197
+  },
+  "0092": {
+    "name": "Measure 92",
+    "numerator": 225,
+    "denominator": 193,
+    "population": 184,
+    "exceptions": 59,
+    "exclusions": 36,
+    "exclusions2": 161
+  },
+  "0093": {
+    "name": "Measure 93",
+    "numerator": 332,
+    "denominator": 268,
+    "population": 235,
+    "exceptions": 282,
+    "exclusions": 183,
+    "exclusions2": 141
+  },
+  "0094": {
+    "name": "Measure 94",
+    "numerator": 228,
+    "denominator": 64,
+    "population": 348,
+    "exceptions": 188,
+    "exclusions": 186,
+    "exclusions2": 231
+  },
+  "0095": {
+    "name": "Measure 95",
+    "numerator": 297,
+    "denominator": 170,
+    "population": 161,
+    "exceptions": 246,
+    "exclusions": 349,
+    "exclusions2": 249
+  },
+  "0096": {
+    "name": "Measure 96",
+    "numerator": 86,
+    "denominator": 184,
+    "population": 65,
+    "exceptions": 162,
+    "exclusions": 46,
+    "exclusions2": 34
+  },
+  "0097": {
+    "name": "Measure 97",
+    "numerator": 120,
+    "denominator": 150,
+    "population": 84,
+    "exceptions": 54,
+    "exclusions": 123,
+    "exclusions2": 213
+  },
+  "0098": {
+    "name": "Measure 98",
+    "numerator": 104,
+    "denominator": 286,
+    "population": 76,
+    "exceptions": 118,
+    "exclusions": 44,
+    "exclusions2": 231
+  },
+  "0099": {
+    "name": "Measure 99",
+    "numerator": 154,
+    "denominator": 265,
+    "population": 221,
+    "exceptions": 115,
+    "exclusions": 335,
+    "exclusions2": 93
+  },
+  "0100": {
+    "name": "Measure 100",
+    "numerator": 303,
+    "denominator": 261,
+    "population": 318,
+    "exceptions": 315,
+    "exclusions": 1,
+    "exclusions2": 160
+  },
+  "0101": {
+    "name": "Measure 101",
+    "numerator": 91,
+    "denominator": 94,
+    "population": 233,
+    "exceptions": 9,
+    "exclusions": 274,
+    "exclusions2": 192
+  },
+  "0102": {
+    "name": "Measure 102",
+    "numerator": 289,
+    "denominator": 66,
+    "population": 313,
+    "exceptions": 243,
+    "exclusions": 87,
+    "exclusions2": 245
+  },
+  "0103": {
+    "name": "Measure 103",
+    "numerator": 124,
+    "denominator": 166,
+    "population": 318,
+    "exceptions": 297,
+    "exclusions": 223,
+    "exclusions2": 125
+  },
+  "0104": {
+    "name": "Measure 104",
+    "numerator": 184,
+    "denominator": 197,
+    "population": 111,
+    "exceptions": 87,
+    "exclusions": 59,
+    "exclusions2": 110
+  },
+  "0105": {
+    "name": "Measure 105",
+    "numerator": 254,
+    "denominator": 8,
+    "population": 233,
+    "exceptions": 180,
+    "exclusions": 183,
+    "exclusions2": 317
+  },
+  "0106": {
+    "name": "Measure 106",
+    "numerator": 251,
+    "denominator": 171,
+    "population": 236,
+    "exceptions": 96,
+    "exclusions": 13,
+    "exclusions2": 337
+  },
+  "0107": {
+    "name": "Measure 107",
+    "numerator": 116,
+    "denominator": 68,
+    "population": 70,
+    "exceptions": 344,
+    "exclusions": 338,
+    "exclusions2": 83
+  },
+  "0108": {
+    "name": "Measure 108",
+    "numerator": 187,
+    "denominator": 253,
+    "population": 144,
+    "exceptions": 102,
+    "exclusions": 213,
+    "exclusions2": 221
+  },
+  "0109": {
+    "name": "Measure 109",
+    "numerator": 197,
+    "denominator": 250,
+    "population": 258,
+    "exceptions": 3,
+    "exclusions": 164,
+    "exclusions2": 153
+  },
+  "0110": {
+    "name": "Measure 110",
+    "numerator": 36,
+    "denominator": 211,
+    "population": 50,
+    "exceptions": 103,
+    "exclusions": 138,
+    "exclusions2": 81
+  },
+  "0111": {
+    "name": "Measure 111",
+    "numerator": 17,
+    "denominator": 55,
+    "population": 133,
+    "exceptions": 43,
+    "exclusions": 179,
+    "exclusions2": 268
+  },
+  "0112": {
+    "name": "Measure 112",
+    "numerator": 5,
+    "denominator": 73,
+    "population": 269,
+    "exceptions": 107,
+    "exclusions": 240,
+    "exclusions2": 33
+  },
+  "0113": {
+    "name": "Measure 113",
+    "numerator": 185,
+    "denominator": 30,
+    "population": 131,
+    "exceptions": 144,
+    "exclusions": 15,
+    "exclusions2": 246
+  },
+  "0114": {
+    "name": "Measure 114",
+    "numerator": 62,
+    "denominator": 122,
+    "population": 52,
+    "exceptions": 24,
+    "exclusions": 164,
+    "exclusions2": 294
+  },
+  "0115": {
+    "name": "Measure 115",
+    "numerator": 240,
+    "denominator": 71,
+    "population": 130,
+    "exceptions": 146,
+    "exclusions": 86,
+    "exclusions2": 136
+  },
+  "0116": {
+    "name": "Measure 116",
+    "numerator": 333,
+    "denominator": 180,
+    "population": 237,
+    "exceptions": 9,
+    "exclusions": 83,
+    "exclusions2": 85
+  },
+  "0117": {
+    "name": "Measure 117",
+    "numerator": 312,
+    "denominator": 145,
+    "population": 261,
+    "exceptions": 74,
+    "exclusions": 333,
+    "exclusions2": 123
+  },
+  "0118": {
+    "name": "Measure 118",
+    "numerator": 216,
+    "denominator": 176,
+    "population": 163,
+    "exceptions": 331,
+    "exclusions": 282,
+    "exclusions2": 237
+  },
+  "0119": {
+    "name": "Measure 119",
+    "numerator": 271,
+    "denominator": 16,
+    "population": 10,
+    "exceptions": 88,
+    "exclusions": 195,
+    "exclusions2": 73
+  },
+  "0120": {
+    "name": "Measure 120",
+    "numerator": 22,
+    "denominator": 163,
+    "population": 107,
+    "exceptions": 255,
+    "exclusions": 287,
+    "exclusions2": 83
+  },
+  "0121": {
+    "name": "Measure 121",
+    "numerator": 236,
+    "denominator": 309,
+    "population": 292,
+    "exceptions": 166,
+    "exclusions": 9,
+    "exclusions2": 142
+  },
+  "0122": {
+    "name": "Measure 122",
+    "numerator": 200,
+    "denominator": 133,
+    "population": 268,
+    "exceptions": 77,
+    "exclusions": 79,
+    "exclusions2": 255
+  },
+  "0123": {
+    "name": "Measure 123",
+    "numerator": 149,
+    "denominator": 234,
+    "population": 28,
+    "exceptions": 206,
+    "exclusions": 116,
+    "exclusions2": 166
+  },
+  "0124": {
+    "name": "Measure 124",
+    "numerator": 193,
+    "denominator": 203,
+    "population": 160,
+    "exceptions": 274,
+    "exclusions": 265,
+    "exclusions2": 254
+  },
+  "0125": {
+    "name": "Measure 125",
+    "numerator": 247,
+    "denominator": 165,
+    "population": 86,
+    "exceptions": 144,
+    "exclusions": 314,
+    "exclusions2": 166
+  },
+  "0126": {
+    "name": "Measure 126",
+    "numerator": 262,
+    "denominator": 203,
+    "population": 277,
+    "exceptions": 249,
+    "exclusions": 76,
+    "exclusions2": 108
+  },
+  "0127": {
+    "name": "Measure 127",
+    "numerator": 160,
+    "denominator": 240,
+    "population": 45,
+    "exceptions": 94,
+    "exclusions": 90,
+    "exclusions2": 218
+  },
+  "0128": {
+    "name": "Measure 128",
+    "numerator": 38,
+    "denominator": 223,
+    "population": 197,
+    "exceptions": 121,
+    "exclusions": 210,
+    "exclusions2": 225
+  },
+  "0129": {
+    "name": "Measure 129",
+    "numerator": 296,
+    "denominator": 6,
+    "population": 85,
+    "exceptions": 46,
+    "exclusions": 337,
+    "exclusions2": 1
+  },
+  "0130": {
+    "name": "Measure 130",
+    "numerator": 201,
+    "denominator": 215,
+    "population": 320,
+    "exceptions": 70,
+    "exclusions": 36,
+    "exclusions2": 315
+  },
+  "0131": {
+    "name": "Measure 131",
+    "numerator": 275,
+    "denominator": 143,
+    "population": 240,
+    "exceptions": 245,
+    "exclusions": 100,
+    "exclusions2": 137
+  },
+  "0132": {
+    "name": "Measure 132",
+    "numerator": 246,
+    "denominator": 297,
+    "population": 95,
+    "exceptions": 62,
+    "exclusions": 269,
+    "exclusions2": 43
+  },
+  "0133": {
+    "name": "Measure 133",
+    "numerator": 138,
+    "denominator": 160,
+    "population": 152,
+    "exceptions": 211,
+    "exclusions": 137,
+    "exclusions2": 262
+  },
+  "0134": {
+    "name": "Measure 134",
+    "numerator": 229,
+    "denominator": 147,
+    "population": 51,
+    "exceptions": 171,
+    "exclusions": 238,
+    "exclusions2": 100
+  },
+  "0135": {
+    "name": "Measure 135",
+    "numerator": 251,
+    "denominator": 236,
+    "population": 206,
+    "exceptions": 129,
+    "exclusions": 295,
+    "exclusions2": 242
+  },
+  "0136": {
+    "name": "Measure 136",
+    "numerator": 293,
+    "denominator": 98,
+    "population": 197,
+    "exceptions": 277,
+    "exclusions": 138,
+    "exclusions2": 149
+  },
+  "0137": {
+    "name": "Measure 137",
+    "numerator": 245,
+    "denominator": 206,
+    "population": 318,
+    "exceptions": 112,
+    "exclusions": 76,
+    "exclusions2": 238
+  },
+  "0138": {
+    "name": "Measure 138",
+    "numerator": 22,
+    "denominator": 255,
+    "population": 215,
+    "exceptions": 117,
+    "exclusions": 45,
+    "exclusions2": 229
+  },
+  "0139": {
+    "name": "Measure 139",
+    "numerator": 224,
+    "denominator": 94,
+    "population": 217,
+    "exceptions": 299,
+    "exclusions": 208,
+    "exclusions2": 204
+  },
+  "0140": {
+    "name": "Measure 140",
+    "numerator": 36,
+    "denominator": 174,
+    "population": 219,
+    "exceptions": 252,
+    "exclusions": 6,
+    "exclusions2": 188
+  },
+  "0141": {
+    "name": "Measure 141",
+    "numerator": 171,
+    "denominator": 59,
+    "population": 129,
+    "exceptions": 26,
+    "exclusions": 317,
+    "exclusions2": 285
+  },
+  "0142": {
+    "name": "Measure 142",
+    "numerator": 141,
+    "denominator": 38,
+    "population": 295,
+    "exceptions": 343,
+    "exclusions": 31,
+    "exclusions2": 331
+  },
+  "0143": {
+    "name": "Measure 143",
+    "numerator": 337,
+    "denominator": 193,
+    "population": 145,
+    "exceptions": 198,
+    "exclusions": 83,
+    "exclusions2": 199
+  },
+  "0144": {
+    "name": "Measure 144",
+    "numerator": 305,
+    "denominator": 4,
+    "population": 138,
+    "exceptions": 30,
+    "exclusions": 161,
+    "exclusions2": 31
+  },
+  "0145": {
+    "name": "Measure 145",
+    "numerator": 92,
+    "denominator": 132,
+    "population": 115,
+    "exceptions": 74,
+    "exclusions": 268,
+    "exclusions2": 48
+  },
+  "0146": {
+    "name": "Measure 146",
+    "numerator": 198,
+    "denominator": 268,
+    "population": 291,
+    "exceptions": 241,
+    "exclusions": 232,
+    "exclusions2": 338
+  },
+  "0147": {
+    "name": "Measure 147",
+    "numerator": 173,
+    "denominator": 121,
+    "population": 235,
+    "exceptions": 19,
+    "exclusions": 27,
+    "exclusions2": 242
+  },
+  "0148": {
+    "name": "Measure 148",
+    "numerator": 347,
+    "denominator": 167,
+    "population": 350,
+    "exceptions": 149,
+    "exclusions": 154,
+    "exclusions2": 191
+  },
+  "0149": {
+    "name": "Measure 149",
+    "numerator": 92,
+    "denominator": 40,
+    "population": 97,
+    "exceptions": 57,
+    "exclusions": 239,
+    "exclusions2": 66
+  },
+  "0150": {
+    "name": "Measure 150",
+    "numerator": 269,
+    "denominator": 81,
+    "population": 314,
+    "exceptions": 240,
+    "exclusions": 275,
+    "exclusions2": 145
+  }
+}
