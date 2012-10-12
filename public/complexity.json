@@ -1,771 +1,771 @@
 [
   {
-    "id": "0002",
+    "numerator": 10,
+    "denominator": 1,
+    "population": 41,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Appropriate Testing for Children with Pharyngitis",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 30,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0002"
   }, {
-    "id": "0004a",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 9,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0004a"
   }, {
-    "id": "0004b",
+    "numerator": 23,
+    "denominator": 1,
+    "population": 9,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
-    "numerator": 12,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0004b"
   }, {
-    "id": "0004c",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 10,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 8,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0004c"
   }, {
-    "id": "0004d",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 9,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0004d"
   }, {
-    "id": "0004e",
+    "numerator": 23,
+    "denominator": 1,
+    "population": 10,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
-    "numerator": 12,
-    "denominator": 0,
-    "population": 8,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0004e"
   }, {
-    "id": "0004f",
+    "numerator": 23,
+    "denominator": 1,
+    "population": 9,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Initiation and Engagement of Alcohol and Other Drug Dependence Treatment",
-    "numerator": 12,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0004f"
   }, {
-    "id": "0018",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 20,
+    "exclusions": 36,
+    "exceptions": 1,
     "name": "Controlling High Blood Pressure",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 20,
-    "exclusions": 24,
-    "exceptions": 0
+    "id": "0018"
   }, {
-    "id": "0022a",
+    "numerator": 10,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Use of High-Risk Medications in the Elderly",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 14,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0022a"
   }, {
-    "id": "0022b",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Use of High-Risk Medications in the Elderly",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 14,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0022b"
   }, {
-    "id": "0024a",
+    "numerator": 12,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024a"
   }, {
-    "id": "0024b",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024b"
   }, {
-    "id": "0024c",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024c"
   }, {
-    "id": "0024d",
+    "numerator": 12,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024d"
   }, {
-    "id": "0024e",
+    "numerator": 12,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024e"
   }, {
-    "id": "0024f",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024f"
   }, {
-    "id": "0024g",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024g"
   }, {
-    "id": "0024h",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024h"
   }, {
-    "id": "0024i",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Weight Assessment and Counseling for Nutrition and Physical Activity for Children and Adolescents",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0024i"
   }, {
-    "id": "0028",
+    "numerator": 30,
+    "denominator": 1,
+    "population": 11,
+    "exclusions": 1,
+    "exceptions": 19,
     "name": "Preventive Care and Screening: Tobacco Use: Screening and Cessation Intervention",
-    "numerator": 14,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 0,
-    "exceptions": 10
+    "id": "0028"
   }, {
-    "id": "0031",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Breast Cancer Screening",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0031"
   }, {
-    "id": "0032",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 16,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Cervical Cancer Screening",
-    "numerator": 2,
-    "denominator": 0,
+    "id": "0032"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 94,
+    "exclusions": 10,
+    "exceptions": 1,
+    "name": "Chlamydia Screening for Women",
+    "id": "0033a"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 94,
+    "exclusions": 10,
+    "exceptions": 1,
+    "name": "Chlamydia Screening for Women",
+    "id": "0033b"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 94,
+    "exclusions": 10,
+    "exceptions": 1,
+    "name": "Chlamydia Screening for Women",
+    "id": "0033c"
+  }, {
+    "numerator": 11,
+    "denominator": 1,
     "population": 16,
-    "exclusions": 2,
-    "exceptions": 0
-  }, {
-    "id": "0033a",
-    "name": "Chlamydia Screening for Women",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 74,
-    "exclusions": 6,
-    "exceptions": 0
-  }, {
-    "id": "0033b",
-    "name": "Chlamydia Screening for Women",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 74,
-    "exclusions": 6,
-    "exceptions": 0
-  }, {
-    "id": "0033c",
-    "name": "Chlamydia Screening for Women",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 74,
-    "exclusions": 6,
-    "exceptions": 0
-  }, {
-    "id": "0034",
+    "exclusions": 11,
+    "exceptions": 1,
     "name": "Colorectal Cancer Screening",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 16,
-    "exclusions": 8,
-    "exceptions": 0
+    "id": "0034"
   }, {
-    "id": "0036a",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 35,
+    "exceptions": 1,
     "name": "Use of Appropriate Medications for Asthma",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 22,
-    "exclusions": 16,
-    "exceptions": 0
+    "id": "0036a"
   }, {
-    "id": "0036b",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 35,
+    "exceptions": 1,
     "name": "Use of Appropriate Medications for Asthma",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 22,
-    "exclusions": 16,
-    "exceptions": 0
+    "id": "0036b"
   }, {
-    "id": "0036c",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 35,
+    "exceptions": 1,
     "name": "Use of Appropriate Medications for Asthma",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 22,
-    "exclusions": 16,
-    "exceptions": 0
+    "id": "0036c"
   }, {
-    "id": "0036d",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 35,
+    "exceptions": 1,
     "name": "Use of Appropriate Medications for Asthma",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 22,
-    "exclusions": 16,
-    "exceptions": 0
+    "id": "0036d"
   }, {
-    "id": "0036e",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 35,
+    "exceptions": 1,
     "name": "Use of Appropriate Medications for Asthma",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 22,
-    "exclusions": 16,
-    "exceptions": 0
+    "id": "0036e"
   }, {
-    "id": "0038",
+    "numerator": 390,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Childhood Immunization Status",
-    "numerator": 350,
-    "denominator": 0,
-    "population": 14,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0038"
   }, {
-    "id": "0041",
+    "numerator": 11,
+    "denominator": 18,
+    "population": 11,
+    "exclusions": 1,
+    "exceptions": 28,
     "name": "Preventive Care and Screening: Influenza Immunization",
-    "numerator": 6,
-    "denominator": 12,
-    "population": 6,
-    "exclusions": 0,
-    "exceptions": 26
+    "id": "0041"
   }, {
-    "id": "0043",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Pneumonia Vaccination Status for Older Adults",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 14,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0043"
   }, {
-    "id": "0052",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 13,
+    "exclusions": 18,
+    "exceptions": 1,
     "name": "Use of Imaging Studies for Low Back Pain",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 10,
-    "exclusions": 14,
-    "exceptions": 0
+    "id": "0052"
   }, {
-    "id": "0055",
+    "numerator": 10,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Diabetes: Eye Exam",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0055"
   }, {
-    "id": "0056",
+    "numerator": 14,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Diabetes: Foot Exam",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0056"
   }, {
-    "id": "0059",
+    "numerator": 17,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Diabetes: Hemoglobin A1c Poor Control",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0059"
   }, {
-    "id": "0060",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 10,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Hemoglobin A1c Test for Pediatric Patients",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 8,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0060"
   }, {
-    "id": "0062",
+    "numerator": 56,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Diabetes: Urine Protein Screening",
-    "numerator": 42,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0062"
   }, {
-    "id": "0064",
+    "numerator": 8,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Diabetes: Low Density Lipoprotein (LDL) Management",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0064"
   }, {
-    "id": "0068",
+    "numerator": 10,
+    "denominator": 1,
+    "population": 35,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Ischemic Vascular Disease (IVD): Use of Aspirin or Another Antithrombotic",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 26,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0068"
   }, {
-    "id": "0069",
+    "numerator": 6,
+    "denominator": 1,
+    "population": 19,
+    "exclusions": 9,
+    "exceptions": 1,
     "name": "Appropriate Treatment for Children with Upper Respiratory Infection (URI)",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 4,
-    "exceptions": 0
+    "id": "0069"
   }, {
-    "id": "0070a",
+    "numerator": 51,
+    "denominator": 11,
+    "population": 12,
+    "exclusions": 1,
+    "exceptions": 68,
     "name": "Coronary Artery Disease (CAD): Beta-Blocker Therapy—Prior Myocardial Infarction (MI) or Left Ventricular Systolic Dysfunction (LVEF <40%)",
-    "numerator": 26,
-    "denominator": 6,
-    "population": 8,
-    "exclusions": 0,
-    "exceptions": 54
+    "id": "0070a"
   }, {
-    "id": "0070b",
+    "numerator": 51,
+    "denominator": 7,
+    "population": 12,
+    "exclusions": 1,
+    "exceptions": 68,
     "name": "Coronary Artery Disease (CAD): Beta-Blocker Therapy—Prior Myocardial Infarction (MI) or Left Ventricular Systolic Dysfunction (LVEF <40%)",
-    "numerator": 26,
-    "denominator": 2,
-    "population": 8,
-    "exclusions": 0,
-    "exceptions": 54
+    "id": "0070b"
   }, {
-    "id": "0075a",
+    "numerator": 16,
+    "denominator": 1,
+    "population": 35,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Ischemic Vascular Disease (IVD): Complete Lipid Panel and LDL Control",
-    "numerator": 10,
-    "denominator": 0,
-    "population": 26,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0075a"
   }, {
-    "id": "0075b",
+    "numerator": 8,
+    "denominator": 1,
+    "population": 35,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Ischemic Vascular Disease (IVD): Complete Lipid Panel and LDL Control",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 26,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0075b"
   }, {
-    "id": "0081",
+    "numerator": 58,
+    "denominator": 11,
+    "population": 12,
+    "exclusions": 1,
+    "exceptions": 21,
     "name": "Heart Failure (HF): Angiotensin-Converting Enzyme (ACE) Inhibitor or Angiotensin Receptor Blocker (ARB) Therapy for Left Ventricular Systolic Dysfunction (LVSD)",
-    "numerator": 30,
-    "denominator": 6,
-    "population": 8,
-    "exclusions": 0,
-    "exceptions": 20
+    "id": "0081"
   }, {
-    "id": "0083",
+    "numerator": 58,
+    "denominator": 11,
+    "population": 12,
+    "exclusions": 1,
+    "exceptions": 71,
     "name": "Heart Failure (HF): Beta-Blocker Therapy for Left Ventricular Systolic Dysfunction (LVSD)",
-    "numerator": 30,
-    "denominator": 6,
-    "population": 8,
-    "exclusions": 0,
-    "exceptions": 58
+    "id": "0083"
   }, {
-    "id": "0086",
+    "numerator": 11,
+    "denominator": 1,
+    "population": 9,
+    "exclusions": 1,
+    "exceptions": 10,
     "name": "Primary Open Angle Glaucoma (POAG): Optic Nerve Evaluation",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 0,
-    "exceptions": 4
+    "id": "0086"
   }, {
-    "id": "0088",
+    "numerator": 14,
+    "denominator": 1,
+    "population": 9,
+    "exclusions": 1,
+    "exceptions": 9,
     "name": "Diabetic Retinopathy: Documentation of Presence or Absence of Macular Edema and Level of Severity of Retinopathy",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 6,
-    "exclusions": 0,
-    "exceptions": 4
+    "id": "0088"
   }, {
-    "id": "0089",
+    "numerator": 14,
+    "denominator": 7,
+    "population": 9,
+    "exclusions": 1,
+    "exceptions": 13,
     "name": "Diabetic Retinopathy: Communication with the Physician Managing Ongoing Diabetes Care",
-    "numerator": 6,
-    "denominator": 2,
-    "population": 6,
-    "exclusions": 0,
-    "exceptions": 12
+    "id": "0089"
   }, {
-    "id": "0101",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 18,
+    "exclusions": 1,
+    "exceptions": 9,
     "name": "Falls: Screening for Future Fall Risk",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 20,
-    "exclusions": 0,
-    "exceptions": 4
+    "id": "0101"
   }, {
-    "id": "0104",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 66,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Major Depressive Disorder (MDD): Suicide Risk Assessment",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 36,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "0104"
   }, {
-    "id": "0105a",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Antidepressant Medication Management",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 26,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0105a"
   }, {
-    "id": "0105b",
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 6,
+    "exceptions": 1,
     "name": "Antidepressant Medication Management",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 26,
-    "exclusions": 2,
-    "exceptions": 0
+    "id": "0105b"
   }, {
-    "id": "0108a",
-    "name": "ADHD: Follow-Up Care for Children Prescribed Attention Deficit/Hyperactivity Disorder (ADHD) Medication",
-    "numerator": 24,
-    "denominator": 0,
-    "population": 20,
-    "exclusions": 10,
-    "exceptions": 0
-  }, {
-    "id": "0108b",
-    "name": "ADHD: Follow-Up Care for Children Prescribed Attention Deficit/Hyperactivity Disorder (ADHD) Medication",
-    "numerator": 128,
-    "denominator": 0,
-    "population": 16,
-    "exclusions": 10,
-    "exceptions": 0
-  }, {
-    "id": "0110",
-    "name": "Bipolar Disorder and Major Depression: Appraisal for alcohol or chemical substance use",
-    "numerator": 4,
-    "denominator": 26,
-    "population": 2,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "0384",
-    "name": "Oncology: Medical and Radiation – Pain Intensity Quantified",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 14,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "0385",
-    "name": "Colon Cancer: Chemotherapy for AJCC Stage III Colon Cancer Patients",
-    "numerator": 64,
-    "denominator": 30,
-    "population": 16,
-    "exclusions": 0,
-    "exceptions": 76
-  }, {
-    "id": "0387",
-    "name": "Breast Cancer: Hormonal Therapy for Stage IC-IIIC Estrogen Receptor/Progesterone Receptor (ER/PR) Positive Breast Cancer",
-    "numerator": 10,
-    "denominator": 48,
-    "population": 8,
-    "exclusions": 0,
-    "exceptions": 26
-  }, {
-    "id": "0389",
-    "name": "Prostate Cancer: Avoidance of Overuse of Bone Scan for Staging Low Risk Prostate Cancer Patients",
-    "numerator": 2,
-    "denominator": 10,
-    "population": 4,
-    "exclusions": 0,
-    "exceptions": 8
-  }, {
-    "id": "0403",
-    "name": "HIV/AIDS: Medical Visit",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "0405a",
-    "name": "HIV/AIDS: Pneumocystis jiroveci pneumonia (PCP) prophylaxis",
-    "numerator": 16,
-    "denominator": 0,
-    "population": 12,
-    "exclusions": 0,
-    "exceptions": 2
-  }, {
-    "id": "0405b",
-    "name": "HIV/AIDS: Pneumocystis jiroveci pneumonia (PCP) prophylaxis",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 16,
-    "exclusions": 0,
-    "exceptions": 4
-  }, {
-    "id": "0407",
-    "name": "HIV/AIDS: RNA Control for Patients with HIV",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 10,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "0418",
-    "name": "Preventive Care and Screening: Screening for Clinical Depression and Follow-Up Plan",
-    "numerator": 52,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 8,
-    "exceptions": 8
-  }, {
-    "id": "0419",
-    "name": "Documentation of Current Medications in the Medical Record",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 0,
-    "exceptions": 2
-  }, {
-    "id": "0421a",
-    "name": "Preventive Care and Screening: Body Mass Index (BMI) Screening and Follow-Up",
-    "numerator": 26,
-    "denominator": 0,
-    "population": 10,
-    "exclusions": 4,
-    "exceptions": 0
-  }, {
-    "id": "0421b",
-    "name": "Preventive Care and Screening: Body Mass Index (BMI) Screening and Follow-Up",
-    "numerator": 26,
-    "denominator": 0,
-    "population": 12,
-    "exclusions": 4,
-    "exceptions": 0
-  }, {
-    "id": "0564",
-    "name": "Cataracts: Complications within 30 Days Following Cataract Surgery Requiring Additional Surgical Procedures",
-    "numerator": 18,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 66,
-    "exceptions": 0
-  }, {
-    "id": "0565",
-    "name": "Cataracts: 20/40 or Better Visual Acuity within 90 Days Following Cataract Surgery",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 102,
-    "exceptions": 0
-  }, {
-    "id": "0608",
-    "name": "Pregnant women that had HBsAg testing",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 10,
-    "exclusions": 0,
-    "exceptions": 4
-  }, {
-    "id": "0710",
-    "name": "Depression Remission at Twelve Months",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 70,
-    "exclusions": 16,
-    "exceptions": 0
-  }, {
-    "id": "0712a",
-    "name": "Depression Utilization of the PHQ-9 Tool",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 10,
-    "exceptions": 0
-  }, {
-    "id": "0712b",
-    "name": "Depression Utilization of the PHQ-9 Tool",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 26,
-    "exclusions": 20,
-    "exceptions": 0
-  }, {
-    "id": "0712c",
-    "name": "Depression Utilization of the PHQ-9 Tool",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 10,
-    "exceptions": 0
-  }, {
-    "id": "1365",
-    "name": "Child and Adolescent Major Depressive Disorder (MDD): Suicide Risk Assessment",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 46,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "1401",
-    "name": "Maternal Depression Screening",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 10,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "ADE_TTR",
-    "name": "ADE Prevention and Monitoring: Warfarin Time in Therapeutic Range",
     "numerator": 20,
-    "denominator": 0,
+    "denominator": 1,
     "population": 20,
-    "exclusions": 0,
-    "exceptions": 0
+    "exclusions": 17,
+    "exceptions": 1,
+    "name": "ADHD: Follow-Up Care for Children Prescribed Attention Deficit/Hyperactivity Disorder (ADHD) Medication",
+    "id": "0108a"
   }, {
-    "id": "BPScreening",
-    "name": "Preventive Care and Screening:  Screening for High Blood Pressure and Recommended Follow-Up Documented",
-    "numerator": 74,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 2,
-    "exceptions": 8
+    "numerator": 154,
+    "denominator": 1,
+    "population": 16,
+    "exclusions": 17,
+    "exceptions": 1,
+    "name": "ADHD: Follow-Up Care for Children Prescribed Attention Deficit/Hyperactivity Disorder (ADHD) Medication",
+    "id": "0108b"
   }, {
-    "id": "ChildDentalDecay",
-    "name": "Children Who Have Dental Decay or Cavities",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 0,
-    "exceptions": 0
-  }, {
-    "id": "CholesterolScreeningRiska",
-    "name": "Preventive Care and Screening: Risk-Stratified Cholesterol – Fasting Low Density Lipoprotein (LDL-C)",
-    "numerator": 4,
-    "denominator": 48,
-    "population": 6,
-    "exclusions": 6,
-    "exceptions": 4
-  }, {
-    "id": "CholesterolScreeningRiskb",
-    "name": "Preventive Care and Screening: Risk-Stratified Cholesterol – Fasting Low Density Lipoprotein (LDL-C)",
-    "numerator": 4,
-    "denominator": 46,
-    "population": 6,
-    "exclusions": 6,
-    "exceptions": 4
-  }, {
-    "id": "CholesterolScreeningRiskc",
-    "name": "Preventive Care and Screening: Risk-Stratified Cholesterol – Fasting Low Density Lipoprotein (LDL-C)",
-    "numerator": 4,
-    "denominator": 56,
-    "population": 6,
-    "exclusions": 6,
-    "exceptions": 4
-  }, {
-    "id": "CholesterolScreeningTesta",
-    "name": "Preventive Care and Screening: Cholesterol - Fasting Low Density Lipoprotein (LDL-C) Test Performed",
     "numerator": 8,
-    "denominator": 2,
-    "population": 6,
-    "exclusions": 6,
-    "exceptions": 4
+    "denominator": 25,
+    "population": 7,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "Bipolar Disorder and Major Depression: Appraisal for alcohol or chemical substance use",
+    "id": "0110"
   }, {
-    "id": "CholesterolScreeningTestb",
-    "name": "Preventive Care and Screening: Cholesterol - Fasting Low Density Lipoprotein (LDL-C) Test Performed",
-    "numerator": 8,
-    "denominator": 36,
-    "population": 6,
-    "exclusions": 6,
-    "exceptions": 4
+    "numerator": 7,
+    "denominator": 1,
+    "population": 21,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "Oncology: Medical and Radiation – Pain Intensity Quantified",
+    "id": "0384"
   }, {
-    "id": "CholesterolScreeningTestc",
-    "name": "Preventive Care and Screening: Cholesterol - Fasting Low Density Lipoprotein (LDL-C) Test Performed",
-    "numerator": 16,
-    "denominator": 40,
-    "population": 6,
-    "exclusions": 6,
-    "exceptions": 4
+    "numerator": 100,
+    "denominator": 35,
+    "population": 26,
+    "exclusions": 1,
+    "exceptions": 58,
+    "name": "Colon Cancer: Chemotherapy for AJCC Stage III Colon Cancer Patients",
+    "id": "0385"
   }, {
-    "id": "ClosingReferralLoop",
-    "name": "Closing the referral loop: receipt of specialist report",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 14,
-    "exclusions": 0,
-    "exceptions": 0
+    "numerator": 23,
+    "denominator": 51,
+    "population": 10,
+    "exclusions": 1,
+    "exceptions": 24,
+    "name": "Breast Cancer: Hormonal Therapy for Stage IC-IIIC Estrogen Receptor/Progesterone Receptor (ER/PR) Positive Breast Cancer",
+    "id": "0387"
   }, {
-    "id": "DementiaCognitive",
-    "name": "Dementia: Cognitive Assessment",
-    "numerator": 4,
-    "denominator": 0,
-    "population": 4,
-    "exclusions": 0,
-    "exceptions": 8
-  }, {
-    "id": "FSACHF",
-    "name": "Functional Status Assessment for Complex Chronic Conditions",
-    "numerator": 16,
-    "denominator": 0,
-    "population": 24,
-    "exclusions": 8,
-    "exceptions": 0
-  }, {
-    "id": "FSAHip",
-    "name": "Functional Status Assessment for Hip Replacement",
     "numerator": 6,
-    "denominator": 0,
-    "population": 24,
-    "exclusions": 12,
-    "exceptions": 0
+    "denominator": 16,
+    "population": 8,
+    "exclusions": 1,
+    "exceptions": 11,
+    "name": "Prostate Cancer: Avoidance of Overuse of Bone Scan for Staging Low Risk Prostate Cancer Patients",
+    "id": "0389"
   }, {
-    "id": "FSAKnee",
-    "name": "Functional Status Assessment for Knee Replacement",
-    "numerator": 6,
-    "denominator": 0,
-    "population": 24,
-    "exclusions": 12,
-    "exceptions": 0
+    "numerator": 9,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "HIV/AIDS: Medical Visit",
+    "id": "0403"
   }, {
-    "id": "HypertensionImprovement",
-    "name": "Hypertension: Improvement in Blood Pressure",
-    "numerator": 10,
-    "denominator": 0,
+    "numerator": 31,
+    "denominator": 1,
     "population": 12,
-    "exclusions": 12,
-    "exceptions": 0
+    "exclusions": 1,
+    "exceptions": 6,
+    "name": "HIV/AIDS: Pneumocystis jiroveci pneumonia (PCP) prophylaxis",
+    "id": "0405a"
   }, {
-    "id": "PrimaryCariesPrevention",
+    "numerator": 10,
+    "denominator": 1,
+    "population": 16,
+    "exclusions": 1,
+    "exceptions": 9,
+    "name": "HIV/AIDS: Pneumocystis jiroveci pneumonia (PCP) prophylaxis",
+    "id": "0405b"
+  }, {
+    "numerator": 8,
+    "denominator": 1,
+    "population": 11,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "HIV/AIDS: RNA Control for Patients with HIV",
+    "id": "0407"
+  }, {
+    "numerator": 62,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 15,
+    "exceptions": 11,
+    "name": "Preventive Care and Screening: Screening for Clinical Depression and Follow-Up Plan",
+    "id": "0418"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 1,
+    "exceptions": 8,
+    "name": "Documentation of Current Medications in the Medical Record",
+    "id": "0419"
+  }, {
+    "numerator": 34,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 9,
+    "exceptions": 1,
+    "name": "Preventive Care and Screening: Body Mass Index (BMI) Screening and Follow-Up",
+    "id": "0421a"
+  }, {
+    "numerator": 34,
+    "denominator": 1,
+    "population": 16,
+    "exclusions": 9,
+    "exceptions": 1,
+    "name": "Preventive Care and Screening: Body Mass Index (BMI) Screening and Follow-Up",
+    "id": "0421b"
+  }, {
+    "numerator": 17,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 42,
+    "exceptions": 1,
+    "name": "Cataracts: Complications within 30 Days Following Cataract Surgery Requiring Additional Surgical Procedures",
+    "id": "0564"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 58,
+    "exceptions": 1,
+    "name": "Cataracts: 20/40 or Better Visual Acuity within 90 Days Following Cataract Surgery",
+    "id": "0565"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 13,
+    "exclusions": 1,
+    "exceptions": 9,
+    "name": "Pregnant women that had HBsAg testing",
+    "id": "0608"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 143,
+    "exclusions": 27,
+    "exceptions": 1,
+    "name": "Depression Remission at Twelve Months",
+    "id": "0710"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 37,
+    "exclusions": 12,
+    "exceptions": 1,
+    "name": "Depression Utilization of the PHQ-9 Tool",
+    "id": "0712a"
+  }, {
+    "numerator": 8,
+    "denominator": 1,
+    "population": 51,
+    "exclusions": 32,
+    "exceptions": 1,
+    "name": "Depression Utilization of the PHQ-9 Tool",
+    "id": "0712b"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 37,
+    "exclusions": 12,
+    "exceptions": 1,
+    "name": "Depression Utilization of the PHQ-9 Tool",
+    "id": "0712c"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 81,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "Child and Adolescent Major Depressive Disorder (MDD): Suicide Risk Assessment",
+    "id": "1365"
+  }, {
+    "numerator": 10,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "Maternal Depression Screening",
+    "id": "1401"
+  }, {
+    "numerator": 30,
+    "denominator": 1,
+    "population": 36,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "ADE Prevention and Monitoring: Warfarin Time in Therapeutic Range",
+    "id": "ADE_TTR"
+  }, {
+    "numerator": 96,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 6,
+    "exceptions": 11,
+    "name": "Preventive Care and Screening:  Screening for High Blood Pressure and Recommended Follow-Up Documented",
+    "id": "BPScreening"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "Children Who Have Dental Decay or Cavities",
+    "id": "ChildDentalDecay"
+  }, {
+    "numerator": 10,
+    "denominator": 83,
+    "population": 12,
+    "exclusions": 15,
+    "exceptions": 9,
+    "name": "Preventive Care and Screening: Risk-Stratified Cholesterol – Fasting Low Density Lipoprotein (LDL-C)",
+    "id": "CholesterolScreeningRiska"
+  }, {
+    "numerator": 10,
+    "denominator": 77,
+    "population": 12,
+    "exclusions": 15,
+    "exceptions": 9,
+    "name": "Preventive Care and Screening: Risk-Stratified Cholesterol – Fasting Low Density Lipoprotein (LDL-C)",
+    "id": "CholesterolScreeningRiskb"
+  }, {
+    "numerator": 10,
+    "denominator": 83,
+    "population": 12,
+    "exclusions": 15,
+    "exceptions": 9,
+    "name": "Preventive Care and Screening: Risk-Stratified Cholesterol – Fasting Low Density Lipoprotein (LDL-C)",
+    "id": "CholesterolScreeningRiskc"
+  }, {
+    "numerator": 15,
+    "denominator": 7,
+    "population": 12,
+    "exclusions": 15,
+    "exceptions": 9,
+    "name": "Preventive Care and Screening: Cholesterol - Fasting Low Density Lipoprotein (LDL-C) Test Performed",
+    "id": "CholesterolScreeningTesta"
+  }, {
+    "numerator": 15,
+    "denominator": 70,
+    "population": 12,
+    "exclusions": 15,
+    "exceptions": 9,
+    "name": "Preventive Care and Screening: Cholesterol - Fasting Low Density Lipoprotein (LDL-C) Test Performed",
+    "id": "CholesterolScreeningTestb"
+  }, {
+    "numerator": 22,
+    "denominator": 73,
+    "population": 12,
+    "exclusions": 15,
+    "exceptions": 9,
+    "name": "Preventive Care and Screening: Cholesterol - Fasting Low Density Lipoprotein (LDL-C) Test Performed",
+    "id": "CholesterolScreeningTestc"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 15,
+    "exclusions": 1,
+    "exceptions": 1,
+    "name": "Closing the referral loop: receipt of specialist report",
+    "id": "ClosingReferralLoop"
+  }, {
+    "numerator": 10,
+    "denominator": 1,
+    "population": 8,
+    "exclusions": 1,
+    "exceptions": 13,
+    "name": "Dementia: Cognitive Assessment",
+    "id": "DementiaCognitive"
+  }, {
+    "numerator": 28,
+    "denominator": 1,
+    "population": 34,
+    "exclusions": 21,
+    "exceptions": 1,
+    "name": "Functional Status Assessment for Complex Chronic Conditions",
+    "id": "FSACHF"
+  }, {
+    "numerator": 9,
+    "denominator": 1,
+    "population": 31,
+    "exclusions": 21,
+    "exceptions": 1,
+    "name": "Functional Status Assessment for Hip Replacement",
+    "id": "FSAHip"
+  }, {
+    "numerator": 9,
+    "denominator": 1,
+    "population": 31,
+    "exclusions": 21,
+    "exceptions": 1,
+    "name": "Functional Status Assessment for Knee Replacement",
+    "id": "FSAKnee"
+  }, {
+    "numerator": 13,
+    "denominator": 1,
+    "population": 12,
+    "exclusions": 18,
+    "exceptions": 1,
+    "name": "Hypertension: Improvement in Blood Pressure",
+    "id": "HypertensionImprovement"
+  }, {
+    "numerator": 7,
+    "denominator": 1,
+    "population": 17,
+    "exclusions": 1,
+    "exceptions": 1,
     "name": "Primary Caries Prevention Intervention as Offered by Primary Care Providers, including Dentists",
-    "numerator": 2,
-    "denominator": 0,
-    "population": 18,
-    "exclusions": 0,
-    "exceptions": 0
+    "id": "PrimaryCariesPrevention"
   }
 ]

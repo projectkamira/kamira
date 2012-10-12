@@ -72,7 +72,7 @@ window.SpiderChart = (src, target, options = {}) ->
       parent.selectAll('path.spider')
         .data([nums]).enter()
         .append('svg:path')
-        .attr('class', "spider #{color(d3.mean(nums))}")
+        .attr('class', "spider #{color(d3.max(nums))}")
         .attr 'd', (d) -> "#{line(d)}Z"
       # iterate through axes
       for i, helper of d3.entries(chartHelper)

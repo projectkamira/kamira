@@ -8,6 +8,7 @@ a {
 
 .chart {
   float: left;
+  height: 300px;
   width: 400px;
   padding: 10px;
 }
