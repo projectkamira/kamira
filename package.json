@@ -2,7 +2,7 @@
   "name": "Kamira",
   "author": "The MITRE Corporation (E542)",
   "version": "0.0.1",
-  "description": "Kamira FTW",
+  "description": "An Open Source Clinical Quality Modeling Framework.",
   "main": "app.coffee",
   "scripts": {
     "start": "coffee app.coffee",
@@ -23,7 +23,10 @@
     "connect-assets": "2.3.x",
     "hjs": "*",
     "mongoose": "3.x",
-    "jsmeter": "1.0.x"
+    "jsmeter-fixed": "*",
+    "nodemon": "*",
+    "underscore": "1.4.2",
+    "commander": "1.0.5"
   },
   "devDependencies": {
     "jasmine-node": "1.0.x"
