@@ -8,9 +8,19 @@ a {
 
 .chart {
   float: left;
-  height: 300px;
-  width: 400px;
-  padding: 10px;
+  height: 350px;
+  width: 350px;
+  padding: 20px;
+  text-align: center;
+}
+
+.chart .id {
+  color: #999;
+  text-align: center;
+}
+
+.chart .name {
+  font-weight: bold;
 }
 
 path.spider {
@@ -65,6 +75,7 @@ circle.bullseye {
 text.value {
   font-weight: bold;
   font-size: 85%;
+  text-anchor: middle;
   alignment-baseline: central;
 }
 
