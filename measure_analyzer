@@ -7,38 +7,41 @@ _ = require("underscore")
 program.version('0.0.1')
   .option('-M, --measures <path>', 'measures directory')
   .option('-U, --util <path>', 'util file')
-
   .parse(process.argv)
 parse = require("./parse").make_parse()
 tokens = require("./tokens")
 metrics = require("./metrics")
 tokens.setup()
 
-
+utilMethods = []
 utils = fs.readFileSync(program.util).toString()
-util_methods = jsmeter.run(utils)
+utilMethods = jsmeter.run(utils)
 
 fs.readdir program.measures, (err, files) ->
   console.log(err) if err?
   measures = []
   for file in files
     continue if file == ".DS_Store"    
-    path_name = path.join program.measures, file
-    content = fs.readFileSync path_name
+    pathName = path.join program.measures, file
+    content = fs.readFileSync pathName
     json = JSON.parse(content.toString())
     js = json.map_fn
+
     js = js.replace("<%=.*init_js_frameworks.*%>", "")
     js = js.replace(/<%=.*effective_date.*%>/, 1347983662)
+    
+    console.log(js)
+    return
     tree = parse(js)
 
     measure = jsmeter.run(js)
-    complexitySet = _.union(util_methods, measure)
-
+    complexitySet = _.union(utilMethods, measure)
+    
     report = metrics.report(tree, complexitySet)
     report["name"] = json.name
     jsonId = if json.sub_id? then "#{json.nqf_id}#{json.sub_id}" else json.nqf_id
     report["id"] = jsonId
-
+    console.log(jsonId)
     measures.push(report)
   console.log(JSON.stringify(measures))
     #for func in result
