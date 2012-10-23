@@ -92,14 +92,29 @@ window.SpiderChart = (src, target, options = {}) ->
         group.append('svg:circle').attr('class', "#{helper.key} #{color(mData[helper.key])}").attr('r', 6)
           .attr('cx', scale(mData[helper.key])).attr('value', mData[helper.key])
         # values
-        valueOffset = if mData[helper.key] <= qualityRange.complex then 14 else -16
-        group.append('svg:text').attr('class', 'value').text(mData[helper.key])
+        valueOffset = if mData[helper.key] <= qualityRange.complex
+          14
+        else if mData[helper.key] <= qualityRange.untestable
+          -16
+        else
+         -25
+        if mData[helper.key] > qualityRange.untestable
+          rWidth = 50; rHeight = 30
+          group.append('svg:rect').attr('class', color(mData[helper.key]))
+            .attr('width', rWidth).attr('height', rHeight)
+            .attr('rx', 5)
+            .attr('x', scale(mData[helper.key]) + valueOffset - rWidth/2).attr('y', -rHeight/2)
+            .attr 'transform', ->
+              x = scale(mData[helper.key]) + valueOffset
+              y = 0
+              "rotate(#{angle(i) * 180 / Math.PI} #{x} #{y})"
+        group.append('svg:text').attr('class', "value #{color(mData[helper.key])}").text(mData[helper.key])
           .attr('x', scale(mData[helper.key]) + valueOffset).attr('y', 0)
           .attr 'transform', (d) ->
             x = d3.select(@).attr 'x'
             y = d3.select(@).attr 'y'
             "rotate(#{angle(i) * 180 / Math.PI} #{x} #{y})"
-      
+
       div.append('div').attr('class', 'id').text "NQF #{mData.id}:"
       div.append('div').attr('class', 'name').text mData.name
 
