@@ -5,6 +5,8 @@ navigation:
     url:  /index.html
   - text: Program Information
     url:  /prog_info.html
+  - text: Documents
+    url: /documents.html
   - text: FAQ
     url:  /faq.html
   - text: Contact
