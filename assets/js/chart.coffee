@@ -1,6 +1,6 @@
 window.SpiderChart = (src, target, options = {}) ->
-  w = options.w or options.width  or 200
-  h = options.h or options.height or 200
+  w = options.w or options.width  or 125
+  h = options.h or options.height or 125
   margin = options.m or options.margin or 50
 
   chartHelper = 
@@ -89,17 +89,17 @@ window.SpiderChart = (src, target, options = {}) ->
         # draw axis
         group.call(d3.svg.axis().tickValues(0).tickSize(1).scale(scale))
         # circle
-        group.append('svg:circle').attr('class', "#{helper.key} #{color(mData[helper.key])}").attr('r', 6)
+        group.append('svg:circle').attr('class', "#{helper.key} #{color(mData[helper.key])}").attr('r', 4)
           .attr('cx', scale(mData[helper.key])).attr('value', mData[helper.key])
         # values
         valueOffset = if mData[helper.key] <= qualityRange.complex
-          14
+          12
         else if mData[helper.key] <= qualityRange.untestable
-          -16
+          -12
         else
-         -25
+         -21
         if mData[helper.key] > qualityRange.untestable
-          rWidth = 50; rHeight = 30
+          rWidth = 30; rHeight = 20
           group.append('svg:rect').attr('class', color(mData[helper.key]))
             .attr('width', rWidth).attr('height', rHeight)
             .attr('rx', 5)

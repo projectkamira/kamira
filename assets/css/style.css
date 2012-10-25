@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 0.5em;
 }
 a {
   color: #00B7FF;
@@ -8,9 +9,9 @@ a {
 
 .chart {
   float: left;
-  height: 350px;
-  width: 350px;
-  padding: 20px;
+  height: 250px;
+  width: 175px;
+  padding: 5px;
   text-align: center;
 }
 

@@ -5,8 +5,6 @@
     {{#css}}style{{/css}}
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>Welcome to {{ title }}</p>
     <div id="charts"></div>
     {{#js}}jquery-1.8.2.min{{/js}}
     {{#js}}d3.v2{{/js}}
