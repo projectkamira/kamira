@@ -26,6 +26,7 @@
     "jsmeter-fixed": "*",
     "nodemon": "*",
     "underscore": "1.4.2",
+    "underscore.string": "*",
     "commander": "1.0.5"
   },
   "devDependencies": {
