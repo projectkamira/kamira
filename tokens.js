@@ -39,6 +39,7 @@ this.setup = function() {
         t.name = "SyntaxError";
         t.message = message;
         debugger;
+        console.log(t)
         throw t;
     };
 

@@ -45,6 +45,7 @@ exports.cyclomatic = (result, context) ->
   context.exits += result.exits
   return context
 exports.complexity = (funcName, js, set, calcFunction) ->
+  calcFunction ?= exports.cyclomatic
   func = exports.findFunction funcName, js,  (parent, tree, name) ->
     return parent && tree.first? && tree.second? && parent.value = "=" && [tree.first.value, tree.second.value].join(".") == name
   result = exports.analyze(func, set, calcFunction)
@@ -59,8 +60,8 @@ exports.report = (js, functionList) ->
     numerator : exports.complexity("hqmfjs.NUMER", js, functionList)
     denominator : exports.complexity("hqmfjs.DENOM", js, functionList)
     population : exports.complexity("hqmfjs.IPP", js, functionList)
-    exclusions : exports.complexity("hqmfjs.EXCL", js, functionList)
-    exceptions : exports.complexity("hqmfjs.DENEXCEP", js, functionList)
+    exclusions : exports.complexity("hqmfjs.DENEX", js, functionList)
+    exceptions : exports.complexity("hqmfjs.EXCEP", js, functionList)
 exports.report1 = (js, functionList) ->
     return [exports.complexity1("numerator", js, functionList),
     exports.complexity1("denominator", js, functionList),
