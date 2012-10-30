@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 0.5em;
 }
 a {
   color: #00B7FF;
@@ -8,9 +9,19 @@ a {
 
 .chart {
   float: left;
-  height: 300px;
-  width: 400px;
-  padding: 10px;
+  height: 250px;
+  width: 175px;
+  padding: 5px;
+  text-align: center;
+}
+
+.chart .id {
+  color: #999;
+  text-align: center;
+}
+
+.chart .name {
+  font-weight: bold;
 }
 
 path.spider {
@@ -26,33 +37,27 @@ path.domain {
   alignment-baseline: central;
 }
 
-circle.bullseye {
-  /*fill-opacity: 0.5;*/
-  stroke-width: 2;
-  fill: none;
-}
-
 .origin {
   stroke: #999;
   opacity: 0.25;
 }
 
-.simple {
+circle.simple, path.simple {
   stroke: #A4B269;
   fill: #A4B269;
 }
 
-.nominal {
+circle.nominal, path.nominal {
   stroke: #FFD479;
   fill: #FFD479;
 }
 
-.complex {
+circle.complex, path.complex {
   stroke: #FF9100;
   fill: #FF9100;
 }
 
-.untestable {
+circle.untestable, path.untestable {
   stroke: #FF8888;
   fill: #FF8888;
 }
@@ -62,13 +67,30 @@ circle.bullseye {
   fill: none;
 }
 
+rect.untestable {
+  fill: #C91A00;
+  fill-opacity: 0.8;
+}
+
 text.value {
   font-weight: bold;
-  font-size: 85%;
+  text-anchor: middle;
   alignment-baseline: central;
+}
+
+rect.untestable + text.value.untestable {
+  fill: white;
+  font-size: 115%;
 }
 
 .bullseye-label {
   font-size: 65%;
   fill: #999;
 }
+
+circle.bullseye {
+  /*fill-opacity: 0.5;*/
+  stroke-width: 2;
+  fill: none;
+}
+
