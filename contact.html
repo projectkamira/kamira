@@ -15,11 +15,27 @@ layout: default
   <div class="span9">
     <form id="contact_form" method="get" action="mailto:project-cypress-talk@googlegroups.com" enctype="text/plain">
       <label>Name</label><input type="text" name="fname" placeholder="Name" required="required" autofocus="autofocus" /><br />
-      <label>Email</label><input type="email" name="org" placeholder="Email" /><br />
       <label>Organization</label><input type="text" name="org" placeholder="Organization" /><br />
-      <label>Subject</label><input type="text" name="sub" placeholder="Subject" /><br />
-      <label>Comments</label><textarea id="comments" name="Comments" placeholder="Comments"></textarea><br />
+      <label>Subject</label><input type="text" name="subject" placeholder="Subject" /><br />
+      <label>Comments</label><textarea id="comments" name="body" placeholder="Comments"></textarea><br />
       <button class="btn btn-large" type="submit" id="submit" value="Submit">Submit</button>
     </form>
   </div>
+  <script>
+  <!-- //
+  $(function() {
+    $('#contact_form').on('submit', function(e) {
+      $form = $(e.target);
+      var name = $form.find('[name=fname]').val(),
+          org = $form.find('[name=org]').val(),
+          subject = encodeURIComponent($form.find('[name=subject]').val());
+      if (org != '')
+        name = name + ' (' + org + ')';
+      var body = name + ' asks: %0D%0A%0D%0A' + encodeURIComponent($('#comments').val());
+      window.location.href = "mailto:kamira-list@lists.mitre.org?subject=" + subject + '&body=' + body;
+      e.preventDefault();
+    });
+  });
+  // -->
+  </script>
 </div>
