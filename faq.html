@@ -14,9 +14,6 @@ sections:
     - question: Who is funding Kamira?
       id: funding
       answer: <p>Kamira is currently funded by the MITRE Corporation.</p>
-    - question: What other organizations are participating in the Kamira project?
-      id: otherOrganizations
-      answer: <p>NEED TEXT HERE</p>
     - question: What is the objective of project Kamira?
       id: objective
       answer: <p>Kamira will provide an automated and unbiased method for evaluating Clinical Quality Measures (CQMs) to support the use of CQMs in Pay for Performance programs based on the Meaningful Use component of the HITECH act.</p>
@@ -26,7 +23,7 @@ sections:
       answer: <p>Kamira’s intended users include Federal policy makers, Clinical Quality Measure stakeholders and experts, quality measure stewards, healthcare information exchanges, accountable care organizations, and electronic health record vendors.</p>
     - question: What is the basic Concept of Operations for use of Kamira?
       id: basicConceptOfOperations
-      answer: <p>NEED TEXT HERE</p>
+      answer: <p>Kamira is being designed to import any CQM definition in a machine-readable medium via the Health Quality Measures Format (HQMF) XML standard.  This nationally recognized XML standard for expressing Clinical Quality Measures has been widely adopted for numerous Clinical Quality Measure programs.  Kamira is meant to be used by both Clinical Quality Measure (CQM) stewards and CQM policy makers to better understand the complexity of CQMs, the cost to address gaps in CQM performance, and the availability of patient-level data that is needed for CQMs to calculate.</p>
   Open Source:
     - question: What does open source software mean?
       id: whatIsOSS
@@ -52,7 +49,7 @@ sections:
 ---
 
 <a name="content"></a>
-<div class="row">
+<div class="row" style="clear:both">
 	{% for section in page.sections %}
 	<div class="span3">
 		<h2>{{ section[0] }}</h2>
