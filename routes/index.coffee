@@ -2,13 +2,9 @@
 #
 # * GET home page.
 # 
-exports.index = (req, res) ->
-  mongoose = require 'mongoose'
-  # db = mongoose.createConnection 'localhost', 'pophealth-development'
-  # db.once 'open', -> console.log 'opened!'
-
-  res.render "index",
-    title: "Kamira",
+exports.dashboard = (req, res) ->
+  res.render 'dashboard',
+    title: 'Kamira',
     js: js, css: css
 
 
