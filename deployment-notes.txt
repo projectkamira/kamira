@@ -1,3 +1,18 @@
+Future work needed:
+
+  Monitoring:
+
+    monit? As noted here: http://howtonode.org/deploying-node-upstart-monit
+    might not be needed, have respawn in upstart
+
+  Run as non-root:
+
+    change upstart line to: exec sudo -u username sh -c "/usr/local/bin/node /where/yourprogram.js >> /var/log/node.log 2>&1"
+
+  Correctly restart on server reboot
+
+    needs testing; might need to tweak upstart to use runlevels instead
+
 Setting up the server on Ubuntu 12.04 LTS
 
 On the server:

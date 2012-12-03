@@ -8,7 +8,6 @@ program.version('0.0.1')
   .option('-M, --measures <path>', 'measures directory')
   .option('-U --utils <path>', 'utils file/directory')
   .option('-S --stage <stage>', 'stage (1 or 2)', Number, 2)
-  .option('-I --insert', 'insert measures into Mongo DB')
   .parse(process.argv)
 
 # config on a per-stage basis
@@ -57,9 +56,5 @@ fs.readdir program.measures, (err, files) ->
     else if program.stage is 2
       json.nqf_id # hooray for function scope
     report
-
-  if program.insert
-    # TODO stuff the measures into mongo
-    console.log 'stuff the measures into mongo'
 
   console.log JSON.stringify(measures)

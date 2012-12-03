@@ -1,0 +1,13 @@
+#!/usr/bin/env coffee
+
+mongoose = require 'mongoose'
+db = mongoose.createConnection 'mongodb://localhost/kamira'
+
+Measure = require('../models/measure')(mongoose, db)
+
+fs = require 'fs'
+stdin = fs.readFileSync('/dev/stdin').toString()
+measures = JSON.parse(stdin)
+
+for measure in measures
+  console.log measure.id
