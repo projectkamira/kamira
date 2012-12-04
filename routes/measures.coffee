@@ -3,12 +3,15 @@ module.exports = (mongoose, db) ->
 
   @show = (req, res) ->
     id = req.params.id
-    Measure.findOne {'id': id}, 'id', (err, measure) ->
+    Measure.findOne {'id': id}, (err, measure) ->
       console.log 'err', err
-      console.log 'measure', measure
-      res.render 'measures/show',
-        title: 'Kamira'
-        measure: measure
-        js: js, css: css
+      if err? or !measure?
+        res.send 'unable to find that measure', 404
+      else
+        console.log 'measure', measure
+        res.render 'measures/show',
+          title: 'Kamira'
+          measure: measure, embeddableMeasure: JSON.stringify(measure)
+          js: js, css: css
 
   return this

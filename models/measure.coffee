@@ -1,5 +1,5 @@
 module.exports = (mongoose, db) ->
-  measureSchema = new mongoose.Schema {id:String, name:String}
+  measureSchema = new mongoose.Schema
     id: String
     name: String
     complexity:

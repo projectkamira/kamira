@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ title }}</title>
+    <title>Kamira :: {{ title }}</title>
     {{#css}}style{{/css}}
   </head>
   <body>
-    <div id="charts"></div>
+    <div id="complexity"></div>
     {{#js}}jquery-1.8.2.min{{/js}}
     {{#js}}d3.v2{{/js}}
-    {{#js}}measures{{/js}}
     {{#js}}chart{{/js}}
     <script>
-      new SpiderChart('/complexity.json', '#charts')
+      var measure = window.measure = {{{embeddableMeasure}}};
+      new Kamira.SpiderChart([measure], '#complexity')
     </script>
   </body>
 </html>

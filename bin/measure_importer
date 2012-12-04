@@ -3,11 +3,20 @@
 mongoose = require 'mongoose'
 db = mongoose.createConnection 'mongodb://localhost/kamira'
 
-Measure = require('../models/measure')(mongoose, db)
+Measure = require('../models/measure')(mongoose, db).model
 
 fs = require 'fs'
 stdin = fs.readFileSync('/dev/stdin').toString()
 measures = JSON.parse(stdin)
 
 for measure in measures
-  console.log measure.id
+  id = measure.id
+  name = measure.name
+  delete measure.id; delete measure.name
+
+  obj = {id: id, name: name, complexity: measure}
+  console.log "importing", obj
+  Measure.create {id: id, name: name, complexity: measure}, (err, model) ->
+    console.log('err', err) if err?
+
+console.log "ALL DONE, WHY DONT YOU EXIT"

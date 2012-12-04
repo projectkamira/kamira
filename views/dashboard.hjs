@@ -11,7 +11,8 @@
     {{#js}}measures{{/js}}
     {{#js}}chart{{/js}}
     <script>
-      new SpiderChart('/complexity.json', '#charts')
+      var measures = window.measures = {{{embeddableMeasures}}};
+      new Kamira.SpiderChart(measures, '#charts', {createLink: true})
     </script>
   </body>
 </html>

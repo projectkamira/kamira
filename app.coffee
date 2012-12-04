@@ -26,8 +26,9 @@ app.configure ->
 app.configure 'development', -> app.use express.errorHandler()
 
 # ROUTES
-routes = require './routes'
+routes = require('./routes')(mongoose, db)
 measure = require('./routes/measures')(mongoose, db)
+
 app.get     '/',              routes.dashboard
 
 # app.get     '/measures',      measure.index
