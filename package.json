@@ -22,6 +22,8 @@
     "express": "3.x",
     "connect-assets": "2.3.x",
     "hjs": "*",
+    "less": "1.3.x",
+    "twitter-bootstrap": "2.x",
     "mongoose": "3.x",
     "jsmeter-fixed": "*",
     "nodemon": "*",
