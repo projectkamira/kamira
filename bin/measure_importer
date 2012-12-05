@@ -19,4 +19,4 @@ for measure in measures
   Measure.create {id: id, name: name, complexity: measure}, (err, model) ->
     console.log('err', err) if err?
 
-console.log "ALL DONE, WHY DONT YOU EXIT"
+mongoose.disconnect()
