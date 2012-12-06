@@ -6,6 +6,7 @@ mongoose = require 'mongoose'
 http = require 'http'
 path = require 'path'
 app = module.exports = express()
+cons = require 'consolidate'
 
 console.log 'creating connection'
 db = mongoose.createConnection 'mongodb://localhost/kamira'
@@ -14,7 +15,9 @@ db = mongoose.createConnection 'mongodb://localhost/kamira'
 app.configure ->
   app.set 'port', process.env.PORT or 5000
   app.set 'views', "#{__dirname}/views"
-  app.set 'view engine', 'hjs'
+  app.engine 'eco', cons.eco
+  app.set 'view engine', 'eco'
+  app.use require('express-partials')()
   app.use express.favicon("#{__dirname}/public/favicon.ico")
   app.use express.logger('dev')
   app.use express.bodyParser()

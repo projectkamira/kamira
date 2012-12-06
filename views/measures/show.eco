@@ -1,0 +1,8 @@
+<div id="complexity"></div>
+<script>
+  var measure = window.measure = <%- JSON.stringify(@measure) %>;
+  $(function() {
+    new Kamira.SpiderChart([measure], '#complexity');
+  });
+</script>
+<%- js 'chart' %>

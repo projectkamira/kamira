@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @title %></title>
+    <%- css 'styles' %>
+    <%- js 'jquery-1.8.2.min' %>
+  </head>
+  <body>
+    <%- @body %>
+    <%- js 'd3.v2' %>
+  </body>
+</html>
