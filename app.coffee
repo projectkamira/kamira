@@ -8,8 +8,8 @@ path = require 'path'
 app = module.exports = express()
 cons = require 'consolidate'
 
-console.log 'creating connection'
-db = mongoose.createConnection 'mongodb://localhost/kamira'
+db = mongoose.createConnection 'mongodb://localhost/kamira', ->
+  console.log "Connected to the #{db.name} MongoDB collection"
 
 # CONFIGURATION
 app.configure ->
