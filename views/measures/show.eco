@@ -5,4 +5,4 @@
     new Kamira.SpiderChart([measure], '#complexity');
   });
 </script>
-<%- js 'chart' %>
+<%- js 'spider-chart' %>

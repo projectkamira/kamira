@@ -80,7 +80,7 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
       i = parseInt i # remember, for some reason i is a character here, not an integer!
       group = parent.append('svg:g').attr('transform', "rotate(#{-(angle(i) * 180/Math.PI)})")
       # label
-      group.append('svg:text').attr('class', "label").text(helper.value.label)
+      group.append('svg:text').attr('class', 'kiviat-label').text(helper.value.label)
         .attr('x', h/2 + 13).attr('y', 0)
         .attr('text-anchor', 'middle')
         .attr 'transform', ->
