@@ -1,2 +1,51 @@
-<h1>welcome to kamira</h1>
-<a href="/complexity">Complexity Summary</a>
+<div class="row">
+  <div class="span3">
+    <div class="section-header">Overall Summary</div>
+    <img src="/images/tmp/bar_chart.png">
+  </div>
+  <div class="span3">
+    <div class="section-header">Data Availability</div>
+    <img src="/images/tmp/bar_chart.png">
+  </div>
+  <div class="span3">
+    <div class="section-header"><a href="/complexity">Complexity</a></div>
+    <img src="/images/tmp/bar_chart.png">
+  </div>
+  <div class="span3">
+    <div class="section-header">Financial</div>
+    <img src="/images/tmp/bar_chart.png">
+  </div>
+</div>
+
+<div class="row">
+  <div class="span12 section-header">Measure Status</div>
+</div>
+
+<div class="row">
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+  <div class="span3">
+    <img src="/images/tmp/bar_chart2.png">
+  </div>
+</div>

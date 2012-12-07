@@ -7,6 +7,18 @@
   </head>
   <body>
     <div class="container">
+      <nav>
+        <ul class="nav top-nav">
+          <li><a href="#">My Account</a></li>
+          <li class="divider"></li>
+          <li><a href="/help">Help</a></li>
+          <li class="divider"></li>
+          <li><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+      </nav>
+      <div id="title">Kamira</div>
       <%- @body %>
     </div>
     <%- js 'd3.v2' %>

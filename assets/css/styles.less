@@ -8,3 +8,34 @@
 
 // VARIABLES
 @linkColor:             #00B7FF;
+
+ul.nav {
+  &.top-nav {
+    float: right;
+    font-size: 0.8em;
+    .clearfix();
+  }
+  li {
+    float: left;
+    &.divider:before {
+      color: @grayLight;
+      content: '\2022';
+      padding: 0 4px;
+    }
+  }
+}
+
+#title {
+  font-size: 50px;
+  font-weight: bold;
+  line-height: 60px;
+}
+
+.section-header {
+  border-bottom: 1px solid @gray;
+  color: @gray;
+  font-size: 1.25em;
+  font-weight: bold;
+  line-height: 1.25em;
+  margin-top: 1.5em;
+}

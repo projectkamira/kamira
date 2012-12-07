@@ -3,8 +3,15 @@ module.exports = (mongoose, db) ->
   Measure = require('../models/measure')(mongoose, db).model
 
   @dashboard = (req, res) ->
-    res.render 'dashboard'
-      title: 'Kamira'
+    # TODO refactor extract method
+    Measure.find (err, measures) ->
+      console.log 'err', err
+      if err? or !measures?
+        res.send 'unable to find any measures', 404
+      else
+        res.render 'dashboard',
+          title: 'Dashboard'
+          measures: measures
 
   @complexity = (req, res) ->
     Measure.find (err, measures) ->
@@ -13,7 +20,7 @@ module.exports = (mongoose, db) ->
         res.send 'unable to find any measures', 404
       else
         res.render 'complexity',
-          title: 'Kamira'
+          title: 'Complexity'
           measures: measures
 
   return this
