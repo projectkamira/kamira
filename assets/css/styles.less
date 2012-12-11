@@ -9,6 +9,11 @@
 // VARIABLES
 @linkColor:             #00B7FF;
 
+@goodColor:             #A4B269;
+@nominalColor:          #FFD479;
+@poorColor:             #FF9100;
+@badColor:              #FF8888;
+
 ul.nav {
   &.top-nav {
     float: right;
@@ -38,4 +43,12 @@ ul.nav {
   font-weight: bold;
   line-height: 1.25em;
   margin-top: 1.5em;
+}
+
+.bar-chart {
+  .good { fill: @goodColor; }
+  .nominal { fill: @nominalColor; }
+  .poor { fill: @badColor; }
+  .strong { font-weight: bold; }
+  .smaller { font-size: 0.9em; }
 }

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="span3">
     <div class="section-header">Overall Summary</div>
-    <img src="/images/tmp/bar_chart.png">
+    <div id="summary"></div>
   </div>
   <div class="span3">
     <div class="section-header">Data Availability</div>
@@ -23,7 +23,7 @@
 
 <div class="row">
   <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
+    <div id="measure-status"></div>
   </div>
   <div class="span3">
     <img src="/images/tmp/bar_chart2.png">
@@ -49,3 +49,15 @@
     <img src="/images/tmp/bar_chart2.png">
   </div>
 </div>
+
+<script>
+  $(function() {
+
+    Kamira.SummaryBarChart('#summary', { good: 47, nominal: 79, poor: 31 });
+
+    Kamira.MeasureBarChart('#measure-status', { 'Data Availability': 'nominal', 'Complexity': 'good', 'Financial': 'poor' })
+
+  });
+</script>
+
+<%- js 'bar-chart' %>
