@@ -1,8 +1,52 @@
-<div id="complexity"></div>
+<div class="row">
+  <div id="bar-chart" class="span4">
+  </div>
+  <div class="legend span4 offset4">
+    <table class="pull-right">
+      <tbody>
+        <tr>
+          <td><div class="indicator low">&nbsp;</div></td>
+          <td>1-10</td>
+          <td>| Very Simple</td>
+          <td>| Low Risk</td>
+        </tr>
+        <tr>
+          <td><div class="indicator nominal">&nbsp;</div></td>
+          <td>11-20</td>
+          <td>| Nominal</td>
+          <td>| Moderate Risk</td>
+        </tr>
+        <tr>
+          <td><div class="indicator high">&nbsp;</div></td>
+          <td>21-50</td>
+          <td>| Complex</td>
+          <td>| High Risk</td>
+        </tr>
+        <tr>
+          <td><div class="indicator extreme">&nbsp;</div></td>
+          <td>51+</td>
+          <td>| Untestable</td>
+          <td>| Extreme Risk</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div id="complexity" class="row">
+</div>
 <script>
   var measures = window.measures = <%- JSON.stringify(@measures) %>;
   $(function() {
-    new Kamira.SpiderChart(measures, '#complexity', {createLink: true});
+    new Kamira.SpiderChart(measures, '#complexity', {createLink: true, w: 225, h: 225});
+    // new Kamira.BarChart("#bar-chart", {value: 10}, {showValues: true, labelWidth: 5})
   });
+
+
+
 </script>
+
+
+
 <%- js 'spider-chart' %>
+<%- js 'bar-chart' %>

@@ -1,5 +1,5 @@
 window.Kamira ||= {};
-window.Kamira.BarChart = (target, data, options = {}) ->
+window.Kamira.BarChart = (data, target, options = {}) ->
 
   w = options.w or options.width  or 200
   h = options.h or options.height or 125
