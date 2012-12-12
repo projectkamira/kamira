@@ -1,17 +1,29 @@
 window.Kamira ||= {}
 
+window.Kamira.BarChartCategoryMapping ||= {}
+window.Kamira.BarChartCategoryMapping.complexity =
+  simple: 'good'
+  nominal: 'nominal'
+  complex: 'poor'
+  untestable: 'poor'
+
 # Draw a measure summary bar chart using D3
 #
-#   target: selector indicating where chart should be drawn
+#   measure: a single measure
 #
-#   data: key value pairs indicating label and rating; rating is
-#         converted to value and is used as class name (which sets color)
+#   target: selector indicating where chart should be drawn
 
 window.Kamira.MeasureBarChart = (measure, target) ->
+  labels =
+    availability: 'Data Availability'
+    complexity: 'Complexity'
+    financial: 'Financial'
   valueLookup = poor: 1, nominal: 2, good: 3
-  values = ({ value: valueLookup[rating], class: rating, label: label } for label, rating of measure)
-  console.log values
-  Kamira.BarChart(values, target, w: 220, h: 90, barWeight: 0.8, labelWidth: 95, divideAt: 1, labelClass: 'smaller', labelsRight: true)
+  values = for category, label of labels
+    rating = measure[category].rating
+    rating = Kamira.BarChartCategoryMapping.complexity[rating] if category == 'complexity'
+    { value: valueLookup[rating], class: rating, label: label }
+  Kamira.BarChart(values, target, w: 220, h: 90, barWeight: 0.8, labelWidth: 95, divideAt: 1, labelClass: 'smaller', labelsRight: true, domainMax: 3)
 
 
 # Draw a summary horizontal bar chart using D3
@@ -22,17 +34,17 @@ window.Kamira.MeasureBarChart = (measure, target) ->
 #
 #   options:
 #     category: summary type; complexity, availability, financial or not set for overall
-#     categoryMapping: a hash lookup table convertinga categories ratings to good, nominal and poor
 #
 # Note: the label is automatically capitalized; the pre-capitalized
 # version is used as the class name
 
 window.Kamira.SummaryBarChart = (measures, target, options = {}) ->
+  categoryMapping = Kamira.BarChartCategoryMapping[options.category]
   ratings = {}
   for measure in measures
     ratingBase = if options.category then measure[options.category] else measure
     ratingCategory = ratingBase.rating
-    ratingCategory = options.categoryMapping[ratingCategory] if options.categoryMapping
+    ratingCategory = categoryMapping[ratingCategory] if categoryMapping
     ratings[ratingCategory] ||= 0
     ratings[ratingCategory] += 1
   capitalize = (string) -> string.charAt(0).toUpperCase() + string.substring(1)
@@ -58,6 +70,8 @@ window.Kamira.SummaryBarChart = (measures, target, options = {}) ->
 #     barWeight: thickness of bar, ranging from 0.0 to 1.0
 #     divideAt: dotted line divisors appear at every divideAt interval
 #     labelsRight: labels are right justified
+#     domainMax: maximum value, used if auto-scaling isn't desired
+#                (ie you want a max value higher than appears in the data)
 
 window.Kamira.BarChart = (data, target, options = {}) ->
 
@@ -79,7 +93,7 @@ window.Kamira.BarChart = (data, target, options = {}) ->
 
   barOffset = labelWidth + valueWidth + 5
 
-  domainMax = d3.max(data, (d) -> d.value)
+  domainMax = options.domainMax || d3.max(data, (d) -> d.value)
 
   window.xScale = d3.scale.linear()
     .domain([0, domainMax])
