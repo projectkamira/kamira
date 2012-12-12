@@ -1,4 +1,4 @@
-window.Kamira ||= {};
+window.Kamira ||= {}
 
 # Draw a measure summary bar chart using D3
 #
@@ -7,37 +7,48 @@ window.Kamira ||= {};
 #   data: key value pairs indicating label and rating; rating is
 #         converted to value and is used as class name (which sets color)
 
-window.Kamira.MeasureBarChart = (target, data) ->
+window.Kamira.MeasureBarChart = (measure, target) ->
   valueLookup = poor: 1, nominal: 2, good: 3
-  values = ({ value: valueLookup[rating], class: rating, label: label } for label, rating of data)
-  Kamira.BarChart(target, values, {w: 220, h: 90, barWeight: 0.8, labelWidth: 95, divideAt: 1, labelClass: 'smaller'})
+  values = ({ value: valueLookup[rating], class: rating, label: label } for label, rating of measure)
+  console.log values
+  Kamira.BarChart(values, target, w: 220, h: 90, barWeight: 0.8, labelWidth: 95, divideAt: 1, labelClass: 'smaller', labelsRight: true)
 
 
 # Draw a summary horizontal bar chart using D3
 #
+#   measures: array of measures to aggregate
+#
 #   target: selector indicating where chart should be drawn
 #
-#   data: key value pairs indicating labels and values; the label name
-#         is used as the class name
+#   options:
+#     category: summary type; complexity, availability, financial or not set for overall
+#     categoryMapping: a hash lookup table convertinga categories ratings to good, nominal and poor
 #
 # Note: the label is automatically capitalized; the pre-capitalized
 # version is used as the class name
 
-window.Kamira.SummaryBarChart = (target, data) ->
+window.Kamira.SummaryBarChart = (measures, target, options = {}) ->
+  ratings = {}
+  for measure in measures
+    ratingBase = if options.category then measure[options.category] else measure
+    ratingCategory = ratingBase.rating
+    ratingCategory = options.categoryMapping[ratingCategory] if options.categoryMapping
+    ratings[ratingCategory] ||= 0
+    ratings[ratingCategory] += 1
   capitalize = (string) -> string.charAt(0).toUpperCase() + string.substring(1)
-  values = ({ value: value, class: name, label: capitalize(name) } for name, value of data)
-  Kamira.BarChart(target, values, {w: 180, h: 100, showValues: true, barWeight: 0.5, labelWidth: 75, labelClass: 'strong'});
-    
+  values = ({ value: ratings[category], class: category, label: capitalize(category)} for category in ['good', 'nominal', 'poor'])
+  Kamira.BarChart(values, target, w: 180, h: 100, showValues: true, barWeight: 0.5, labelWidth: 75, labelClass: 'strong')
+
 
 # Draw a general horizontal bar chart using D3; if possible prefer one
 # of the more specific bar chart creators
 #
-#   target: selector indicating where chart should be drawn
-# 
 #   data: array of data elements; each element is an object:
 #     value: numeric value
 #     class: class to use for this bar (an svg rect)
 #     label: label to use for thar bar
+# 
+#   target: selector indicating where chart should be drawn
 # 
 #   options:
 #     w or width: width in pixels
@@ -46,8 +57,9 @@ window.Kamira.SummaryBarChart = (target, data) ->
 #     labelClass: class of the label, in pixels
 #     barWeight: thickness of bar, ranging from 0.0 to 1.0
 #     divideAt: dotted line divisors appear at every divideAt interval
+#     labelsRight: labels are right justified
 
-window.Kamira.BarChart = (target, data, options = {}) ->
+window.Kamira.BarChart = (data, target, options = {}) ->
 
   w = options.w or options.width  or 200
   h = options.h or options.height or 125
@@ -60,6 +72,7 @@ window.Kamira.BarChart = (target, data, options = {}) ->
   barSpace = h * (1 - barWeight) / data.length
 
   divideAt = options.divideAt
+  labelsRight = options.labelsRight
 
   showValues = options.showValues or false
   valueWidth = if showValues then 20 else 0
@@ -84,6 +97,8 @@ window.Kamira.BarChart = (target, data, options = {}) ->
       .attr('y', (d, i) -> i * (barHeight + barSpace) + barHeight/2 + barSpace/2)
       .attr('dy', '0.5em')
       .attr('class', labelClass)
+      .attr('text-anchor', if labelsRight then 'end' else 'start')
+      .attr('dx', if labelsRight then labelWidth else 0)
 
   if showValues
     svg.selectAll('text.value')

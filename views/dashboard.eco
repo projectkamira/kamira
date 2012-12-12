@@ -1,19 +1,19 @@
 <div class="row">
   <div class="span3">
     <div class="section-header">Overall Summary</div>
-    <div id="summary"></div>
+    <div id="summaryChart"></div>
   </div>
   <div class="span3">
     <div class="section-header">Data Availability</div>
-    <img src="/images/tmp/bar_chart.png">
+    <div id="availabilityChart"></div>
   </div>
   <div class="span3">
     <div class="section-header"><a href="/complexity">Complexity</a></div>
-    <img src="/images/tmp/bar_chart.png">
+    <div id="complexityChart"></div>
   </div>
   <div class="span3">
     <div class="section-header">Financial</div>
-    <img src="/images/tmp/bar_chart.png">
+    <div id="financialChart"></div>
   </div>
 </div>
 
@@ -21,41 +21,36 @@
   <div class="span12 section-header">Measure Status</div>
 </div>
 
-<div class="row">
-  <div class="span3">
-    <div id="measure-status"></div>
+<% for i in [0...@measures.length] by 4: %>
+  <div class="row">
+    <% slice = @measures.slice(i, i + 4) %>
+    <% for measure in slice: %>
+      <div class="span3" id="measure-<%= measure.id %>"></div>
+    <% end %>
   </div>
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-</div>
-<div class="row">
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-  <div class="span3">
-    <img src="/images/tmp/bar_chart2.png">
-  </div>
-</div>
+<% end %>
 
 <script>
   $(function() {
 
-    Kamira.SummaryBarChart('#summary', { good: 47, nominal: 79, poor: 31 });
+    var measures = window.measures = <%- JSON.stringify(@measures) %>;
 
-    Kamira.MeasureBarChart('#measure-status', { 'Data Availability': 'nominal', 'Complexity': 'good', 'Financial': 'poor' })
+    Kamira.SummaryBarChart(measures, '#summaryChart');
+
+    Kamira.SummaryBarChart(measures, '#availabilityChart', { category: 'availability' });
+
+    complexityCategoryMapping = {
+      simple: 'good',
+      nominal: 'nominal',
+      complex: 'poor',
+      untestable: 'poor'
+    }
+
+    Kamira.SummaryBarChart(measures, '#complexityChart', { category: 'complexity', categoryMapping: complexityCategoryMapping });
+
+    Kamira.SummaryBarChart(measures, '#financialChart', { category: 'financial' });
+
+    Kamira.MeasureBarChart({ 'Data Availability': 'nominal', 'Complexity': 'good', 'Financial': 'poor' }, '#measure-0004f');
 
   });
 </script>
