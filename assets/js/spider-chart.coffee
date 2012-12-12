@@ -29,7 +29,7 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
     nominal: 20
     complex: 50
     untestable: 65
-      color = (val) ->
+  color = (val) ->
     if val > qualityRange.untestable
       'untestable'
     else
