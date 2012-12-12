@@ -22,8 +22,8 @@ module.exports = (mongoose, db) ->
   # Throw some "data" out for now, just to test graph population
   ratings = ['good', 'nominal', 'poor']
   randomRating = -> ratings[Math.floor(Math.random() * 3)]
-  measureSchema.virtual('availability.rating').get -> randomRating()
-  measureSchema.virtual('financial.rating').get -> randomRating()
+  measureSchema.virtual('availability.rating').get -> @availabilityRating ||= randomRating()
+  measureSchema.virtual('financial.rating').get -> @financialRating ||= randomRating()
   measureSchema.virtual('rating').get ->
     complexity = switch @complexity.rating
       when 'simple' then 0
