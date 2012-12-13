@@ -1,7 +1,7 @@
 window.Kamira ||= {}
 
-window.Kamira.BarChartCategoryMapping ||= {}
-window.Kamira.BarChartCategoryMapping.complexity =
+Kamira.BarChartCategoryMapping ||= {}
+Kamira.BarChartCategoryMapping.complexity =
   simple: 'good'
   nominal: 'nominal'
   complex: 'poor'
@@ -13,9 +13,9 @@ window.Kamira.BarChartCategoryMapping.complexity =
 #
 #   target: selector indicating where chart should be drawn
 
-window.Kamira.MeasureBarChart = (measure, target) ->
+Kamira.MeasureBarChart = (measure, target) ->
   labels =
-    availability: 'Data Availability'
+    availability: 'Availability'
     complexity: 'Complexity'
     financial: 'Financial'
   valueLookup = poor: 1, nominal: 2, good: 3
@@ -23,7 +23,7 @@ window.Kamira.MeasureBarChart = (measure, target) ->
     rating = measure[category].rating
     rating = Kamira.BarChartCategoryMapping.complexity[rating] if category == 'complexity'
     { value: valueLookup[rating], class: rating, label: label }
-  Kamira.BarChart(values, target, w: 220, h: 90, barWeight: 0.8, labelWidth: 95, divideAt: 1, labelClass: 'smaller', labelsRight: true, domainMax: 3)
+  Kamira.BarChart(values, target, w: 220, h: 90, barWeight: 0.8, labelWidth: 70, divideAt: 1, labelClass: 'smaller', labelsRight: true, domainMax: 3)
 
 
 # Draw a summary horizontal bar chart using D3
@@ -38,7 +38,7 @@ window.Kamira.MeasureBarChart = (measure, target) ->
 # Note: the label is automatically capitalized; the pre-capitalized
 # version is used as the class name
 
-window.Kamira.SummaryBarChart = (measures, target, options = {}) ->
+Kamira.SummaryBarChart = (measures, target, options = {}) ->
   categoryMapping = Kamira.BarChartCategoryMapping[options.category]
   ratings = {}
   for measure in measures
@@ -73,7 +73,7 @@ window.Kamira.SummaryBarChart = (measures, target, options = {}) ->
 #     domainMax: maximum value, used if auto-scaling isn't desired
 #                (ie you want a max value higher than appears in the data)
 
-window.Kamira.BarChart = (data, target, options = {}) ->
+Kamira.BarChart = (data, target, options = {}) ->
 
   w = options.w or options.width  or 200
   h = options.h or options.height or 125
@@ -95,7 +95,7 @@ window.Kamira.BarChart = (data, target, options = {}) ->
 
   domainMax = options.domainMax || d3.max(data, (d) -> d.value)
 
-  window.xScale = d3.scale.linear()
+  xScale = d3.scale.linear()
     .domain([0, domainMax])
     .range([0, w - barOffset])
 

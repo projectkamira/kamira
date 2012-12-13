@@ -119,7 +119,6 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
     idContainer = div.append('div').attr('class', 'id')
     nameContainer = div.append('div').attr('class', 'name')
     if options.createLink
-      idContainer = idContainer.append('a').attr('href', "/measures/#{mData.id}")
       nameContainer = nameContainer.append('a').attr('href', "/measures/#{mData.id}")
     idContainer.text "NQF #{mData.id}:"
     nameContainer.text mData.name

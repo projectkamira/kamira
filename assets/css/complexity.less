@@ -1,11 +1,10 @@
 #complexity {
-  margin-top:20px;
+  margin-top: 20px;
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .legend {
-  // margin-left:0px;
-  color: grey;
+  color: @gray;
   font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -15,14 +14,14 @@
   width: 310px;
   margin: 5px;
   text-align: center;
-}
-
-.id a { 
-  color: grey ;
-  font-weight:bold;
-}
-.name a {
-  color: black;
+  .id {
+    color: @grayLight;
+    text-align: center;
+    font-weight: bold;
+  }
+  .name {
+    font-weight: bold;
+  }
 }
 
 .indicator {
@@ -32,20 +31,11 @@
   border-radius: 5px;
 }
 
-.low { background-color: #A4B269; }
-.nominal { background-color: #FFD479; }
-.high { background-color: #FF9100; }
-.extreme {background-color: #FF8888;}
+.low { background-color: @goodColor; }
+.nominal { background-color: @nominalColor; }
+.high { background-color: @poorColor; }
+.extreme {background-color: @badColor; }
 
-
-.chart .id {
-  color: #999;
-  text-align: center;
-}
-
-.chart .name {
-  font-weight: bold;
-}
 
 path.spider {
   stroke-opacity: 1;

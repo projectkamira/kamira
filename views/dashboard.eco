@@ -18,39 +18,34 @@
 </div>
 
 <div class="row">
-  <div class="span12 section-header">Measure Status</div>
+  <div class="span12 section-header">Measure Status <span style="font-size: 0.7em; color: red">(Note: only complexity data is real, other data is random)</span></div>
 </div>
 
 <% for i in [0...@measures.length] by 4: %>
   <div class="row">
     <% slice = @measures.slice(i, i + 4) %>
     <% for measure in slice: %>
-      <div class="span3 measure-status">
-        <div id="measure-<%= measure.id %>"></div>
-        <div class="rating <%= measure.rating %>"></div>
-        <div><%= measure.name %></div>
+      <div class="span3">
+        <div class="measure-status">
+          <div id="measure-<%= measure.id %>"></div>
+          <div class="rating <%= measure.rating %>"></div>
+          <div class="name"><a href="/measures/<%= measure.id %>"><%= measure.name %></a></div>
+        </div>
       </div>
     <% end %>
   </div>
 <% end %>
 
 <script>
+  var measures = window.measures = <%- JSON.stringify(@measures) %>;
   $(function() {
-
-    var measures = window.measures = <%- JSON.stringify(@measures) %>;
-
     Kamira.SummaryBarChart(measures, '#summaryChart');
-
     Kamira.SummaryBarChart(measures, '#availabilityChart', { category: 'availability' });
-
     Kamira.SummaryBarChart(measures, '#complexityChart', { category: 'complexity' });
-
     Kamira.SummaryBarChart(measures, '#financialChart', { category: 'financial' });
-
     for (var i = 0; i < measures.length; i++) {
       Kamira.MeasureBarChart(measures[i], '#measure-' + measures[i].id);
     }
-
   });
 </script>
 

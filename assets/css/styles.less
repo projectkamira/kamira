@@ -53,11 +53,22 @@ ul.nav {
   .smaller { font-size: 0.9em; }
 }
 
-.measure-status {
+.measure-status { 
+  .clearfix();
+  margin: 15px 0px;
   .rating {
-    width:24px;
-    height:24px;
-    border-radius: 12px;
+    width:30px;
+    height:30px;
+    border-radius: 15px;
+    float: left;
+    margin: 10px 21px;
+  }
+  .name {
+    font-weight: bold;
+    font-size: 0.9em;
+    line-height: 1.4em;
+    float: left;
+    width: 144px;
   }
   .good { background-color: @goodColor; }
   .nominal { background-color: @nominalColor; }
