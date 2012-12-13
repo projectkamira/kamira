@@ -1,0 +1,1 @@
+<%- @partial 'category-header', title: 'Financial Analysis' %>

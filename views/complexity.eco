@@ -1,3 +1,4 @@
+<%- @partial 'category-header', title: 'Complexity Analysis' %>
 <div class="row">
   <div id="complexityChart" class="span4">
   </div>

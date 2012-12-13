@@ -2,25 +2,29 @@ module.exports = (mongoose, db) ->
 
   Measure = require('../models/measure')(mongoose, db).model
 
-  @dashboard = (req, res) ->
-    # TODO refactor extract method
+  findAll = (callback) ->
     Measure.find (err, measures) ->
-      console.log 'err', err
       if err? or !measures?
         res.send 'unable to find any measures', 404
       else
-        res.render 'dashboard',
-          title: 'Dashboard'
-          measures: measures
+        callback(measures)
+
+  @dashboard = (req, res) ->
+    findAll (measures) ->
+      res.render 'dashboard',
+        title: 'Dashboard'
+        measures: measures
 
   @complexity = (req, res) ->
-    Measure.find (err, measures) ->
-      console.log 'err', err
-      if err? or !measures?
-        res.send 'unable to find any measures', 404
-      else
-        res.render 'complexity',
-          title: 'Complexity'
-          measures: measures
+    findAll (measures) ->
+      res.render 'complexity',
+        title: 'Complexity'
+        measures: measures
+
+  @financial = (req, res) ->
+    findAll (measures) ->
+      res.render 'financial',
+        title: 'Financial Data'
+        measures: measures
 
   return this

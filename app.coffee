@@ -34,6 +34,7 @@ measure = require('./routes/measures')(mongoose, db)
 
 app.get     '/',              home.dashboard
 app.get     '/complexity',    home.complexity
+app.get     '/financial',     home.financial
 # app.get     '/measures',      measure.index
 app.get     '/measures/:id',  measure.show
 # app.post    '/measures/:id',  measure.create

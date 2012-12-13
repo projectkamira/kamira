@@ -12,7 +12,7 @@
     <div id="complexityChart"></div>
   </div>
   <div class="span3">
-    <div class="section-header">Financial</div>
+    <div class="section-header"><a href="/financial">Financial</a></div>
     <div id="financialChart"></div>
   </div>
 </div>
