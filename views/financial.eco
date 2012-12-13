@@ -1,1 +1,13 @@
 <%- @partial 'category-header', title: 'Financial Analysis' %>
+
+
+<div id="financialChart"></div>
+
+<script>
+  var measures = window.measures = <%- JSON.stringify(@measures) %>;
+  $(function() { 
+    Kamira.SummaryBarChart(measures, '#financialChart', { category: 'financial' });
+  });
+</script>
+
+<%- js 'bar-chart' %>
