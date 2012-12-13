@@ -52,10 +52,8 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
   # does it make sense to use data(json).enter() ?
   # sort JSON by largest complexity score first
   for mData in json.sort((a, b) -> d3.max(d3.keys(chartHelper), (key) -> b.complexity[key]) - d3.max(d3.keys(chartHelper), (key) -> a.complexity[key]))
-    # append header
-    div = chart.append('div').attr('class','chart')
     # start in on svg
-    parent = div.append('svg').attr('width', w+margin).attr('height', h+margin)
+    parent = chart.insert('svg', ':first-child').attr('width', w+margin).attr('height', h+margin)
       .append('svg:g').attr('transform', "translate(#{(w+margin)/2}, #{(h+margin)/2})")
 
     parent.append('svg:circle').attr('r', scale(0)).attr('class', 'origin')
@@ -115,11 +113,3 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
           x = d3.select(@).attr 'x'
           y = d3.select(@).attr 'y'
           "rotate(#{angle(i) * 180 / Math.PI} #{x} #{y})"
-
-    idContainer = div.append('div').attr('class', 'id')
-    nameContainer = div.append('div').attr('class', 'name')
-    if options.createLink
-      nameContainer = nameContainer.append('a').attr('href', "/measures/#{mData.id}")
-    idContainer.text "NQF #{mData.id}:"
-    nameContainer.text mData.name
-

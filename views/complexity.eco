@@ -34,13 +34,27 @@
   </div>
 </div>
 
-<div id="complexity" class="row">
+<div id="complexity">
+<% for i in [0...@measures.length] by 3: %>
+  <div class="row">
+    <% for measure in @measures.slice(i, i + 3): %>
+      <div class="span4">
+        <div class="chart" id="complexityChart-<%= measure.id %>">
+          <div class="id">NQF <%= measure.id %>:</div>
+          <div class="name"><a href="/measures/<%= measure.id %>"><%= measure.name %></a></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
 </div>
 
 <script>
   var measures = window.measures = <%- JSON.stringify(@measures) %>;
-  $(function() { 
-    Kamira.SpiderChart(measures, '#complexity', {createLink: true, w: 225, h: 225});
+  $(function() {
+    for (var i = 0; i < measures.length; i++) {
+      Kamira.SpiderChart([measures[i]], '#complexityChart-' + measures[i].id, {width: 225, height: 225});
+    }
     Kamira.SummaryBarChart(measures, '#complexityChart', { category: 'complexity' });
   });
 </script>
