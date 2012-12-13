@@ -52,6 +52,7 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
   # does it make sense to use data(json).enter() ?
   # sort JSON by largest complexity score first
   for mData in json.sort((a, b) -> d3.max(d3.keys(chartHelper), (key) -> b.complexity[key]) - d3.max(d3.keys(chartHelper), (key) -> a.complexity[key]))
+    complexity = mData.complexity
     # start in on svg
     parent = chart.insert('svg', ':first-child').attr('width', w+margin).attr('height', h+margin)
       .append('svg:g').attr('transform', "translate(#{(w+margin)/2}, #{(h+margin)/2})")
@@ -67,7 +68,7 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
 
     # draw line across all data points
     nums = for key of chartHelper
-      mData.complexity[key]
+      complexity[key]
     parent.selectAll('path.spider')
       .data([nums]).enter()
       .append('svg:path')
@@ -88,27 +89,27 @@ window.Kamira.SpiderChart = (measures, target, options = {}) ->
       # draw axis
       group.call(d3.svg.axis().tickValues(0).tickSize(1).scale(scale))
       # circle
-      group.append('svg:circle').attr('class', "#{helper.key} #{color(mData.complexity[helper.key])}").attr('r', 4)
-        .attr('cx', scale(mData.complexity[helper.key])).attr('value', mData.complexity[helper.key])
+      group.append('svg:circle').attr('class', "#{helper.key} #{color(complexity[helper.key])}").attr('r', 4)
+        .attr('cx', scale(complexity[helper.key])).attr('value', complexity[helper.key])
       # values
-      valueOffset = if mData.complexity[helper.key] <= qualityRange.complex
+      valueOffset = if complexity[helper.key] <= qualityRange.complex
         12
-      else if mData.complexity[helper.key] <= qualityRange.untestable
+      else if complexity[helper.key] <= qualityRange.untestable
         -12
       else
        -21
-      if mData.complexity[helper.key] > qualityRange.untestable
+      if complexity[helper.key] > qualityRange.untestable
         rWidth = 30; rHeight = 20
-        group.append('svg:rect').attr('class', color(mData.complexity[helper.key]))
+        group.append('svg:rect').attr('class', color(complexity[helper.key]))
           .attr('width', rWidth).attr('height', rHeight)
           .attr('rx', 5)
-          .attr('x', scale(mData.complexity[helper.key]) + valueOffset - rWidth/2).attr('y', -rHeight/2)
+          .attr('x', scale(complexity[helper.key]) + valueOffset - rWidth/2).attr('y', -rHeight/2)
           .attr 'transform', ->
-            x = scale(mData.complexity[helper.key]) + valueOffset
+            x = scale(complexity[helper.key]) + valueOffset
             y = 0
             "rotate(#{angle(i) * 180 / Math.PI} #{x} #{y})"
-      group.append('svg:text').attr('class', "value #{color(mData.complexity[helper.key])}").text(mData.complexity[helper.key])
-        .attr('x', scale(mData.complexity[helper.key]) + valueOffset).attr('y', 0)
+      group.append('svg:text').attr('class', "value #{color(complexity[helper.key])}").text(complexity[helper.key])
+        .attr('x', scale(complexity[helper.key]) + valueOffset).attr('y', 0)
         .attr 'transform', (d) ->
           x = d3.select(@).attr 'x'
           y = d3.select(@).attr 'y'
