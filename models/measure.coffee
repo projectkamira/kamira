@@ -243,7 +243,15 @@ measureSchema.virtual('complexity.rating').get ->
 ratings = ['good', 'nominal', 'poor']
 randomRating = -> ratings[Math.floor(Math.random() * 3)]
 measureSchema.virtual('availability.rating').get -> @availabilityRating ||= randomRating()
+
+# EXPLAINME are these supposed to be empty functions?
+measureSchema.virtual('financial.high').get ->
+measureSchema.virtual('financial.low').get ->
+measureSchema.virtual('financial.average').get ->
+measureSchema.virtual('financial.untreated_cost').get ->
+  Math.floor(Math.random() * 500)
 measureSchema.virtual('financial.rating').get -> @financialRating ||= randomRating()
+
 measureSchema.virtual('rating').get ->
   complexity = switch @complexity.rating
     when 'simple' then 0
