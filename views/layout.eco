@@ -18,9 +18,15 @@
           <li><a href="#">Logout</a></li>
         </ul>
       </nav>
+      <form class="form-search measure-lookup" style="float:right">
+        <input type="text" class="input-large search-query" placeholder="Search">
+        <!-- <button type="submit" class="btn">Search</button> -->
+      </form>
       <div id="title">Kamira</div>
-      <%- @body %>
+      <div class="body">
+        <%- @body %>
+      </div>
     </div>
-    <%- js 'd3.v2' %>
+    <%- js 'kamira' %>
   </body>
 </html>
