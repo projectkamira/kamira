@@ -1,30 +1,14 @@
-module.exports = (mongoose, db) ->
+exports.dashboard = (req, res) ->
+  res.render 'dashboard',
+    title: 'Dashboard'
+    measures: req.measures
 
-  Measure = require('../models/measure')(mongoose, db).model
+exports.complexity = (req, res) ->
+  res.render 'complexity',
+    title: 'Complexity'
+    measures: req.measures
 
-  findAll = (callback) ->
-    Measure.find (err, measures) ->
-      if err? or !measures?
-        res.send 'unable to find any measures', 404
-      else
-        callback(measures)
-
-  @dashboard = (req, res) ->
-    findAll (measures) ->
-      res.render 'dashboard',
-        title: 'Dashboard'
-        measures: measures
-
-  @complexity = (req, res) ->
-    findAll (measures) ->
-      res.render 'complexity',
-        title: 'Complexity'
-        measures: measures
-
-  @financial = (req, res) ->
-    findAll (measures) ->
-      res.render 'financial',
-        title: 'Financial Data'
-        measures: measures
-
-  return this
+exports.financial = (req, res) ->
+  res.render 'financial',
+    title: 'Financial Data'
+    measures: req.measures

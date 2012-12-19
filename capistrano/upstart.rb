@@ -14,6 +14,7 @@ stop on shutdown
 script
   export HOME="/root"
   export PORT="80"
+  export NODE_ENV="production"
   cd #{current_path}
   exec /usr/bin/coffee #{current_path}/#{app_file} >> #{shared_path}/log/#{application}.log 2>&1
 end script
