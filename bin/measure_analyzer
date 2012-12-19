@@ -28,6 +28,9 @@ utils = if fs.statSync(program.utils).isDirectory()
 else
   utils: fs.readFileSync(program.utils).toString()
 
+db = mongoose.createConnection 'mongodb://localhost/pophealth-development', ->
+  console.log "Connected to the #{db.name} MongoDB collection"
+
 # create measure analyzer, pass in utils
 analyzer = new MeasureAnalyzer(utils, stage: "stage#{program.stage}")
 

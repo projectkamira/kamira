@@ -1,8 +1,10 @@
 mongoose = require 'mongoose'
 
 measureSchema = new mongoose.Schema
-  id: String
+  nqf_id: String
+  hqmf_id: String
   name: String
+  numerator: Object
   complexity:
     numerator:    Number
     denominator:  Number
@@ -245,11 +247,11 @@ randomRating = -> ratings[Math.floor(Math.random() * 3)]
 measureSchema.virtual('availability.rating').get -> @availabilityRating ||= randomRating()
 
 # EXPLAINME are these supposed to be empty functions?
-measureSchema.virtual('financial.high').get ->
 measureSchema.virtual('financial.low').get ->
 measureSchema.virtual('financial.average').get ->
+measureSchema.virtual('financial.high').get ->
 measureSchema.virtual('financial.untreated_cost').get ->
-  Math.floor(Math.random() * 500)
+  Math.floor(Math.random() * 2000)
 measureSchema.virtual('financial.rating').get -> @financialRating ||= randomRating()
 
 measureSchema.virtual('rating').get ->
