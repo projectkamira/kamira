@@ -26,6 +26,10 @@
       <div class="body">
             <%- @body %>
       </div>
+      <footer>
+        <div class="pull-right"><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></div>
+        <strong>Kamira</strong>
+      </footer>
     </div>
     <script>
       var measures = <%- JSON.stringify(@measures) %>;
