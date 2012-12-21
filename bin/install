@@ -1,20 +1,20 @@
 #!/usr/bin/env coffee
 program = require 'commander'
-_ = require 'underscore'
-mongoose = require('mongoose')
+# _ = require 'underscore'
+mongoose = require 'mongoose'
 
 
 program.version('0.0.1')
   .option('-d, --database <path>', 'database name')
   .parse(process.argv)
 
-Measure = require('../models/measure')(mongoose, db).model
+mongoose.connect "mongodb://localhost/#{program.database}", ->
+  console.log "Connected to the #{mongoose.connection.name} MongoDB collection"
+
+Measure = require '../models/measure'
 # Util = require("../models/util")(mongoose, db).model
 MeasureAnalyzer = require '../lib/measure-analyzer'
 
-
-db = mongoose.createConnection "mongodb://localhost/#{program.database}", ->
-  console.log "Connected to the #{db.name} MongoDB collection"
 analyzer = new MeasureAnalyzer(utils, stage: "stage2")
 
 # Util.find (err, utils) ->
@@ -26,5 +26,8 @@ Measure.find (err, measures) ->
     # for measure in measure
     measure = measures[0]
     mappingFunction = measure.map_fn.replace(/<%=.*effective_date.*%>/, 1347983662).replace('<%= init_js_frameworks %>', '')
-    analysis = analyzer.analyze(mappingFunction, measure.nqf_id)
+    # analysis = analyzer.analyze(mappingFunction, measure.nqf_id)
+    console.log 'measure', measure#, 'analysis', analysis
     # console.log(analysis.complexity)
+
+mongoose.disconnect()

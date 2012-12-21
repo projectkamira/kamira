@@ -1,11 +1,3 @@
-module.exports = (mongoose, db) ->
-  utilSchema = new mongoose.Schema
-    _id: String
-  @model = db.model 'system.js', utilSchema
-  return this
-
-
-
-
-
-
+utilSchema = new mongoose.Schema
+  _id: String
+module.exports = db.model 'system.js', utilSchema

@@ -264,6 +264,6 @@ measureSchema.virtual('rating').get ->
   financial = ratings.indexOf(@financial.rating)
   ratings[Math.round((complexity + availability + financial) / 3)]
 
-measureSchema.set('toJSON', { virtuals: true })
+measureSchema.set 'toJSON', virtuals: true
 
 module.exports = mongoose.model 'Measure', measureSchema
