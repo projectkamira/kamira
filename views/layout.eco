@@ -7,28 +7,30 @@
   </head>
   <body>
     <div class="container">
-      <nav>
-        <ul class="nav top-nav">
-          <li><a href="#">My Account</a></li>
-          <li class="divider"></li>
-          <li><a href="/help">Help</a></li>
-          <li class="divider"></li>
-          <li><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></li>
-          <li class="divider"></li>
-          <li><a href="#">Logout</a></li>
-        </ul>
-      </nav>
-      <form class="form-search measure-lookup" style="float:right">
-        <input type="text" class="input-large search-query" placeholder="Search">
-        <!-- <button type="submit" class="btn">Search</button> -->
-      </form>
-      <div id="title">Kamira</div>
+      <header>
+        <nav>
+          <ul class="nav top-nav">
+            <li><a href="#">My Account</a></li>
+            <li class="divider"></li>
+            <li><a href="/help">Help</a></li>
+            <li class="divider"></li>
+            <li><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </nav>
+        <form class="form-search measure-lookup" style="float:right">
+          <input type="text" class="input-large search-query" placeholder="Search">
+          <!-- <button type="submit" class="btn">Search</button> -->
+        </form>
+        <div class="title">Kamira</div>
+      </header>
       <div class="body">
             <%- @body %>
       </div>
       <footer>
         <div class="pull-right"><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></div>
-        <strong>Kamira</strong>
+        <div class="title">Kamira</div>
       </footer>
     </div>
     <script>
