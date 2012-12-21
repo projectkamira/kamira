@@ -3,9 +3,9 @@
 
 $ ->
   $('.measure-lookup .search-query').typeahead
-    source: (query, process) ->
-      $.getJSON '/search', {term: query}, (results) -> process(results)
-    matcher: (item) -> yes # taken care of by source
+    source: measures
+    matcher: (item) ->
+      ~item.name.toLowerCase().indexOf(@query.toLowerCase()) or ~item.id.indexOf(@query)
     # TODO decide upon sort algorithm (below is heavily based on Twitter Bootstrap's)
     sorter: (items) ->
       beginswith = []
@@ -15,7 +15,7 @@ $ ->
         json = JSON.stringify(item) # need to convert to string, as this will be saved to the DOM
         unless item.name.toLowerCase().indexOf(@query.toLowerCase())
           beginswith.push(json)
-        else if ~item.name.indexOf(this.query)
+        else if ~item.name.indexOf(@query)
           caseSensitive.push(json)
         else
           caseInsensitive.push(json)

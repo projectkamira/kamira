@@ -37,7 +37,6 @@
 <% end %>
 
 <script>
-  var measures = window.measures = <%- JSON.stringify(@measures) %>;
   $(function() {
     Kamira.SummaryBarChart(measures, '#summaryChart');
     Kamira.SummaryBarChart(measures, '#availabilityChart', { category: 'availability' });

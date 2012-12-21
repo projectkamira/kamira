@@ -24,9 +24,12 @@
       </form>
       <div id="title">Kamira</div>
       <div class="body">
-        <%- @body %>
+            <%- @body %>
       </div>
     </div>
+    <script>
+      var measures = <%- JSON.stringify(@measures) %>;
+    </script>
     <%- js 'kamira' %>
   </body>
 </html>
