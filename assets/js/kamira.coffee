@@ -1,5 +1,6 @@
 #= require 'd3.v2'
 #= require 'bootstrap-typeahead'
+#= require 'bootstrap-tab'
 
 $ ->
   $('.measure-lookup .search-query').typeahead

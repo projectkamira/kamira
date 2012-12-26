@@ -1,8 +1,24 @@
-<div id="complexity"></div>
+<%- @partial 'category-header', title: @measure.name %>
+
+<ul class="nav nav-pills">
+  <li class="active"><a href="#complexity" data-toggle="tab">Complexity</a></li>
+  <li><a href="#financial" data-toggle="tab">Financial</a></li>
+  <li><a href="#dataAvailability" data-toggle="tab">Data Availability</a></li>
+</ul>
+<div class="tab-content">
+  <div class="tab-pane active" id="complexity"></div>
+  <div class="tab-pane" id="financial">
+    <%- @partial 'measures/financial', financial: @measure.financial %>
+  </div>
+  <div class="tab-pane" id="dataAvailability">
+    <%- @partial 'measures/data-availability', measure: @measure %>
+  </div>
+</div>
+
 <script>
   var measure = window.measure = <%- JSON.stringify(@measure) %>;
   $(function() {
-    new Kamira.SpiderChart([measure], '#complexity');
+    new Kamira.SpiderChart([measure], '#complexity', {width: 400, height: 400});
   });
 </script>
 <%- js 'spider-chart' %>

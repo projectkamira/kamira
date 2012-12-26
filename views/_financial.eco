@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="span3">
+    <div class="section-header">Financial Status</div>
+    <div class="measure-status">
+      <div class="rating <%= @financial.rating %>"></div>
+      <div class="name"><%= @financial.rating %></div><%#- TODO make text larger here %>
+    </div>
+  </div>
+  <div class="span3">
+    <div class="section-header">Est. Short Term Cost</div>
+  </div>
+  <div class="span6">
+    <div class="section-header">Cost Comparison</div>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <div class="section-header">Non-treatment Costs</div>
+  </div>
+  <div class="span3">
+    <div class="section-header">Potential Cost Savings</div>
+  </div>
+  <div class="span3">
+    <div class="section-header">Cost Distribution</div>
+  </div>
+  <div class="span3">
+    <div class="section-header">Cost Trends</div>
+  </div>
+</div>
