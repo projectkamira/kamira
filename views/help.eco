@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="span12">
+    <h1 class="category-header">Frequently Asked Questions</h1>
+
+    <h3 class="tag">What is Kamira?</h3>
+    <p>Kamira is an open source software project designed to measure Clinical Quality Measures (CQMs) based on the availability of their supporting data, their financial impact, and the complexity of their calculations.
+    </p>
+
+    <h3 class="tag">What are Kamira's objectives?</h3>
+    <p>Kamira provides a simple interface for assessing the quality of CQMs along multiple dimensions. The resulting CQM quality metrics can help drive decisions on measure implementation and future measure development, increasing the effectiveness of Meaningful Use over the long term.</p>
+
+    <h3 class="tag">Who is funding the Kamira project?</h3>
+    <p>Kamira is currently funded as an internal research project of the MITRE Corporation.</p>
+
+    <h3 class="tag">What web browsers can be used with Kamira?</h3>
+    <p>Kamira will work with most modern browsers, including Firefox, Chrome, Safari, Opera, and IE9. IE8 is not supported at this time.</p>
+
+    <h3 class="tag">What platform and programming languages does Kamira use?</h3>
+    <p>Kamira is developed using the following tools:</p>
+    <ul>
+      <li>Coffeescript (a language that compiles to JavaScript, and has many similarities to JavaScript)</li>
+      <li>MongoDB (an open source document-oriented database)
+      <li>Node.js (a server-side JavaScript environment based on Google's V8 JavaScript engine)</li>
+      <li>Express (a web application framework built on top of Node.js)</li>
+      <li>D3 (a JavaScript library for displaying data)</li>
+    </ul>
+
+    <h3 class="tag">What open source license does Kamira use?</h3>
+    <p>Kamira is licensed under the Apache 2.0 distribution license.</p>
+
+    <h3 class="tag">How is Kamira related to project popHealth?</h3>
+    <p>Kamira's data model for representing CQMs is based on the data model used in popHealth.</p>
+
+  </div>
+</div>
