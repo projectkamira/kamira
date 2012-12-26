@@ -1,0 +1,21 @@
+<div class="row" style="clear:both">
+  <div class="span6">
+    <h2 class="tag">What is Kamira?</h2>
+    <p>Kamira is an open source software project designed to measure Clinical Quality Measures (CQMs) based on the availability of their supporting data, their financial impact, and the complexity of their calculations.
+    </p>
+  </div>
+  <div class="span6">
+    <h2>Data Availability</h2>
+    <p>Many of the clinical attributes need for CQMs are not required attributes for EHR certification. While an EHR could provide these attributes, many may not since these attributes are optional. Kamira evaluates CQMs based on the availability of the data needed to compute the measure for Meaningful Use Stages 1 and 2, with plans to extend support to Meaningful Use Stage 3.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <h2>Financial</h2>
+    <p>To achieve most CQMs, providers must take some sort of action. The specific type of action can have varying financial costs that may or may not be fully compensated by payers such as the Centers for Medicare and Medicaid Services (CMS). Initially, Kamira will focus on identifying the short-term costs associated with addressing gaps in care with the CQMs. Kamira will import available data on costs associated with individual CQMs and provide aggregate views to evaluate and compare CQMs based on that data. Kamira will not, initially, address the potential savings or cost of meeting or failing to achieve a measure.</p>
+  </div>
+  <div class="span6">
+    <h2>Complexity</h2>
+    <p>The complexity of the computations required to calculate a CQM score may affect the likelihood that a measure will be used, especially if simpler measures are favored over more complex ones. Kamira will develop automated approaches to measuring complexity, including cyclomatic complexity, automated truth table analysis, and other methods. Additionally, the approach will be vetted with both EHR vendor and government stakeholders.</p>
+  </div>
+</div>

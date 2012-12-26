@@ -12,3 +12,13 @@ exports.financial = (req, res) ->
   res.render 'financial',
     title: 'Financial Data'
     measures: req.measures
+
+exports.help = (req, res) ->
+  res.render 'help',
+    title: 'Help'
+    measures: req.measures
+
+exports.about = (req, res) ->
+  res.render 'about',
+    title: 'About'
+    measures: req.measures

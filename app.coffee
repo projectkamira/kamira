@@ -45,6 +45,8 @@ measure = require './routes/measures'
 app.get     '/',              home.dashboard
 app.get     '/complexity',    home.complexity
 app.get     '/financial',     home.financial
+app.get     '/help',          home.help
+app.get     '/about',         home.about
 app.get     '/measures/:id',  measure.show
 
 # START ME UP

@@ -10,20 +10,18 @@
       <header>
         <nav>
           <ul class="nav top-nav">
-            <li><a href="#">My Account</a></li>
-            <li class="divider"></li>
             <li><a href="/help">Help</a></li>
             <li class="divider"></li>
-            <li><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></li>
+            <li><a href="/about">About</a></li>
             <li class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></li>
           </ul>
         </nav>
         <form class="form-search measure-lookup" style="float:right">
           <input type="text" class="input-large search-query" placeholder="Search">
           <!-- <button type="submit" class="btn">Search</button> -->
         </form>
-        <div class="title">Kamira</div>
+        <a href="/" class="logo"><div class="title">Kamira</div></a>
       </header>
       <div class="body">
             <%- @body %>
