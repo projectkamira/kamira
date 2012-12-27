@@ -21,7 +21,7 @@
           <input type="text" class="input-large search-query" placeholder="Search">
           <!-- <button type="submit" class="btn">Search</button> -->
         </form>
-        <a href="/" class="logo"><div class="title">Kamira</div></a>
+        <a href="/" class="logo"><span class="title">Kamira</span></a>
       </header>
       <div class="body">
             <%- @body %>
