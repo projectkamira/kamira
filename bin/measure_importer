@@ -1,9 +1,9 @@
 #!/usr/bin/env coffee
 
 mongoose = require 'mongoose'
-db = mongoose.createConnection 'mongodb://localhost/kamira'
+mongoose.connect 'mongodb://localhost/kamira'
 
-Measure = require('../models/measure')(mongoose, db).model
+Measure = require '../models/measure'
 
 fs = require 'fs'
 stdin = fs.readFileSync('/dev/stdin').toString()
