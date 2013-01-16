@@ -6,7 +6,7 @@ $ ->
   $('.measure-lookup .search-query').typeahead
     source: measures
     matcher: (item) ->
-      ~item.name.toLowerCase().indexOf(@query.toLowerCase()) or ~item.id.indexOf(@query)
+      ~item.name.toLowerCase().indexOf(@query.toLowerCase()) or ~"#{item.nqf_id}#{item.sub_id or ''}".indexOf(@query)
     # TODO decide upon sort algorithm (below is heavily based on Twitter Bootstrap's)
     sorter: (items) ->
       beginswith = []
@@ -24,7 +24,7 @@ $ ->
     highlighter: (item) ->
       item = JSON.parse(item)
       query = @query.replace /[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&'
-      display = "#{item.id}: #{item.name}"
+      display = "#{item.nqf_id}#{item.sub_id or ''}: #{item.name}"
       display.replace new RegExp("(#{query})", 'ig'), ($1, match) -> "<strong>#{match}</strong>"
     updater: (item) ->
       item = JSON.parse(item)

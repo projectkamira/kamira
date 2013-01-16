@@ -10,8 +10,8 @@ cons = require 'consolidate'
 
 filters = require './filters'
 
-mongoose.connect 'mongodb://localhost/kamira', ->
-  console.log "Connected to MongoDB"
+mongoose.connect 'mongodb://localhost/cypress_development', ->
+  console.log "Connected to the #{mongoose.connection.name} MongoDB collection"
 
 
 # CONFIGURATION
@@ -26,6 +26,7 @@ app.use express.bodyParser()
 app.use express.methodOverride()
 app.use require('connect-assets')()
 app.use express.static(path.join(__dirname, 'public'))
+app.use express.errorHandler()
 app.use filters.setupMeasures
 
 app.configure 'development', ->
@@ -35,7 +36,6 @@ app.configure 'production', ->
   app.use express.logger(express.logger.default + ' ":response-time ms"')
 
 app.use app.router
-app.use express.errorHandler()
 
 
 # ROUTES

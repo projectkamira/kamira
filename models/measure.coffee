@@ -13,6 +13,7 @@ measureSchema = new mongoose.Schema
     exclusions:   Number
     exceptions:   Number
 
+measureSchema.methods.url = -> "#{this.nqf_id}#{this.sub_id or ''}"
 # Calculate numerator costs of a measure; this is an experimental first pass and will likely change substantially
 # PWKFIX: Pass costs in for now, eventually grab them from DB; they are a hash of objects on OID with min/max keys
 measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->

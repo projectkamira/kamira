@@ -27,9 +27,9 @@
     <% for measure in slice: %>
       <div class="span3">
         <div class="measure-status">
-          <div id="measure-<%= measure.id %>"></div>
+          <div id="measure-<%= measure.nqf_id %><%= measure.sub_id %>"></div>
           <div class="rating <%= measure.rating %>"></div>
-          <div class="name"><a href="/measures/<%= measure.id %>"><%= measure.name %></a></div>
+          <div class="name"><a href="/measures/<%= measure.url() %>"><%= measure.name %></a></div>
         </div>
       </div>
     <% end %>
@@ -43,7 +43,7 @@
     Kamira.SummaryBarChart(measures, '#complexityChart', { category: 'complexity' });
     Kamira.SummaryBarChart(measures, '#financialChart', { category: 'financial' });
     for (var i = 0; i < measures.length; i++) {
-      Kamira.MeasureBarChart(measures[i], '#measure-' + measures[i].id);
+      Kamira.MeasureBarChart(measures[i], '#measure-' + measures[i].nqf_id + (measures[i].sub_id || ''));
     }
   });
 </script>
