@@ -38,13 +38,14 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
     prefix =  (new Array(indent)).join("|  ")
     if typeof(msg) == 'object' || typeof(msg) == 'array' 
       console.log(msg)
-    else  
+    else
       console.log("#{prefix}#{msg}")
 
   # Track details on what we do and do not have cost information for
   costAvailabilityDetails = {}
 
   alreadySeen = {} # Track the costs we've already included in the calculation elsewhere so we don't double count
+
   filterTypes = {
                 "transfer_to":[""], 
                 "transefer_from": [""],
@@ -65,11 +66,12 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
   filterItem = (item) ->
     definition = filterTypes[item.definition]
     if (item.negated? || !definition || definition.indexOf(item.status) == -1)
-      logger "Item not found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
+      logger "Item NOT IN filter list:  #{item.title} (#{item.definition}/#{item.status}/#{definition})"
       return false
     else
-      logger "Item  found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
+      logger "Item IN filter list: #{item.title} (#{item.definition}/#{item.status}/#{definition})"
       return  true
+
   # RD: Look up the cost of a single item, without recursing; returns null if we can't look up or if already seen
   # RD : If the item is negated need to return null? not doing something is free
   lookupSingle = (item) ->
@@ -83,9 +85,11 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
       if item.specific_occurrence?
         # Not sure this is right?  SHould this map the occurance id and not hte code list as it could be reused?
         if alreadySeen[item.code_list_id]?[item.specific_occurrence]?
-          logger " specific occurance #{item.specific_occurrence} #{item.description} #{item.code_list_id} already seen"
-          return null 
-        alreadySeen[item.code_list_id] = {}
+          logger "  ALREADY SEEN: specific occurance #{item.specific_occurrence} #{item.description} #{item.code_list_id}"
+          return null
+
+        logger "  FIRST TIME SEEN: specific occurance #{item.specific_occurrence} #{item.description} #{item.code_list_id}"
+        alreadySeen[item.code_list_id] ||= {}
         alreadySeen[item.code_list_id][item.specific_occurrence] = true
 
       if costs[item.code_list_id]
@@ -94,7 +98,7 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
           costs: costs[item.code_list_id]
         return costs[item.code_list_id]
       else
-        logger "Need cost information for: #{item.title} [#{item.code_list_id}]"
+        logger "NO COST INFO: #{item.title} [#{item.code_list_id}]"
         costAvailabilityDetails[item.code_list_id] =
           title: item.title
         return null
@@ -118,12 +122,12 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
       else  
         switch conjunction
           when 'or'
-            logger "OR MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
+            logger "OR MIN: #{ (r.min for r in subResults)}  MAX: #{(r.max for r in subResults)}"
             # For OR min is the min of all mins, and max is the max of all maxes
             min: Math.min (r.min for r in subResults)...
             max: Math.max (r.max for r in subResults)...
           when 'and'
-            logger "AND MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
+            logger "AND MIN: #{ (r.min for r in subResults)}  MAX: #{(r.max for r in subResults)}"
            
             # For AND min is the sum of all mins, and max is the sum of all maxes
             min: (r.min for r in subResults).reduce (x, y) -> x + y
@@ -137,9 +141,9 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
     if item.temporal_references? 
       logger "Temporal references #{item.title}"
       for tr in item.temporal_references
-        logger "Reference type #{tr.type}"
+        logger "* Reference type: #{tr.type}"
         itemCosts.push(calculateRecursive(tr.reference)) 
-      logger "Finished Temporal references #{item.title}"
+      logger "FIN Temporal references #{item.title}"
     return itemCosts
 
 
@@ -160,10 +164,10 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
     return min_max
 
   handleConjunction = (item) ->
-    logger "Conjunction #{item.conjunction}"
+    logger "CONJ #{item.conjunction}"
     subResults = (calculateRecursive(i) for i in item.items)
     min_max =  calculateMinMax(subResults, item.conjunction)
-    logger "Finished Conjunction #{item.conjunction}"
+    logger "FIN CONJ #{item.conjunction}"
     return min_max
 
   # Calculate the cost of a tree of items recursively
@@ -202,8 +206,11 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
           return min_max
 
       else
-        logger "Unrecognized item:"
-        logger item
+        if typeof(item) == 'string'
+          logger "Unrecognized item: #{item}"
+        else
+          logger "Unrecognized item:"
+          logger item
         null
     finally
       indent -= 1
