@@ -12,7 +12,7 @@ measureSchema = new mongoose.Schema
 
 # Calculate numerator costs of a measure; this is an experimental first pass and will likely change substantially
 # PWKFIX: Pass costs in for now, eventually grab them from DB; they are a hash of objects on OID with min/max keys
-measureSchema.methods.calculateNumeratorCosts = (costs)->
+measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
 
   # PWKFIX: Need to handle
   #   1) repeating items (just look at specific occurrances? What if the different ones would calc differently?)
@@ -31,17 +31,18 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
   # Break down numerator into codes via recursive descent, use conjunctions
   # (and/or) to drive cost combination calculations, apply costs
 
-  logger = console.log 
-  
   indent = 0
-    
   
-  console.log = (msg) ->
+  logger = (msg) ->
+    return unless options.logging
     prefix =  (new Array(indent)).join("|  ")
     if typeof(msg) == 'object' || typeof(msg) == 'array' 
-      logger(msg)
+      console.log(msg)
     else  
-      logger("#{prefix}#{msg}")
+      console.log("#{prefix}#{msg}")
+
+  # Track details on what we do and do not have cost information for
+  costAvailabilityDetails = {}
 
   alreadySeen = {} # Track the costs we've already included in the calculation elsewhere so we don't double count
   filterTypes = {
@@ -64,10 +65,10 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
   filterItem = (item) ->
     definition = filterTypes[item.definition]
     if (item.negated? || !definition || definition.indexOf(item.status) == -1)
-      console.log "Item not found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
+      logger "Item not found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
       return false
     else
-      console.log "Item  found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
+      logger "Item  found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
       return  true
   # RD: Look up the cost of a single item, without recursing; returns null if we can't look up or if already seen
   # RD : If the item is negated need to return null? not doing something is free
@@ -82,15 +83,22 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
       if item.specific_occurrence?
         # Not sure this is right?  SHould this map the occurance id and not hte code list as it could be reused?
         if alreadySeen[item.code_list_id]?[item.specific_occurrence]?
-          console.log " specific occurance #{item.specific_occurrence} #{item.description} #{item.code_list_id} already seen"
+          logger " specific occurance #{item.specific_occurrence} #{item.description} #{item.code_list_id} already seen"
           return null 
         alreadySeen[item.code_list_id] = {}
         alreadySeen[item.code_list_id][item.specific_occurrence] = true
 
-      return costs[item.code_list_id] if costs[item.code_list_id]
-          
-      console.log "Need cost information for: #{item.title} [#{item.code_list_id}]"
-      return null
+      if costs[item.code_list_id]
+        costAvailabilityDetails[item.code_list_id] =
+          title: item.title
+          costs: costs[item.code_list_id]
+        return costs[item.code_list_id]
+      else
+        logger "Need cost information for: #{item.title} [#{item.code_list_id}]"
+        costAvailabilityDetails[item.code_list_id] =
+          title: item.title
+        return null
+
     else
       return null
 
@@ -100,42 +108,43 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
     subResults = (r for r in items when r) # Filter out nulls
     if subResults.length > 0
       if count 
-        console.log "have a count of #{count}"
-        # For OR min is the min of all mins, and max is the *min* of all maxes
+        logger "have a count of #{count}"
+        # For OR min is the min of all mins, and max is the max of all maxes
+        # PWKFIX: consider if we want worst case (max of all maxes) or best case (min of all maxes)
         min = Math.min (r.min for r in subResults)...
         max = Math.max (r.max for r in subResults)...
         min: min * 2
-        max:  max * 2
+        max: max * 2
       else  
         switch conjunction
           when 'or'
-            console.log "OR MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
-            # For OR min is the min of all mins, and max is the *min* of all maxes
+            logger "OR MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
+            # For OR min is the min of all mins, and max is the max of all maxes
             min: Math.min (r.min for r in subResults)...
-            max: Math.min (r.max for r in subResults)...
+            max: Math.max (r.max for r in subResults)...
           when 'and'
-            console.log "AND MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
+            logger "AND MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
            
             # For AND min is the sum of all mins, and max is the sum of all maxes
             min: (r.min for r in subResults).reduce (x, y) -> x + y
             max: (r.max for r in subResults).reduce (x, y) -> x + y
           else
-            console.log "ERROR: unknown conjunction #{conjunction}"
+            logger "ERROR: unknown conjunction #{conjunction}"
             null
   
   handleTemporalReferences = (item) ->
     itemCosts = []
     if item.temporal_references? 
-      console.log "Temporal references #{item.title}"
+      logger "Temporal references #{item.title}"
       for tr in item.temporal_references
-        console.log "Reference type #{tr.type}"
+        logger "Reference type #{tr.type}"
         itemCosts.push(calculateRecursive(tr.reference)) 
-      console.log "Finsihed Temporal references #{item.title}"
+      logger "Finished Temporal references #{item.title}"
     return itemCosts
 
 
   handleDerivations = (item) -> 
-    console.log "Derivation #{item.derivation_operator}"
+    logger "Derivation #{item.derivation_operator}"
 
     subResults = (calculateRecursive(i) for i in item.children_criteria)
 
@@ -144,17 +153,17 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
       result = (so for so in item.subset_operators when so.type is "COUNT")
       if result.length > 0
         count = result[0].value.low.value #total hack of a line comeback and do this right
-        console.log "Derivation count #{count}"
+        logger "Derivation count #{count}"
     conjunction = (item.derivation_operator == "UNION")? "or" : "and"
     min_max =  calculateMinMax(subResults, conjunction, count)
-    console.log "Finished Derivation #{item.derivation_operator}"
+    logger "Finished Derivation #{item.derivation_operator}"
     return min_max
 
   handleConjunction = (item) ->
-    console.log "Conjunction #{item.conjunction}"
+    logger "Conjunction #{item.conjunction}"
     subResults = (calculateRecursive(i) for i in item.items)
     min_max =  calculateMinMax(subResults, item.conjunction)
-    console.log "Finished Conjunction #{item.conjunction}"
+    logger "Finished Conjunction #{item.conjunction}"
     return min_max
 
   # Calculate the cost of a tree of items recursively
@@ -169,11 +178,11 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
       # if item.derivation?
       if item.conjunction?
         min_max =  handleConjunction(item)
-        console.log "min: #{min_max.min}   max: #{min_max.max}" if min_max
+        logger "min: #{min_max.min}   max: #{min_max.max}" if min_max
         return min_max
       else if item.type == "derived" 
         min_max =  handleDerivations(item)
-        console.log "min: #{min_max.min}   max: #{min_max.max}" if min_max
+        logger "min: #{min_max.min}   max: #{min_max.max}" if min_max
         return min_max
       else if item.code_list_id?
         itemCosts = [lookupSingle(item)]
@@ -189,12 +198,12 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
           min_max =  itemCosts.reduce (x, y) ->
             min: x.min + y.min
             max: x.max + y.max
-          console.log "min: #{min_max.min}   max: #{min_max.max}" if min_max
+          logger "min: #{min_max.min}   max: #{min_max.max}" if min_max
           return min_max
 
       else
-        console.log "Unrecognized item:"
-        console.log item
+        logger "Unrecognized item:"
+        logger item
         null
     finally
       indent -= 1
@@ -202,17 +211,17 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
   # Pre-populate the list of already seen codes with codes from the denominator and
   # population, which we shouldn't include in the cost calculation
   indent = 0
-  console.log "Population"
-  console.log calculateRecursive(@_doc.population)
+  logger "Population"
+  logger calculateRecursive(@_doc.population)
   indent = 0
-  console.log  "DENOM"
-  console.log calculateRecursive(@_doc.denominator)
+  logger  "DENOM"
+  logger calculateRecursive(@_doc.denominator)
   indent = 0
   # PWKFIX Remove _doc when schema updates are checked in
-  console.log "Numer"
+  logger "Numer"
   min_max = calculateRecursive(@_doc.numerator)
   indent = 0
-  return min_max
+  return [min_max, costAvailabilityDetails]
 
 # Computed complexity rating
 # PWKFIX: This duplicates rating scale in spider-chart.js; refactor!

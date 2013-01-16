@@ -1,24 +1,69 @@
 #!/usr/bin/env coffee
-measure_id = process.argv[2]
+
+program = require 'commander'
+
+program
+  .option('-m, --measure <measureId>', 'specify a particular measure')
+  .option('-l, --logging', 'turn on logging')
+  .parse(process.argv)
+
 mongoose = require 'mongoose'
 mongoose.connect 'mongodb://localhost/cypress_development'
 
 Measure = require '../models/measure'
+Cost = require '../models/cost'
 
-costs = require './costs'
-measure_costs = {}
+measureCosts = {}
+
 filter = {}
-if measure_id
-	filter["nqf_id"] = {"$in": measure_id.split(',') }
+if program.measure
+  filter["nqf_id"] = {"$in": program.measure.split(',') }
 
-# PWKFIX Remove _doc when schema expansion is checked in
-Measure.find filter, (err, measures) ->
-  for measure in measures
-    console.log "[#{measure._doc.nqf_id}#{measure._doc.sub_id || ''}] #{measure.name}"
-    mc = measure.calculateNumeratorCosts costs
-    console.log mc
-    measure_costs["#{measure._doc.nqf_id}-#{measure._doc.sub_id || ''}"] = mc
+Cost.find (err, costs) ->
 
-  console.log measure_costs  
-      
-  mongoose.disconnect()
+  # Map cost info to format currently expected by cost calculator
+  oidCosts = {}
+  for cost in costs
+    oidCosts[cost.oid] =
+      min: cost.firstQuartile
+      max: cost.thirdQuartile 
+
+  Measure.find filter, (err, measures) ->
+
+    summary = []
+    
+    for measure in measures
+      # PWKFIX Remove _doc when schema expansion is checked in
+      [costs, details] = measure.calculateNumeratorCosts oidCosts, logging: program.logging
+
+      header = "#{measure._doc.nqf_id}#{measure._doc.sub_id || ''}  #{measure.name}"
+      console.log Array(header.length+1).join('=')
+      console.log header
+      console.log Array(header.length+1).join('=')
+      console.log ''
+
+      if costs
+        console.log "Measure numerator cost: firstQuartile: $#{costs.min}  thirdQuartile: $#{costs.max}"
+      else
+        console.log "Unable to calculate costs for measure"
+
+      withCostInfo = ("#{code} #{detail.title}:  firstQuartile: $#{detail.costs.min}  thirdQuartile: $#{detail.costs.max}" for code, detail of details when detail.costs)
+      if withCostInfo.length > 0
+        console.log "\nCost information is available for the following OIDS:\n"
+        console.log "  #{oidDetail}" for oidDetail in withCostInfo
+
+      withoutCostInfo = ("#{code} #{detail.title}" for code, detail of details when !detail.costs)
+      if withoutCostInfo.length > 0
+        console.log "\nNo cost information is available for the following OIDS:\n"
+        console.log "  #{oidDetail}" for oidDetail in withoutCostInfo
+
+      console.log ''
+
+      summary.push("#{header}: firstQuartile: $#{costs.min}  thirdQuartile: $#{costs.max}") if costs
+
+    console.log "=========================="
+    console.log "Summary of numerator costs"
+    console.log "=========================="
+    console.log line for line in summary
+
+    mongoose.disconnect()
