@@ -3,6 +3,7 @@ mongoose = require 'mongoose'
 measureSchema = new mongoose.Schema
   nqf_id: String
   hqmf_id: String
+  sub_id: String
   name: String
   numerator: Object
   complexity:

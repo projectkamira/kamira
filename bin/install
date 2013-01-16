@@ -1,6 +1,6 @@
 #!/usr/bin/env coffee
 program = require 'commander'
-# _ = require 'underscore'
+fs = require 'fs'
 mongoose = require 'mongoose'
 
 
@@ -11,23 +11,54 @@ program.version('0.0.1')
 mongoose.connect "mongodb://localhost/#{program.database}", ->
   console.log "Connected to the #{mongoose.connection.name} MongoDB collection"
 
-Measure = require '../models/measure'
-# Util = require("../models/util")(mongoose, db).model
-MeasureAnalyzer = require '../lib/measure-analyzer'
+  # FIXME this is temporary code that pulls in old complexity data. As soon as
+  # JSMeter can be fixed to parse the JavaScript that's part of the utils files,
+  # this code should be modified to use that.
+  json = JSON.parse fs.readFileSync("#{__dirname}/../public/complexity.json").toString()
+  measureComplexity = {}
+  for entry in json
+    measureComplexity[entry.id] = entry
 
-analyzer = new MeasureAnalyzer(utils, stage: "stage2")
+  # Util = mongoose.model 'system.js', new mongoose.Schema
+  #   _id: String
+  #   value: mongoose.Schema.Types.Mixed
+  Measure = require '../models/measure'
+  # MeasureAnalyzer = require '../lib/measure-analyzer'
+  
+  Measure.find (err, measures) ->
+    unless err?
+      measure = measures[0]
+      for measure in measures
+        key = "#{measure.nqf_id}#{measure.sub_id or ''}"
+        if complexity = measureComplexity[key]
+          measure.complexity =
+            numerator:    complexity.numerator
+            denominator:  complexity.denominator
+            population:   complexity.population
+            exclusions:   complexity.exclusions
+            exceptions:   complexity.exceptions
+          # console.log key, measureComplexity[key]
+          measure.save (err) -> console.log(err) if err?
+        else
+           console.log key, "none found"
 
-# Util.find (err, utils) ->
-#   console.log utils[0]
 
+  # Util.find (err, utils) ->
+  #   if err?
+  #     console.log 'Error', err
+  #   else
+  #     utilities = {}
+  #     utilities[util._id] = util.value?.code?.replace(/^function \(\) {\n*\s*/, '').replace(/\n*\s*}$/, '') for util in utils[0..1]
+  #     console.log utilities
+  #     analyzer = new MeasureAnalyzer(utilities, stage: "stage2")
 
-Measure.find (err, measures) ->
-  unless err?
-    # for measure in measure
-    measure = measures[0]
-    mappingFunction = measure.map_fn.replace(/<%=.*effective_date.*%>/, 1347983662).replace('<%= init_js_frameworks %>', '')
-    # analysis = analyzer.analyze(mappingFunction, measure.nqf_id)
-    console.log 'measure', measure#, 'analysis', analysis
-    # console.log(analysis.complexity)
+  # Measure.find (err, measures) ->
+  #   unless err?
+  #     # for measure in measure
+  #     measure = measures[0]
+  #     mappingFunction = measure.map_fn.replace(/<%=.*effective_date.*%>/, 1347983662).replace('<%= init_js_frameworks %>', '')
+  #     # analysis = analyzer.analyze(mappingFunction, measure.nqf_id)
+  #     console.log 'measure', measure#, 'analysis', analysis
+  #     # console.log(analysis.complexity)
 
-mongoose.disconnect()
+    mongoose.disconnect()
