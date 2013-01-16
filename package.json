@@ -29,7 +29,10 @@
     "nodemon": "*",
     "underscore": "1.4.2",
     "underscore.string": "*",
-    "commander": "1.0.5"
+    "commander": "1.0.5",
+    "csv": "0.2.x",
+    "numbers": "0.4.x",
+    "async": "0.1.22"
   },
   "devDependencies": {
     "jasmine-node": "1.0.x"

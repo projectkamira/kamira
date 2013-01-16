@@ -1,0 +1,70 @@
+#!/usr/bin/env coffee
+
+# The 2010_BSA_Outpatient_PUF.csv file has CPT codes and associated
+# costs for ~1.4 million patient events; the fourth column contains
+# the CPT code and the sixth column contains the cost. This script
+# reads the file and, by looking up the codes in the value set,
+# associates costs with OIDs and stores aggregate information on those
+# costs in a collection
+
+# NOTE: There is a count column; do we need to look at whether the
+# cost is for a single event or for multiple if the count > 1?
+
+csv = require 'csv'
+numbers = require 'numbers'
+async = require 'async'
+
+mongoose = require 'mongoose'
+mongoose.connect 'mongodb://localhost/cypress_development'
+
+Cost = require '../models/cost'
+ValueSet = require '../models/value_set'
+
+file = process.argv[process.argv.length-1]
+
+codePayments = {}
+
+csv()
+  .from(file)
+  .on 'record', (record, idx) ->
+
+    return unless idx > 0 # Skip header
+
+    code = record[3]
+    payment = parseFloat(record[5])
+
+    codePayments[code] ||= []
+    codePayments[code].push(payment)
+
+  .on 'end', (count) ->
+
+    console.log "Parsed #{count} records detecting #{Object.keys(codePayments).length} distinct codes"
+
+    # We have a mapping from CPT code to payments; use value sets to create mapping from OIDs to payments
+    oidPayments = {}
+
+    # Transform code/payments hash to a form that async.forEach can iterate over
+    objects = (code: code, payments: payments for code, payments of codePayments)
+
+    # Iterator looks up each code and finds all OIDs that map to that code in the value sets
+    iterator = (codePayment, callback) ->
+      ValueSet.find 'concepts.code': codePayment.code, 'concepts.code_system_name': 'CPT', (err, valueSets) ->
+        if valueSets.length > 0
+          for valueSet in valueSets
+            oidPayments[valueSet.oid] ||= []
+            oidPayments[valueSet.oid] = oidPayments[valueSet.oid].concat(codePayment.payments)
+        process.nextTick(callback)
+
+    # Iterate using async to wait for all queries to complete, and when done, save aggregate info to DB
+    async.forEach objects, iterator, ->
+      console.log "Collected codes and payments into #{Object.keys(oidPayments).length} OIDs"
+      costs = for oid, payments of oidPayments
+        new Cost
+          oid: oid
+          count: payments.length
+          firstQuartile: numbers.statistic.quantile(payments, 1, 4)
+          thirdQuartile: numbers.statistic.quantile(payments, 3, 4)
+          mean: numbers.statistic.mean(payments)
+          median: numbers.statistic.median(payments)
+          standardDev: numbers.statistic.standardDev(payments)
+      async.forEach costs, ((cost, cb) -> cost.save cb), (-> mongoose.disconnect())
