@@ -31,74 +31,188 @@ measureSchema.methods.calculateNumeratorCosts = (costs)->
   # Break down numerator into codes via recursive descent, use conjunctions
   # (and/or) to drive cost combination calculations, apply costs
 
-  alreadySeen = {} # Track the costs we've already included in the calculation elsewhere so we don't double count
+  logger = console.log 
+  
+  indent = 0
+    
+  
+  console.log = (msg) ->
+    prefix =  (new Array(indent)).join("|  ")
+    if typeof(msg) == 'object' || typeof(msg) == 'array' 
+      logger(msg)
+    else  
+      logger("#{prefix}#{msg}")
 
-  # Look up the cost of a single item, without recursing; returns null if we can't look up or if already seen
+  alreadySeen = {} # Track the costs we've already included in the calculation elsewhere so we don't double count
+  filterTypes = {
+                "transfer_to":[""], 
+                "transefer_from": [""],
+                "risk_category_assessment": [""], 
+                "functional_status_performed" : ["performed"], 
+                "symptom_assessed" : [""] ,
+                "intervention" :["performed", ""], 
+                "substance" : ["administered"], 
+                "device" :["applied"], 
+                "laboratory_test" : ["performed"], 
+                "physical_exam" :["performed",""],
+                "medication" : ["administered",""], 
+                "diagnostic_study" :["performed", ""], 
+                "procedure" :["performed",""], 
+                "encounter" : ["performed",""]  
+                }
+  
+  filterItem = (item) ->
+    definition = filterTypes[item.definition]
+    if (item.negated? || !definition || definition.indexOf(item.status) == -1)
+      console.log "Item not found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
+      return false
+    else
+      console.log "Item  found in filter list  #{item.title} item.definition: #{item.definition} status: #{item.status} definition: #{definition} status_index: #{definition.indexOf(item.status) if definition}"
+      return  true
+  # RD: Look up the cost of a single item, without recursing; returns null if we can't look up or if already seen
+  # RD : If the item is negated need to return null? not doing something is free
   lookupSingle = (item) ->
 
-    return null if item.type in ['characteristic', 'conditions']
+    # RD: need function that will test whether or not to process this item - need to filter out things like recommendations and lab values
+    # values are free - they come with the procedure or test 
+    
+    if filterItem(item)
+      return null unless item.code_list_id?
 
-    return null unless item.code_list_id?
+      if item.specific_occurrence?
+        # Not sure this is right?  SHould this map the occurance id and not hte code list as it could be reused?
+        if alreadySeen[item.code_list_id]?[item.specific_occurrence]?
+          console.log " specific occurance #{item.specific_occurrence} #{item.description} #{item.code_list_id} already seen"
+          return null 
+        alreadySeen[item.code_list_id] = {}
+        alreadySeen[item.code_list_id][item.specific_occurrence] = true
 
-    if item.specific_occurrence?
-      return null if alreadySeen[item.code_list_id]?[item.specific_occurrence]?
-      alreadySeen[item.code_list_id] = {}
-      alreadySeen[item.code_list_id][item.specific_occurrence] = true
+      return costs[item.code_list_id] if costs[item.code_list_id]
+          
+      console.log "Need cost information for: #{item.title} [#{item.code_list_id}]"
+      return null
+    else
+      return null
 
-    return costs[item.code_list_id] if costs[item.code_list_id]
-        
-    console.log "Need cost information for: #{item.title} [#{item.code_list_id}]"
-    return null
+  # Caluculate the min and max values for a set of items and return the results
 
-  # Calculate the cost of a tree of items recursively
-  calculateRecursive = (item) ->
-
-    if item.conjunction?
-
-      subResults = (calculateRecursive(i) for i in item.items)
-      subResults = (r for r in subResults when r) # Filter out nulls
-      if subResults.length > 0
-        switch item.conjunction
+  calculateMinMax = (items, conjunction, count=null) ->
+    subResults = (r for r in items when r) # Filter out nulls
+    if subResults.length > 0
+      if count 
+        console.log "have a count of #{count}"
+        # For OR min is the min of all mins, and max is the *min* of all maxes
+        min = Math.min (r.min for r in subResults)...
+        max = Math.max (r.max for r in subResults)...
+        min: min * 2
+        max:  max * 2
+      else  
+        switch conjunction
           when 'or'
+            console.log "OR MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
             # For OR min is the min of all mins, and max is the *min* of all maxes
             min: Math.min (r.min for r in subResults)...
             max: Math.min (r.max for r in subResults)...
           when 'and'
+            console.log "AND MIN: #{ (r.min for r in subResults)}  MAX:  #{(r.max for r in subResults)}"
+           
             # For AND min is the sum of all mins, and max is the sum of all maxes
             min: (r.min for r in subResults).reduce (x, y) -> x + y
             max: (r.max for r in subResults).reduce (x, y) -> x + y
           else
-            console.log "ERROR: unknown conjunction"
+            console.log "ERROR: unknown conjunction #{conjunction}"
             null
+  
+  handleTemporalReferences = (item) ->
+    itemCosts = []
+    if item.temporal_references? 
+      console.log "Temporal references #{item.title}"
+      for tr in item.temporal_references
+        console.log "Reference type #{tr.type}"
+        itemCosts.push(calculateRecursive(tr.reference)) 
+      console.log "Finsihed Temporal references #{item.title}"
+    return itemCosts
 
-    else if item.code_list_id?
 
-      # PWKFIX: Can temporal references have conjunctions?
-      # PWKFIX: Assumes temporal references can contain items that don't appear elsewhere
+  handleDerivations = (item) -> 
+    console.log "Derivation #{item.derivation_operator}"
 
-      # For now simply sum the costs of all temporal references with the parent item
-      items = [item]
-      if item.temporal_references?
-        items.push(tr.reference) for tr in item.temporal_references when tr.reference.code_list_id
-      itemCosts = (lookupSingle(i) for i in items)
-      itemCosts = (ic for ic in itemCosts when ic) # Prune out nulls
-      if itemCosts.length > 0
-        itemCosts.reduce (x, y) ->
-          min: x.min + y.min
-          max: x.max + y.max
+    subResults = (calculateRecursive(i) for i in item.children_criteria)
 
-    else
-      console.log "Unrecognized item:"
-      console.log item
-      null
+    count = null
+    if item.subset_operators? 
+      result = (so for so in item.subset_operators when so.type is "COUNT")
+      if result.length > 0
+        count = result[0].value.low.value #total hack of a line comeback and do this right
+        console.log "Derivation count #{count}"
+    conjunction = (item.derivation_operator == "UNION")? "or" : "and"
+    min_max =  calculateMinMax(subResults, conjunction, count)
+    console.log "Finished Derivation #{item.derivation_operator}"
+    return min_max
+
+  handleConjunction = (item) ->
+    console.log "Conjunction #{item.conjunction}"
+    subResults = (calculateRecursive(i) for i in item.items)
+    min_max =  calculateMinMax(subResults, item.conjunction)
+    console.log "Finished Conjunction #{item.conjunction}"
+    return min_max
+
+  # Calculate the cost of a tree of items recursively
+  calculateRecursive = (item) ->
+    return null if !item || item.negated?
+    try 
+      indent+= 1
+      # RD: need to pull and or logic out to separate method to allow it to be used by derivations without the need to recode 
+      # basically the same logic elsewhere
+
+      # RD: need to look for derivations and handel accordingly
+      # if item.derivation?
+      if item.conjunction?
+        min_max =  handleConjunction(item)
+        console.log "min: #{min_max.min}   max: #{min_max.max}" if min_max
+        return min_max
+      else if item.type == "derived" 
+        min_max =  handleDerivations(item)
+        console.log "min: #{min_max.min}   max: #{min_max.max}" if min_max
+        return min_max
+      else if item.code_list_id?
+        itemCosts = [lookupSingle(item)]
+        # PWKFIX: Can temporal references have conjunctions? no
+        # PWKFIX: Assumes temporal references can contain items that don't appear elsewhere
+        # For now simply sum the costs of all temporal references with the parent item
+        Array::push.apply itemCosts,  handleTemporalReferences(item)
+          #items.push(tr.reference) for tr in item.temporal_references when tr.reference.code_list_id
+        # itemCosts = (lookupSingle(i) for i in items)
+
+        itemCosts = (ic for ic in itemCosts when ic) # Prune out nulls
+        if itemCosts.length > 0
+          min_max =  itemCosts.reduce (x, y) ->
+            min: x.min + y.min
+            max: x.max + y.max
+          console.log "min: #{min_max.min}   max: #{min_max.max}" if min_max
+          return min_max
+
+      else
+        console.log "Unrecognized item:"
+        console.log item
+        null
+    finally
+      indent -= 1
 
   # Pre-populate the list of already seen codes with codes from the denominator and
   # population, which we shouldn't include in the cost calculation
-  calculateRecursive(@_doc.population)
-  calculateRecursive(@_doc.denominator)
-    
+  indent = 0
+  console.log "Population"
+  console.log calculateRecursive(@_doc.population)
+  indent = 0
+  console.log  "DENOM"
+  console.log calculateRecursive(@_doc.denominator)
+  indent = 0
   # PWKFIX Remove _doc when schema updates are checked in
-  calculateRecursive(@_doc.numerator)
+  console.log "Numer"
+  min_max = calculateRecursive(@_doc.numerator)
+  indent = 0
+  return min_max
 
 # Computed complexity rating
 # PWKFIX: This duplicates rating scale in spider-chart.js; refactor!

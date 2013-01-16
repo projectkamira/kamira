@@ -1,0 +1,24 @@
+#!/usr/bin/env coffee
+measure_id = process.argv[2]
+mongoose = require 'mongoose'
+mongoose.connect 'mongodb://localhost/cypress_development'
+
+Measure = require '../models/measure'
+
+costs = require './costs'
+measure_costs = {}
+filter = {}
+if measure_id
+	filter["nqf_id"] = {"$in": measure_id.split(',') }
+
+# PWKFIX Remove _doc when schema expansion is checked in
+Measure.find filter, (err, measures) ->
+  for measure in measures
+    console.log "[#{measure._doc.nqf_id}#{measure._doc.sub_id || ''}] #{measure.name}"
+    mc = measure.calculateNumeratorCosts costs
+    console.log mc
+    measure_costs["#{measure._doc.nqf_id}-#{measure._doc.sub_id || ''}"] = mc
+
+  console.log measure_costs  
+      
+  mongoose.disconnect()
