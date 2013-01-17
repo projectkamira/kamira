@@ -7,10 +7,13 @@ program
   .option('-l, --logging', 'turn on logging')
   .parse(process.argv)
 
+_ = require 'underscore'
+
 mongoose = require 'mongoose'
 mongoose.connect 'mongodb://localhost/cypress_development'
 
 Measure = require '../models/measure'
+ValueSet = require '../models/value_set'
 Cost = require '../models/cost'
 
 measureCosts = {}
@@ -26,44 +29,51 @@ Cost.find (err, costs) ->
   for cost in costs
     oidCosts[cost.oid] =
       min: cost.firstQuartile
-      max: cost.thirdQuartile 
+      max: cost.thirdQuartile
 
-  Measure.find filter, (err, measures) ->
+  ValueSet.find (err, valueSets) ->
 
-    summary = []
+    # Map oids to code sets to we can later display code set info on what's missing
+    oidCodeSets = {}
+    for valueSet in valueSets
+      oidCodeSets[valueSet.oid] = _(c.code_system_name for c in valueSet.concepts).uniq()
+
+    Measure.find(filter).sort('nqf_id').exec (err, measures) ->
+
+      summary = []
     
-    for measure in measures
-      # PWKFIX Remove _doc when schema expansion is checked in
-      [costs, details] = measure.calculateNumeratorCosts oidCosts, logging: program.logging
+      for measure in measures
+        # PWKFIX Remove _doc when schema expansion is checked in
+        [costs, details] = measure.calculateNumeratorCosts oidCosts, logging: program.logging
 
-      header = "#{measure._doc.nqf_id}#{measure._doc.sub_id || ''}  #{measure.name}"
-      console.log Array(header.length+1).join('=')
-      console.log header
-      console.log Array(header.length+1).join('=')
-      console.log ''
+        header = "#{measure._doc.nqf_id}#{measure._doc.sub_id || ''}  #{measure.name}"
+        console.log Array(header.length+1).join('=')
+        console.log header
+        console.log Array(header.length+1).join('=')
+        console.log ''
 
-      if costs
-        console.log "Measure numerator cost: firstQuartile: $#{costs.min}  thirdQuartile: $#{costs.max}"
-      else
-        console.log "Unable to calculate costs for measure"
+        if costs
+          console.log "Measure numerator cost: firstQuartile: $#{costs.min}  thirdQuartile: $#{costs.max}"
+        else
+          console.log "Unable to calculate costs for measure"
 
-      withCostInfo = ("#{code} #{detail.title}:  firstQuartile: $#{detail.costs.min}  thirdQuartile: $#{detail.costs.max}" for code, detail of details when detail.costs)
-      if withCostInfo.length > 0
-        console.log "\nCost information is available for the following OIDS:\n"
-        console.log "  #{oidDetail}" for oidDetail in withCostInfo
+        withCostInfo = ("#{code} #{detail.title}:  firstQuartile: $#{detail.costs.min}  thirdQuartile: $#{detail.costs.max}" for code, detail of details when detail.costs)
+        if withCostInfo.length > 0
+          console.log "\nCost information is available for the following OIDS:\n"
+          console.log "  #{oidDetail}" for oidDetail in withCostInfo
 
-      withoutCostInfo = ("#{code} #{detail.title}" for code, detail of details when !detail.costs)
-      if withoutCostInfo.length > 0
-        console.log "\nNo cost information is available for the following OIDS:\n"
-        console.log "  #{oidDetail}" for oidDetail in withoutCostInfo
+        withoutCostInfo = ("#{code} #{detail.title} [#{oidCodeSets[code]}]" for code, detail of details when !detail.costs)
+        if withoutCostInfo.length > 0
+          console.log "\nNo cost information is available for the following OIDS:\n"
+          console.log "  #{oidDetail}" for oidDetail in withoutCostInfo
 
-      console.log ''
+        console.log ''
 
-      summary.push("#{header}: firstQuartile: $#{costs.min}  thirdQuartile: $#{costs.max}") if costs
+        summary.push("#{header}: firstQuartile: $#{costs.min}  thirdQuartile: $#{costs.max}") if costs
 
-    console.log "=========================="
-    console.log "Summary of numerator costs"
-    console.log "=========================="
-    console.log line for line in summary
+      console.log "=========================="
+      console.log "Summary of numerator costs"
+      console.log "=========================="
+      console.log line for line in summary
 
-    mongoose.disconnect()
+      mongoose.disconnect()

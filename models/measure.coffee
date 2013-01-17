@@ -1,7 +1,7 @@
 mongoose = require 'mongoose'
 
 measureSchema = new mongoose.Schema
-  nqf_id: String
+  nqf_id: type: String, index: true
   hqmf_id: String
   sub_id: String
   name: String
@@ -51,30 +51,33 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
   alreadySeen = {} # Track the costs we've already included in the calculation elsewhere so we don't double count
 
   filterTypes = {
-                "transfer_to":[""], 
+                "transfer_to":[""],
                 "transefer_from": [""],
                 "risk_category_assessment": [""], 
                 "functional_status_performed" : ["performed"], 
-                "symptom_assessed" : [""] ,
+                "symptom_assessed" : [""],
                 "intervention" :["performed", ""], 
                 "substance" : ["administered"], 
                 "device" :["applied"], 
-                "laboratory_test" : ["performed"], 
-                "physical_exam" :["performed",""],
-                "medication" : ["administered",""], 
-                "diagnostic_study" :["performed", ""], 
-                "procedure" :["performed",""], 
-                "encounter" : ["performed",""]  
+                "laboratory_test" : ["performed", undefined], 
+                "physical_exam" :["performed", "", undefined],
+                "medication" : ["administered", "discharge", ""],
+                "diagnostic_study" :["performed", ""],
+                "diagnostic_study_result" : [undefined]
+                "procedure" :["performed", ""], 
+                "encounter" : ["performed", ""]  
                 }
   
   filterItem = (item) ->
+    if item.negated?
+      logger "Item NEGATED"
+      return false
     definition = filterTypes[item.definition]
-    if (item.negated? || !definition || definition.indexOf(item.status) == -1)
+    if (!definition || definition.indexOf(item.status) == -1)
       logger "Item NOT IN filter list:  #{item.title} (#{item.definition}/#{item.status}/#{definition})"
       return false
-    else
-      logger "Item IN filter list: #{item.title} (#{item.definition}/#{item.status}/#{definition})"
-      return  true
+    logger "Item IN filter list: #{item.title} (#{item.definition}/#{item.status}/#{definition})"
+    return  true
 
   # RD: Look up the cost of a single item, without recursing; returns null if we can't look up or if already seen
   # RD : If the item is negated need to return null? not doing something is free
@@ -222,14 +225,15 @@ measureSchema.methods.calculateNumeratorCosts = (costs, options = {}) ->
   # Pre-populate the list of already seen codes with codes from the denominator and
   # population, which we shouldn't include in the cost calculation
   indent = 0
-  logger "Population"
+  logger "POPULATION"
   logger calculateRecursive(@_doc.population)
   indent = 0
-  logger  "DENOM"
+  logger  "DENOMINATOR"
   logger calculateRecursive(@_doc.denominator)
   indent = 0
   # PWKFIX Remove _doc when schema updates are checked in
-  logger "Numer"
+  logger "NUMERATOR"
+  costAvailabilityDetails = {} # Reset cost availability details, because we only care what's missing from denominator calculations
   min_max = calculateRecursive(@_doc.numerator)
   indent = 0
   return [min_max, costAvailabilityDetails]
