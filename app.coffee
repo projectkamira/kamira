@@ -10,7 +10,7 @@ cons = require 'consolidate'
 
 filters = require './filters'
 
-mongoose.connect 'mongodb://localhost/cypress_development', ->
+mongoose.connect "mongodb://localhost/#{process.env.DATABASE or 'cypress_development'}", ->
   console.log "Connected to the #{mongoose.connection.name} MongoDB collection"
 
 
