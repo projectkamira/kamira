@@ -121,7 +121,7 @@ h1.logo {
   background: #fff;
   border-bottom: none;
   color: black;
-  font-weight: 800;
+  font-weight: 800 !important;
   margin-bottom:-1px;
 }
 
