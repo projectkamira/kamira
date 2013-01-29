@@ -1,9 +1,9 @@
 #!/usr/bin/env coffee
 
-# The 2010_BSA_Outpatient_PUF.csv file has CPT codes and associated
-# costs for ~1.4 million patient events; the fourth column contains
-# the CPT code and the sixth column contains the cost. This script
-# reads the file and, by looking up the codes in the value set,
+# The 2010_BSA_Outpatient_PUF.csv file has CPT or HCPCS codes and
+# associated costs for ~1.4 million patient events; the fourth column
+# contains the CPT code and the sixth column contains the cost. This
+# script reads the file and, by looking up the codes in the value set,
 # associates costs with OIDs and stores aggregate information on those
 # costs in a collection
 
@@ -40,7 +40,7 @@ csv()
 
     console.log "Parsed #{count} records detecting #{Object.keys(codePayments).length} distinct codes"
 
-    # We have a mapping from CPT code to payments; use value sets to create mapping from OIDs to payments
+    # We have a mapping from CPT/HCPCS code to payments; use value sets to create mapping from OIDs to payments
     oidPayments = {}
 
     # Transform code/payments hash to a form that async.forEach can iterate over
@@ -48,7 +48,7 @@ csv()
 
     # Iterator looks up each code and finds all OIDs that map to that code in the value sets
     iterator = (codePayment, callback) ->
-      ValueSet.find 'concepts.code': codePayment.code, 'concepts.code_system_name': 'CPT', (err, valueSets) ->
+      ValueSet.find 'concepts.code': codePayment.code, 'concepts.code_system_name': { $in: ['CPT', 'HCPCS'] }, (err, valueSets) ->
         if valueSets.length > 0
           for valueSet in valueSets
             oidPayments[valueSet.oid] ||= []
