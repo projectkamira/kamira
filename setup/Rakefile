@@ -1,0 +1,66 @@
+CONFIG = YAML.load_file("#{File.dirname(__FILE__)}/config.yml")
+
+ENV['DB_NAME'] ||= CONFIG['db_name'] || 'kamira'
+
+require 'rake'
+require 'quality-measure-engine'
+require 'health-data-standards'
+
+# Load up rake tasks for quality measure engine; this provides us with rake bundle:import
+load Gem.loaded_specs['quality-measure-engine'].full_gem_path + '/lib/qme/tasks/bundle.rake'
+
+# Environment task to satisfy bundle:import dependency, setting up Mongoid
+task :environment do
+  Mongoid.connect_to(ENV['DB_NAME'])
+end
+
+desc "Download the appropriate value sets"
+task :download_valuesets, [:username, :password] do |task, args|
+
+  puts args.username
+  puts args.password
+
+  api = HealthDataStandards::Util::VSApi.new(CONFIG['ticket_url'], CONFIG['api_url'], args.username, args.password)
+
+  RestClient.proxy = ENV["http_proxy"] || ENV["HTTP_PROXY"]
+  api.get_proxy_ticket
+
+  oids = QME::QualityMeasure.all.map { |id, measure| measure['oids'] }.flatten.compact.uniq
+
+  oids.each do |oid|
+
+    begin
+
+      vs_data = api.get_valueset(oid)
+      vs_data.force_encoding("utf-8") # deal with unicode in the vs response (even though string reports ASCII)
+
+      xml = Nokogiri::XML(vs_data)
+      xml.root.add_namespace_definition("vs","urn:ihe:iti:svs:2008")
+
+      vs_element = xml.at_xpath("/vs:RetrieveValueSetResponse/vs:ValueSet")
+
+      if vs_element && vs_element["ID"] == oid
+
+        vs_element["id"] = oid
+        vs = HealthDataStandards::SVS::ValueSet.load_from_xml(xml)
+
+        # save unless there is a valueset with the given oid and version already in the db
+        vs.save! unless HealthDataStandards::SVS::ValueSet.where(oid: vs.oid, version: vs.version).first
+
+        puts "Loaded value set for #{oid}"
+
+      else
+
+        puts "ERROR: no value set found for #{oid}"
+
+      end
+
+    rescue => e
+
+      puts "ERROR: #{e.message}"
+
+    end
+
+  end
+
+end
