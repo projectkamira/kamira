@@ -6,19 +6,16 @@ require 'rake'
 require 'quality-measure-engine'
 require 'health-data-standards'
 
-# Load up rake tasks for quality measure engine; this provides us with rake bundle:import
-load Gem.loaded_specs['quality-measure-engine'].full_gem_path + '/lib/qme/tasks/bundle.rake'
-
-# Environment task to satisfy bundle:import dependency, setting up Mongoid
+# Set up Mongoid; note that this is a bundle:import dependency
 task :environment do
   Mongoid.connect_to(ENV['DB_NAME'])
 end
 
-desc "Download the appropriate value sets"
-task :download_valuesets, [:username, :password] do |task, args|
+# Load up rake tasks for quality measure engine; this provides us with rake bundle:import
+load Gem.loaded_specs['quality-measure-engine'].full_gem_path + '/lib/qme/tasks/bundle.rake'
 
-  puts args.username
-  puts args.password
+desc "Download the appropriate value sets"
+task :download_valuesets, [:username, :password] => :environment do |task, args|
 
   api = HealthDataStandards::Util::VSApi.new(CONFIG['ticket_url'], CONFIG['api_url'], args.username, args.password)
 
