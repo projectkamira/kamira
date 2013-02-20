@@ -18,8 +18,9 @@
     <h3 class="tag">What platform and programming languages does Kamira use?</h3>
     <p>Kamira is developed using the following tools:</p>
     <ul>
-      <li>Coffeescript (a language that compiles to JavaScript, and has many similarities to JavaScript)</li>
+      <li>CoffeeScript (a language that compiles to JavaScript, and has many similarities to JavaScript)</li>
       <li>MongoDB (an open source document-oriented database)
+      <li>Ruby (a scripting language, used for setting up and initializing the database)</li>
       <li>Node.js (a server-side JavaScript environment based on Google's V8 JavaScript engine)</li>
       <li>Express (a web application framework built on top of Node.js)</li>
       <li>D3 (a JavaScript library for displaying data)</li>
