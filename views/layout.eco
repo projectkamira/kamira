@@ -14,7 +14,7 @@
             <li class="divider"></li>
             <li><a href="/about">About</a></li>
             <li class="divider"></li>
-            <li><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></li>
+            <li><a href="mailto:talk@projectkamira.org">Feedback</a></li>
           </ul>
         </nav>
         <form class="form-search measure-lookup" style="float:right">
@@ -27,7 +27,7 @@
             <%- @body %>
       </div>
       <footer>
-        <div class="pull-right"><a href="mailto:kamira-list@lists.mitre.org">Feedback</a></div>
+        <div class="pull-right"><a href="mailto:talk@projectkamira.org">Feedback</a></div>
         <div class="title">Kamira</div>
       </footer>
     </div>

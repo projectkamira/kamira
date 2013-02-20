@@ -119,7 +119,7 @@ Kamira.BarChart = (data, target, options = {}) ->
       .data(data)
       .enter()
       .append('text')
-      .text((d) -> "#{d.value}")
+      .text((d) -> "#{d.value or 0}")
       .attr('x', labelWidth)
       .attr('y', (d, i) -> i * (barHeight + barSpace) + barHeight/2 + barSpace/2)
       .attr('dy', '0.5em')
@@ -137,7 +137,7 @@ Kamira.BarChart = (data, target, options = {}) ->
     .append('rect')
     .attr('x', barOffset)
     .attr('y', (d, i) -> i * (barHeight + barSpace) + barSpace/2)
-    .attr('width', (d) -> xScale(d.value))
+    .attr('width', (d) -> xScale(d.value or 0))
     .attr('height', barHeight)
     .attr('class', (d) -> d.class)
 

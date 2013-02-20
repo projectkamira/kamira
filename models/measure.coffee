@@ -254,7 +254,7 @@ measureSchema.virtual('complexity.rating').get ->
 # Throw some "data" out for now, just to test graph population
 ratings = ['good', 'nominal', 'poor']
 randomRating = -> ratings[Math.floor(Math.random() * 3)]
-measureSchema.virtual('availability.rating').get -> @availabilityRating ||= randomRating()
+measureSchema.virtual('availability.rating').get -> null # @availabilityRating ||= randomRating()
 
 # EXPLAINME are these supposed to be empty functions?
 measureSchema.virtual('financial.low').get ->
@@ -262,7 +262,7 @@ measureSchema.virtual('financial.average').get ->
 measureSchema.virtual('financial.high').get ->
 measureSchema.virtual('financial.untreated_cost').get ->
   Math.floor(Math.random() * 2000)
-measureSchema.virtual('financial.rating').get -> @financialRating ||= randomRating()
+measureSchema.virtual('financial.rating').get -> null # @financialRating ||= randomRating()
 
 measureSchema.virtual('rating').get ->
   complexity = switch @complexity.rating
@@ -270,9 +270,10 @@ measureSchema.virtual('rating').get ->
     when 'nominal' then 1
     when 'complex' then 2
     when 'untestable' then 2
-  availability = ratings.indexOf(@availability.rating)
-  financial = ratings.indexOf(@financial.rating)
-  ratings[Math.round((complexity + availability + financial) / 3)]
+  # availability = ratings.indexOf(@availability.rating)
+  # financial = ratings.indexOf(@financial.rating)
+  # ratings[Math.round((complexity + availability + financial) / 3)]
+  ratings[complexity]
 
 measureSchema.set 'toJSON', virtuals: true
 

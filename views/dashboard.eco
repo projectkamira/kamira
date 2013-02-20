@@ -18,7 +18,7 @@
 </div>
 
 <div class="row">
-  <div class="span12 section-header">Measure Status <span style="font-size: 0.7em; color: red">(Note: only complexity data is real, other data is random)</span></div>
+  <div class="span12 section-header">Measure Status</div>
 </div>
 
 <% for i in [0...@measures.length] by 4: %>
