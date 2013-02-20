@@ -2,7 +2,7 @@ Measure = require '../models/measure'
 
 exports.show = (req, res) ->
   id = req.params.id
-  Measure.findOne {'id': id}, (err, measure) ->
+  Measure.findOne {'_id': id}, (err, measure) ->
     if err? or !measure?
       res.send 'unable to find that measure', 404
     else

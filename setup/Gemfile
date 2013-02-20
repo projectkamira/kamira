@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rake'
-gem 'quality-measure-engine'
-gem 'health-data-standards'
+# gem 'bson_ext' # eh?
+gem 'quality-measure-engine', git: "https://github.com/pophealth/quality-measure-engine.git", branch: "develop"
+gem 'health-data-standards', git: "https://github.com/projectcypress/health-data-standards.git", branch: "develop"
+
+gem 'rubyzip', '~> 0.9.9', require: 'zip/zip'
+
+# implicit requirement of health-data-standards
+gem 'pry'
