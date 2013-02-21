@@ -6,6 +6,8 @@ Kamira is an open source software project designed to measure Clinical Quality M
 
 This project currently uses Node.js with Express as its web application framework, plus ruby 1.9.3 for setup.
 
+This README file includes general setup instructions; some more specific instructions can be found for Ubuntu in the file ubuntu-deployment-notes.txt
+
 ### Dependencies
 
 #### Git
@@ -47,6 +49,7 @@ After downloading, some setup is required. You will need an NLM account in order
     curl -u NLM_USERNAME:NLM_PASSWORD http://demo.projectcypress.org/bundles/bundle-latest.zip -o ./bundle-latest.zip
     bundle exec rake bundle:import[./bundle-latest.zip,true,'ep']
     bundle exec rake download_valuesets[NLM_USERNAME,NLM_PASSWORD]
+    bundle exec rake populate_measure_complexity[./bundle-latest.zip,'ep']
 
 #### Running Kamira
 
