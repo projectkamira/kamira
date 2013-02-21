@@ -55,4 +55,4 @@ After downloading, some setup is required. You will need an NLM account in order
 
 Start the Node.process from the kamira root directory with
 
-    coffee app.coffee
+    npm start

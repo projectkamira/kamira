@@ -5,7 +5,7 @@
   "description": "An Open Source Clinical Quality Modeling Framework.",
   "main": "app.coffee",
   "scripts": {
-    "start": "coffee app.coffee",
+    "start": "node ./node_modules/coffee-script/bin/coffee app.coffee",
     "test": "echo \"Error: no test specified. Set up a Cakefile (perhaps) and get some jasmine tests going!\" && exit 1"
   },
 
