@@ -1,6 +1,6 @@
 # Kamira :: An Open Source Clinical Quality Modeling Framework
 
-Kamira is an open source software project designed to measure Clinical Quality Measures (CQMs) based on the availability of their supporting data, their financial impact, and the complexity of their calculations.
+[Kamira](http://projectkamira.org) is an open source software project designed to measure Clinical Quality Measures (CQMs) based on the availability of their supporting data, their financial impact, and the complexity of their calculations.
 
 ## Installation
 

@@ -88,6 +88,7 @@ GEM
       slop (~> 3.4)
     rack (1.5.2)
     rake (10.0.3)
+    rb-readline (0.4.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     roo (1.10.1)
@@ -118,4 +119,5 @@ DEPENDENCIES
   pry
   quality-measure-engine!
   rake
+  rb-readline
   rubyzip (~> 0.9.9)

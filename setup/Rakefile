@@ -65,10 +65,45 @@ end
 desc "populate local database with complexity data calculated from bundle"
 task :populate_measure_complexity, [:bundle_path,:type] => :environment do |task, args|
   load Gem.loaded_specs['health-data-standards'].full_gem_path + '/lib/hqmf-parser.rb'
-  
-  def eval_preconditions(preconds)
-    child_score = preconds.select { |p| p.has_key? :preconditions }.map { |p| eval_preconditions(p[:preconditions]) }.sum # preconds.map{|p| p.has_key?(:preconditions) ? eval_preconditions(p[:preconditions]) : 0 }.sum
-    child_score + preconds.size
+
+  def complexity_of_preconditions(preconds) # FIXME look at temporal relations under data criteria
+    child_score = preconds.select { |p| p.has_key? :preconditions }.map { |p| complexity_of_preconditions(p[:preconditions]) }.sum # preconds.map{|p| p.has_key?(:preconditions) ? eval_preconditions(p[:preconditions]) : 0 }.sum
+    child_score + preconds.size - 1
+  end
+
+  def data_criteria_from_data_criteria(criteria_reference)
+    results = [criteria_reference]
+    if data_criteria = @data_criteria[criteria_reference.to_sym]
+      if data_criteria.has_key?(:temporal_references)
+        data_criteria[:temporal_references].each { |tr| results |= data_criteria_from_data_criteria(tr[:reference]) }
+      elsif data_criteria.has_key?(:children_criteria)
+        data_criteria[:children_criteria].each { |cc| results |= data_criteria_from_data_criteria(cc) }
+      end
+    end
+    results
+  end
+
+  def data_criteria_from_preconditions(preconds)
+    data_criteria = []
+    preconds.select { |p| p.has_key? :preconditions }.each { |p| data_criteria += data_criteria_from_preconditions(p[:preconditions]) }
+    preconds.select { |p| p.has_key? :reference }.each do |p|
+      data_criteria += data_criteria_from_data_criteria(p[:reference])
+    end
+    data_criteria.uniq
+  end
+
+  def complexity_of_data_criteria(criteria)
+    criteria.sum do |c|
+      if data_criteria = @data_criteria[c.to_sym]
+        if data_criteria.has_key?(:children_criteria)
+          data_criteria[:children_criteria].size - 1
+        else
+          0
+        end
+      else
+        0
+      end
+    end
   end
 
   pop_map = {
@@ -84,6 +119,7 @@ task :populate_measure_complexity, [:bundle_path,:type] => :environment do |task
       contents = zipfile.read entry
       hqmf = HQMF::Parser.parse(contents, HQMF::Parser::HQMF_VERSION_1).to_json
       population_criteria = hqmf[:population_criteria]
+      @data_criteria = hqmf[:data_criteria]
       hqmf[:populations].each_with_index do |pop, i|
         hqmf_id = hqmf[:hqmf_id]
         sub_id = (i + 'a'.getbyte(0)).chr if hqmf[:populations].size > 1 # (0 + 'a'.getbyte(0)).chr == 'a', which is good enough for our purposes
@@ -93,7 +129,9 @@ task :populate_measure_complexity, [:bundle_path,:type] => :environment do |task
         complexity = {}
         pop_map.each do |k, v|
           complexity[v] = if pop.has_key?(k) && (criteria = population_criteria[pop[k].to_sym]).has_key?(:preconditions)
-            eval_preconditions(criteria[:preconditions])
+            preconditions = criteria[:preconditions]
+            data_criteria = data_criteria_from_preconditions(preconditions)
+            complexity_of_preconditions(preconditions) + complexity_of_data_criteria(data_criteria) + 1
           else
             1
           end
