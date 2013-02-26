@@ -38,7 +38,7 @@ Kamira uses the MongoDB database, and requires version 2.2.0 or higher. Instruct
 
 Download the Kamira application using git
 
-    git clone git://github.com/kamira/kamira.git
+    git clone https://github.com/projectkamira/kamira.git
 
 #### Setting up Kamira
 
