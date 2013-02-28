@@ -9,5 +9,7 @@ navigation:
     url: /documents.html
   - text: FAQ
     url:  /faq.html
+  - text: Code
+    url: https://github.com/projectkamira/kamira
   - text: Contact
     url:  /contact.html
