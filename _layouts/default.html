@@ -8,9 +8,9 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" />
-    <link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.css" type="text/css" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" />
     <script type="text/javascript" src="js/jquery-1.8.1.js"></script>  
     <link href='/favicon.ico' rel='icon' type='image/x-icon'>
     <link href='/favicon.ico' rel='shortcut icon' type='image/x-icon'>
@@ -30,21 +30,21 @@
     </script>
   </head>
   <body class="container">
-    <a href="https://github.com/projectkamira/kamira"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 200" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
+    <a href="/https://github.com/projectkamira/kamira"><img style="position: absolute; top: 0; right: 0; border: 0; z-index: 200" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
     <a class="screenreader" href="#content">skip navigation</a> 
     <header class="navbar">
       <div class="navbar-inner row">
         <span class="span4 logo">
           <a href="#">
-            <img src="images/kamira_logo.png" alt="Kamira logo" />
+            <img src="/images/kamira_logo.png" alt="Kamira logo" />
           </a>
         </span>
 <!--        <div class="span4 external-links">
           <span class="external-bar">
-            <a href="http://demo.projectcypress.org"><img src="images/demo.png" alt="Project Kamira Demo" /></a>
+            <a href="http://demo.projectcypress.org"><img src="/images/demo.png" alt="Project Kamira Demo" /></a>
           </span>
           <span class="external-bar">
-            <a href="https://github.com/ProjectCypress"><img src="images/octocat.png" alt="GitHub Logo" /></a>
+            <a href="https://github.com/ProjectCypress"><img src="/images/octocat.png" alt="GitHub Logo" /></a>
           </span>
         </div>
  -->      </div>
@@ -58,7 +58,7 @@
         <div class="nav-collapse collapse">
           <nav class="span12 nav nav-tabs">
             {% for link in site.navigation %}
-            <li{% if page.url == link.url %} class="active"{% endif %}><a href="{{ link.url }}">{{ link.text }}</a></li>
+            <li{% if page.url == link.url or (link.text == 'News' and page.date) %} class="active"{% endif %}><a href="{{ link.url }}">{{ link.text }}</a></li>
             {% endfor %}
           </nav>
         </div>
@@ -70,11 +70,11 @@
     <footer class="row" id="postscript">
       <div class="span10">
         <p>This project is funded by the <a href="http://www.mitre.org/work/program.html">MITRE Innovation Program</a>.</p>
-        <p><a href="http://www.mitre.org/site/privacy_policy.html">Privacy Policy</a>  |  <a href="contact.html">Contact Us</a></p>
+        <p><a href="http://www.mitre.org/site/privacy_policy.html">Privacy Policy</a>  |  <a href="/contact.html">Contact Us</a></p>
         <p>Last Revised: {{ site.time | date_to_string }}</p>
       </div>
       <div class="span2">
-        <img src="images/MIP_logo_small.png" alt="MITRE Innovation Program Logo">
+        <img src="/images/MIP_logo_small.png" alt="MITRE Innovation Program Logo">
       </div>
     </footer>
   </body>

@@ -1,0 +1,20 @@
+---
+layout: default
+title: News
+---
+
+{% for post in site.posts %}
+  <article>
+    <header>
+      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      <div class="subtitle">
+        <div class="desc"></div>
+        <div class="date">
+          posted
+          <time pubdate="" datetime="{{ post.date | date: "%Y-%m-%dT%H:%M:%S" }}" title="{{ post.date | date: "%a, %d %b %Y %H:%M:%S" }}">{{ post.date | date_to_long_string }}</time>
+        </div>
+      </div>
+    </header>
+    {{ post.content }}
+  </article>
+{% endfor %}

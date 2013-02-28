@@ -464,3 +464,16 @@ footer {
 footer .span9 {
 	margin-left: 0px !important;
 }
+
+article .date {
+	text-align: right;
+}
+
+article p {
+	font-weight: normal;
+}
+
+article ul {
+	list-style-type: disc;
+	margin-left: 1em;
+}

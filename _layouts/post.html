@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="articles">
+  <article>
+    <header>
+      <h1>{{ page.title }}</h1>
+      <div class="subtitle">
+        <div class="desc"></div>
+        <div class="date">
+          posted
+          <time pubdate="" datetime="{{ page.date | date: "%Y-%m-%dT%H:%M:%S" }}" title="{{ page.date | date: "%a, %d %b %Y %H:%M:%S" }}">{{ page.date | date_to_long_string }}</time>
+        </div>
+      </div>
+    </header>
+    {{ content }}
+  </article>
+</div>

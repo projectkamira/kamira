@@ -3,6 +3,8 @@ rdiscount extensions: [smart]
 navigation:
   - text: Home
     url:  /index.html
+  - text: News
+    url: /news.html
   - text: Program Information
     url:  /prog_info.html
   - text: Documents
