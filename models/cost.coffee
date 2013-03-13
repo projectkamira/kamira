@@ -4,10 +4,12 @@ mongoose = require 'mongoose'
 CostSchema = new mongoose.Schema
   oid: String
   count: Number
+  min: Number
   firstQuartile: Number
-  thirdQuartile: Number
-  mean: Number
   median: Number
+  thirdQuartile: Number
+  max: Number
+  mean: Number
   standardDev: Number
 
 module.exports = mongoose.model 'Cost', CostSchema

@@ -16,6 +16,7 @@ measureSchema = new mongoose.Schema
     population:   Number
     exclusions:   Number
     exceptions:   Number
+  oids: Array
 
 measureSchema.methods.url = -> this.id
 # Calculate numerator costs of a measure; this is an experimental first pass and will likely change substantially
