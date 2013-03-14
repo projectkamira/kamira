@@ -27,7 +27,7 @@
     "mongoose": "3.x",
     "jsmeter-fixed": "*",
     "nodemon": "*",
-    "underscore": "1.4.2",
+    "underscore": "1.4.4",
     "underscore.string": "*",
     "commander": "1.0.5",
     "csv": "0.2.x",
