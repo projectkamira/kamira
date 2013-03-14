@@ -10,7 +10,7 @@ program
 _ = require 'underscore'
 
 mongoose = require 'mongoose'
-mongoose.connect 'mongodb://localhost/cypress_development'
+mongoose.connect 'mongodb://localhost/kamira'
 
 Measure = require '../models/measure'
 ValueSet = require '../models/value_set'
@@ -33,10 +33,15 @@ Cost.find (err, costs) ->
 
   ValueSet.find (err, valueSets) ->
 
-    # Map oids to code sets to we can later display code set info on what's missing
+    # Map oids to code sets so we can later display code set info on what's missing
     oidCodeSets = {}
+    oidCodeSetCodes = {}
     for valueSet in valueSets
       oidCodeSets[valueSet.oid] = _(c.code_system_name for c in valueSet.concepts).uniq()
+      oidCodeSetCodes[valueSet.oid] ||= {}
+      for c in valueSet.concepts
+        oidCodeSetCodes[valueSet.oid][c.code_system_name] ||= []
+        oidCodeSetCodes[valueSet.oid][c.code_system_name].push(c.code)
 
     Measure.find(filter).sort('nqf_id').exec (err, measures) ->
 
@@ -57,15 +62,18 @@ Cost.find (err, costs) ->
         else
           console.log "Unable to calculate costs for measure"
 
-        withCostInfo = ("#{code} #{detail.title}:  firstQuartile: $#{detail.costs.min}  thirdQuartile: $#{detail.costs.max}" for code, detail of details when detail.costs)
-        if withCostInfo.length > 0
+        if _(details).any((detail) -> detail.costs)
           console.log "\nCost information is available for the following OIDS:\n"
-          console.log "  #{oidDetail}" for oidDetail in withCostInfo
+          for oid, detail of details when detail.costs
+            console.log "  #{oid} #{detail.title}:  firstQuartile: $#{detail.costs.min}  thirdQuartile: $#{detail.costs.max}"
 
-        withoutCostInfo = ("#{code} #{detail.title} [#{oidCodeSets[code]}]" for code, detail of details when !detail.costs)
-        if withoutCostInfo.length > 0
+        if _(details).any((detail) -> !detail.costs)
           console.log "\nNo cost information is available for the following OIDS:\n"
-          console.log "  #{oidDetail}" for oidDetail in withoutCostInfo
+          for oid, detail of details when !detail.costs
+            console.log "  #{oid} #{detail.title} [#{oidCodeSets[oid]}]"
+            # Show missing CTP, HCPCS and LOINC codes
+            for code_set in ['CPT', 'HCPCS', 'LOINC']
+              console.log "    Missing #{code_set} codes: #{oidCodeSetCodes[oid][code_set]}" if oidCodeSetCodes[oid][code_set]
 
         console.log ''
 
