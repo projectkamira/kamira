@@ -29,7 +29,7 @@
         <div class="measure-status">
           <div id="measure-<%= measure.nqf_id %><%= measure.sub_id %>"></div>
           <div class="rating <%= measure.rating %>"></div>
-          <div class="name"><a href="/measures/<%= measure.url() %>"><%= measure.name %></a></div>
+          <div class="name"><a href="/measures/<%= measure.url() %>"><%= measure.nqf_id %><%= measure.sub_id %> <%= measure.name %></a></div>
         </div>
       </div>
     <% end %>

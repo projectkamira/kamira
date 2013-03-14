@@ -1,4 +1,4 @@
-<%- @partial 'category-header', title: @measure.name %>
+<%- @partial 'category-header', title: "#{@measure.nqf_id}#{if @measure.sub_id then @measure.sub_id else ''} #{@measure.name}" %>
 
 <ul class="nav nav-pills">
   <li class="active"><a href="#complexity" data-toggle="tab">Complexity</a></li>
