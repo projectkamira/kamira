@@ -1,5 +1,7 @@
 mongoose = require 'mongoose'
 
+_ = require 'underscore'
+
 measureSchema = new mongoose.Schema
   nqf_id: type: String, index: true
   hqmf_id: String
@@ -275,6 +277,23 @@ measureSchema.virtual('rating').get ->
   # financial = ratings.indexOf(@financial.rating)
   # ratings[Math.round((complexity + availability + financial) / 3)]
   ratings[complexity]
+
+retrieveOids = (item) ->
+  if !item
+    []
+  else if item.code_list_id?
+    [item.code_list_id]
+  else if item.conjunction?
+    oids = []
+    for i in item.items
+      oids = oids.concat retrieveOids(i)
+    _(oids).chain().uniq().compact().value()
+
+measureSchema.virtual('numeratorOids').get -> retrieveOids(@numerator)
+measureSchema.virtual('denominatorOids').get -> retrieveOids(@denominator)
+measureSchema.virtual('populationOids').get -> retrieveOids(@population)
+measureSchema.virtual('exclusionsOids').get -> retrieveOids(@exclusions)
+measureSchema.virtual('exceptionsOids').get -> retrieveOids(@exceptions)
 
 measureSchema.set 'toJSON', virtuals: true
 
