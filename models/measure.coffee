@@ -278,22 +278,22 @@ measureSchema.virtual('rating').get ->
   # ratings[Math.round((complexity + availability + financial) / 3)]
   ratings[complexity]
 
-retrieveOids = (item) ->
+retrieveCriteria = (item) ->
   if !item
     []
   else if item.code_list_id?
-    [item.code_list_id]
+    [{ oid: item.code_list_id, name: item.title, category: item.standard_category }]
   else if item.conjunction?
     oids = []
     for i in item.items
-      oids = oids.concat retrieveOids(i)
-    _(oids).chain().uniq().compact().value()
+      oids = oids.concat retrieveCriteria(i)
+    _(oids).chain().compact().uniq((e) -> e.oid).value()
 
-measureSchema.virtual('numeratorOids').get -> retrieveOids(@numerator)
-measureSchema.virtual('denominatorOids').get -> retrieveOids(@denominator)
-measureSchema.virtual('populationOids').get -> retrieveOids(@population)
-measureSchema.virtual('exclusionsOids').get -> retrieveOids(@exclusions)
-measureSchema.virtual('exceptionsOids').get -> retrieveOids(@exceptions)
+measureSchema.virtual('numeratorCriteria').get -> retrieveCriteria(@numerator)
+measureSchema.virtual('denominatorCriteria').get -> retrieveCriteria(@denominator)
+measureSchema.virtual('populationCriteria').get -> retrieveCriteria(@population)
+measureSchema.virtual('exclusionsCriteria').get -> retrieveCriteria(@exclusions)
+measureSchema.virtual('exceptionsCriteria').get -> retrieveCriteria(@exceptions)
 
 measureSchema.set 'toJSON', virtuals: true
 
