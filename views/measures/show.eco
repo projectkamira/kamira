@@ -17,7 +17,6 @@
 
 <script>
   var measure = window.measure = <%- JSON.stringify(@measure) %>;
-  var costs = window.costs = <%- JSON.stringify(@costs) %>;
   $(function() {
     new Kamira.SpiderChart([measure], '#complexity', {width: 400, height: 400});
   });
