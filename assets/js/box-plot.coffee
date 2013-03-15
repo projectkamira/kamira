@@ -14,7 +14,7 @@ window.Kamira.BoxScale = (domain, target, options = {}) ->
 
   scale = d3.scale.linear().domain(domain).range([margin, width - margin])
 
-  svg.call d3.svg.axis().ticks(20).scale(scale).tickFormat (n) -> "$#{d3.format(',')(n)}"
+  svg.call d3.svg.axis().ticks(15).scale(scale).tickFormat (n) -> "$#{d3.format(',')(n)}"
 
 
 window.Kamira.BoxPlot = (data, target, options = {}) ->
@@ -68,7 +68,7 @@ window.Kamira.BoxPlot = (data, target, options = {}) ->
           .on 'mouseout', ->
             key = d3.select(this).attr('data-field')
             labels[key].style 'visibility', 'hidden'
-        
+
         labels[key] = svg.append('text').text("$#{d3.format(',')(val)}")
           .attr('class', "#{key} #{quality}").style('visibility', 'hidden')
           .attr('x', scale(val))
