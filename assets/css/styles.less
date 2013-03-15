@@ -83,7 +83,7 @@ h1.category-header {
   border-bottom: 1px solid @gray;
 }
 
-.bar-chart {
+.bar-chart, .box-plot {
   .good { fill: @goodColor; }
   .nominal { fill: @nominalColor; }
   .poor { fill: @badColor; }
@@ -116,4 +116,39 @@ h1.category-header {
 #financial .measure-status .name {
   font-size: 2.5em;
   text-transform: capitalize;
+}
+
+
+
+.box-plot {
+  // svg { width: 100%; }
+  .cost-name {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .row {
+    margin-top: 1.25em;
+  }
+  svg {
+    font: 10px sans-serif;
+    text-anchor: middle;
+    line, rect, circle {
+      fill: #fff;
+      stroke: #000;
+      stroke-width: 1.5px;
+    }
+    .mouseover { opacity: 0; }
+    .center {
+      stroke-dasharray: 3,3;
+    }
+    .outlier {
+      fill: none;
+      stroke: #ccc;
+    }
+    path.domain {
+      fill: none;
+      stroke: #000;
+      stroke-width: 2px;
+    }
+  }
 }

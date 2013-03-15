@@ -13,7 +13,7 @@ exports.show = (req, res) ->
 
         # FIXME: We want a sensible way to combine cost information
         # with the measure, either by writing it as a collection on
-        # the measure or otherwise on the backend; this will server to
+        # the measure or otherwise on the backend; this will serve to
         # start POCing on the front end
 
         # Little function to map costs onto criteria
@@ -24,11 +24,11 @@ exports.show = (req, res) ->
 
         # Hijack toJSON to wedge in our additional content
         jsonObject = measure.toJSON()
-        jsonObject.numeratorCosts = criteriaWithCost(measure.numeratorCriteria)
-        jsonObject.denominatorCosts = criteriaWithCost(measure.denominatorCriteria)
-        jsonObject.populationCosts = criteriaWithCost(measure.populationCriteria)
-        jsonObject.exclusionsCosts = criteriaWithCost(measure.exclusionsCriteria)
-        jsonObject.exceptionsCosts = criteriaWithCost(measure.exceptionsCriteria)
+        jsonObject.numeratorCosts = measure.numeratorCosts = criteriaWithCost(measure.numeratorCriteria)
+        jsonObject.denominatorCosts = measure.denominatorCosts = criteriaWithCost(measure.denominatorCriteria)
+        jsonObject.populationCosts = measure.populationCosts = criteriaWithCost(measure.populationCriteria)
+        jsonObject.exclusionsCosts = measure.exclusionsCosts = criteriaWithCost(measure.exclusionsCriteria)
+        jsonObject.exceptionsCosts = measure.exceptionsCosts = criteriaWithCost(measure.exceptionsCriteria)
         measure.toJSON = -> jsonObject
 
         res.render 'measures/show', title: "Measure #{measure.id}", measure: measure, measures: req.measures

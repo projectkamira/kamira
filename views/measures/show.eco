@@ -8,7 +8,7 @@
 <div class="tab-content">
   <div class="tab-pane active" id="complexity"></div>
   <div class="tab-pane" id="financial">
-    <%- @partial 'measures/financial', financial: @measure.financial %>
+    <%- @partial 'measures/financial', measure: @measure %>
   </div>
   <div class="tab-pane" id="dataAvailability">
     <%- @partial 'measures/data-availability', measure: @measure %>
@@ -19,6 +19,38 @@
   var measure = window.measure = <%- JSON.stringify(@measure) %>;
   $(function() {
     new Kamira.SpiderChart([measure], '#complexity', {width: 400, height: 400});
+
+    var allCosts = measure.numeratorCosts.concat(measure.denominatorCosts, measure.populationCosts, measure.exceptionsCosts, measure.exclusionsCosts);
+    var minCost = d3.min(allCosts, function(c) { return c.min } ),
+        maxCost = d3.max(allCosts, function(c) { return c.max } );
+
+    // we'll be randomly assigning a quality to each box plot, just for demo purposes
+    var qualities = ['good', 'nominal', 'poor'];
+
+    new Kamira.BoxScale([minCost, maxCost], '.box-plot .box-scale', {svgAttrs: {class: 'span8 offset4'}});
+
+    var sections = ['numerator', 'denominator', 'population', 'exceptions', 'exclusions'];
+    for (var i = 0; i < sections.length; i++) {
+      var section = sections[i];
+      var costs = measure[section + 'Costs'];
+      for (var j = 0; j < costs.length; j++) {
+        var cost = costs[j];
+        // only show costs that have data; list all other costs without data below
+        if (cost.median != null) {
+          $div = $('<div>').addClass('row').html('<p class="span4 cost-name">' + cost.name + '</p>');
+          $div.appendTo('.box-plot.' + section);
+          new Kamira.BoxPlot(cost, $div.get(0), {domain: [minCost, maxCost], svgAttrs: {class: 'span8'}, quality: qualities[Math.floor(Math.random() * 3)]});
+        }
+      }
+      var blankNames = _(costs).chain().select(function(cost) { return cost.median == null }).map(function(cost) {
+        return '<b>' + cost.name + '</b>';
+      }).value();
+      if (blankNames.length > 0) {
+        var display = "We currently don't have any cost data on the following criteria: ";
+        $('.box-plot.' + section).append('<div class="row"><p class="span12">' + display + blankNames.join(', ') + '</p></div>');
+      }
+    }
   });
 </script>
 <%- js 'spider-chart' %>
+<%- js 'box-plot' %>
