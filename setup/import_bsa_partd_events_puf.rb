@@ -57,16 +57,37 @@ drug_costs.each do |display_name, costs|
   end
 end
 
+# Given a set of values, calculate IRQ-related boundaries and outliers for box plot usage
+# FIXME: Same code is used in import_bsa_outpatient_puf_financial.rb, want common library
+def bounds(values)
+  q1 = values.percentile(25)
+  q3 = values.percentile(75)
+  iqr = q3 - q1
+  lower = q1 - (iqr * 1.5)
+  upper = q3 + (iqr * 1.5)
+  inrange = values.select { |v| v >= lower && v <= upper }
+  lower = [lower, inrange.min].max
+  upper = [upper, inrange.max].min
+  belowrange = values.select { |v| v < lower }
+  aboverange = values.select { |v| v > upper }
+  [belowrange, lower, upper, aboverange]
+end
+
 puts "Writing cost information into database for #{oid_costs.size} OIDs"
 oid_costs.each do |oid, costs|
+  belowRange, lowerBound, upperBound, aboveRange = bounds(costs)
   costs_collection.remove(oid: oid)  
   costs_collection.insert(oid: oid,
                           name: oid_names[oid],
                           count: costs.size,
                           min: costs.min,
+                          belowRange: belowRange.uniq.sort,
+                          lowerBound: lowerBound,
                           firstQuartile: costs.percentile(25),
                           median: costs.median,
                           thirdQuartile: costs.percentile(75),
+                          upperBound: upperBound,
+                          aboveRange: aboveRange.uniq.sort,
                           max: costs.max,
                           mean: costs.mean,
                           standardDev: costs.standard_deviation)

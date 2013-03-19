@@ -14,7 +14,7 @@ window.Kamira.BoxScale = (domain, target, options = {}) ->
 
   scale = d3.scale.linear().domain(domain).range([margin, width - margin])
 
-  svg.call d3.svg.axis().ticks(15).scale(scale).tickFormat (n) -> "$#{d3.format(',')(n)}"
+  svg.call d3.svg.axis().ticks(12).scale(scale).tickFormat (n) -> "$#{d3.format(',')(n)}"
 
 
 window.Kamira.BoxPlot = (data, target, options = {}) ->
@@ -25,7 +25,7 @@ window.Kamira.BoxPlot = (data, target, options = {}) ->
   svgAttrs    = options.svgAttrs    or {}
   quality     = options.quality     or ''
   textHeight  = options.textHeight  or 15
-  domain      = options.domain      or [data.min, data.max]
+  domain      = options.domain      or [data.lowerBound, data.upperBound]
 
   svg = d3.select(target).append('svg').attr('height', height + textHeight)
   svg.attr(k, v) for k, v of svgAttrs
@@ -33,19 +33,19 @@ window.Kamira.BoxPlot = (data, target, options = {}) ->
   window.scale = scale = d3.scale.linear().domain(domain).range([margin, width - margin])
 
   # only display box plot when we have more than 15px worth of data to show, otherwise just show median
-  if scale(data.max) - scale(data.min) > 0
+  if scale(data.upperBound) - scale(data.lowerBound) > 0
     svg.append('line')
       .attr('class', 'whisker')
-      .attr('x1', scale(data.min)).attr('x2', scale(data.min))
+      .attr('x1', scale(data.lowerBound)).attr('x2', scale(data.lowerBound))
       .attr('y1', margin).attr('y2', height - margin)
     svg.append('line')
       .attr('class', 'whisker')
-      .attr('x1', scale(data.max)).attr('x2', scale(data.max))
+      .attr('x1', scale(data.upperBound)).attr('x2', scale(data.upperBound))
       .attr('y1', margin).attr('y2', height - margin)
 
     svg.append('line')
       .attr('class', 'center')
-      .attr('x1', scale(data.min)).attr('x2', scale(data.max))
+      .attr('x1', scale(data.lowerBound)).attr('x2', scale(data.upperBound))
       .attr('y1', height/2).attr('y2', height/2)
 
     svg.append('rect')

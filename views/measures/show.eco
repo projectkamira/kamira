@@ -21,13 +21,22 @@
     new Kamira.SpiderChart([measure], '#complexity', {width: 400, height: 400});
 
     var allCosts = measure.numeratorCosts.concat(measure.denominatorCosts, measure.populationCosts, measure.exceptionsCosts, measure.exclusionsCosts);
-    var minCost = d3.min(allCosts, function(c) { return c.min } ),
-        maxCost = d3.max(allCosts, function(c) { return c.max } );
+    var lowerBoundCost = d3.min(allCosts, function(c) { return c.lowerBound } ),
+        upperBoundCost = d3.max(allCosts, function(c) { return c.upperBound } );
 
-    // we'll be randomly assigning a quality to each box plot, just for demo purposes
-    var qualities = ['good', 'nominal', 'poor'];
+    // Provisionally assign a quality to each box plot based on comparison to the other medians in the measure
+    var minMedian = d3.min(allCosts, function(c) { return c.median; } );
+    var minDev = d3.min(allCosts, function(c) { return c.standardDev; } );
+    var maxDev = d3.max(allCosts, function(c) { return c.standardDev; } );
+    var quality = function(cost) {
+      if (cost.median <= minMedian + minDev)
+        return 'good';
+      if (cost.median <= minMedian + maxDev)
+        return 'nominal';
+      return 'poor';
+    }
 
-    new Kamira.BoxScale([minCost, maxCost], '.box-plot .box-scale', {svgAttrs: {class: 'span8 offset4'}});
+    new Kamira.BoxScale([lowerBoundCost, upperBoundCost], '.box-plot .box-scale', {svgAttrs: {class: 'span8 offset4'}});
 
     var sections = ['numerator', 'denominator', 'population', 'exceptions', 'exclusions'];
     for (var i = 0; i < sections.length; i++) {
@@ -39,7 +48,7 @@
         if (cost.median != null) {
           $div = $('<div>').addClass('row').html('<p class="span4 cost-name">' + cost.name + '</p>');
           $div.appendTo('.box-plot.' + section);
-          new Kamira.BoxPlot(cost, $div.get(0), {domain: [minCost, maxCost], svgAttrs: {class: 'span8'}, quality: qualities[Math.floor(Math.random() * 3)]});
+          new Kamira.BoxPlot(cost, $div.get(0), {domain: [lowerBoundCost, upperBoundCost], svgAttrs: {class: 'span8'}, quality: quality(cost)});
         }
       }
       var blankNames = _(costs).chain().select(function(cost) { return cost.median == null }).map(function(cost) {

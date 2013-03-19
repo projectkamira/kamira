@@ -86,7 +86,8 @@ end
 
 puts "Collected codes and payments into #{oid_payments.size} OIDs"
 
-# Given a set of values, calculate
+# Given a set of values, calculate IRQ-related boundaries and outliers for box plot usage
+# FIXME: Same code is used in import_bsa_partd_events_puf.rb, want common library
 def bounds(values)
   q1 = values.percentile(25)
   q3 = values.percentile(75)
@@ -98,19 +99,24 @@ def bounds(values)
   upper = [upper, inrange.max].min
   belowrange = values.select { |v| v < lower }
   aboverange = values.select { |v| v > upper }
-  
+  [belowrange, lower, upper, aboverange]
 end
 
 # Write aggregated data to the costs table
 oid_payments.each do |oid, payments|
+  belowRange, lowerBound, upperBound, aboveRange = bounds(payments)
   costs_collection.remove(oid: oid)
   costs_collection.insert(oid: oid,
                           name: oid_names[oid],
                           count: payments.size,
                           min: payments.min,
+                          belowRange: belowRange.uniq.sort,
+                          lowerBound: lowerBound,
                           firstQuartile: payments.percentile(25),
                           median: payments.median,
                           thirdQuartile: payments.percentile(75),
+                          upperBound: upperBound,
+                          aboveRange: aboveRange.uniq.sort,
                           max: payments.max,
                           mean: payments.mean,
                           standardDev: payments.standard_deviation)
