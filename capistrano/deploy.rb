@@ -2,7 +2,7 @@ default_run_options[:pty] = true
 ssh_options[:paranoid] = true
 
 set :application, "kamira"
-set :repository,  "git://barrel.mitre.org/kamira/kamira.git"
+set :repository,  "https://github.com/projectkamira/kamira.git"
 set :branch, "master"
 
 set :deploy_to, "/var/www/node_apps/kamira"
