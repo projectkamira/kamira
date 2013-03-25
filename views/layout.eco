@@ -33,7 +33,13 @@
       </footer>
     </div>
     <script>
-      var measures = <%- JSON.stringify(@measures) %>;
+      <%# NOTE: We don't want to serialize all the information for all measures, it's quite large, just pick what we need on the JS side %>
+      <% simpleMeasures = [] %>
+      <% for measure in @measures: %>
+        <% measure = measure.toJSON() %>
+        <% simpleMeasures.push(id: measure.id, nqf_id: measure.nqf_id, sub_id: measure.sub_id, name: measure.name, complexity: measure.complexity, financial: measure.financial, availability: measure.availability, rating: measure.rating) %>
+      <% end %>
+      var measures = <%- JSON.stringify(simpleMeasures) %>;
     </script>
     <%- js 'kamira' %>
   </body>

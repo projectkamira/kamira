@@ -5,7 +5,7 @@ _ = require 'underscore'
 measureSchema = new mongoose.Schema
   nqf_id: type: String, index: true
   hqmf_id: String
-  sub_id: String
+  sub_id: type: String, index: true
   name: String
   numerator: Object
   denominator: Object
@@ -19,6 +19,8 @@ measureSchema = new mongoose.Schema
     exclusions:   Number
     exceptions:   Number
   oids: Array
+
+measureSchema.index(nqf_id: 1, sub_id: 1)
 
 measureSchema.methods.url = -> this.id
 # Calculate numerator costs of a measure; this is an experimental first pass and will likely change substantially
